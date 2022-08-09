@@ -1,16 +1,23 @@
-### Hi there 👋
-
-<!--
-**wavesforweirdos/wavesforweirdos** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+public class AboutMe 
+  { public static void main (String[] args) 
+      { final String ME = "Marta Cruz 🙋‍♀️"; 
+      
+        final String[] LANGUAGES = {
+            "Javascript",
+             "PHP", 
+             "SQL", 
+             "HTML", 
+             "CSS"}; 
+             
+        final String[] INTERESTS = {
+             "Design 🖋️ ", 
+             "Coding 👩🏼‍💻", 
+             "Basketball ⛹🏼‍♀️ ", 
+             "Surfing 🏄🏼‍♀️", 
+             "See mood 🧜🏼‍♀️"}; 
+             
+        final String CONTACT = {
+            https://www.linkedin.com/in/wavesforweirdos/,
+            http://wavesforweirdos.com/ }; 
+      } 
+  }
