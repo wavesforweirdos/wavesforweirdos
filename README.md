@@ -1,5 +1,5 @@
 <div id="header" align="center">
-  <img src="http://wavesforweirdos.com/wp-content/uploads/2022/08/avatar.gif" width="230"/>
+  <img src="http://wavesforweirdos.com/wp-content/uploads/2022/08/avatar-norepeat.gif" width="230"/>
 </div>
 
 <br>
