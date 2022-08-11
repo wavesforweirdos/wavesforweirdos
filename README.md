@@ -1,25 +1,26 @@
 <div id="header" align="center">
-  <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="100"/>
+  <img src="http://wavesforweirdos.com/wp-content/uploads/2022/08/avatar.gif" width="230"/>
 </div>
 
-<div id="badges"  align="center">
-  <a href="your-linkedin-URL">
-    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+<br>
+
+<div align="center">
+  <a href="https://www.linkedin.com/in/wavesforweirdos/" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=7AB929&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="linkedin logo"  />
   </a>
-  <a href="your-youtube-URL">
-    <img src="https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white" alt="Youtube Badge"/>
+  <a href="https://www.behance.net/wavesforweirdos" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Behance&logo=behance&label=&color=7AB929&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="behance logo"  />
   </a>
-  <a href="your-twitter-URL">
-    <img src="https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter Badge"/>
+  <a href="wavesfroweirdos@gmail.com" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=7AB929&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="gmail logo"  />
   </a>
 </div>
 
-<h1>
-  <img src="https://media4.giphy.com/media/mNm6SXLKl7phdvjwLX/giphy.gif?cid=ecf05e47kxgb92jpsd7ap7319jpsfei47eol0uavlmbr4rmm&rid=giphy.gif&ct=s" width="120px"/>
-</h1>
+###
+Profile Readme Generator
 
-public class AboutMe{
-  public static void main (String[] args){
+public class AboutMe 
+{public static void main (String[] args){
         final String ME = "Marta Cruz 🙋‍♀️";       
         final String[] LANGUAGES = {
             "Javascript",
