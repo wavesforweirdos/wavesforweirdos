@@ -18,13 +18,13 @@
 
 <br>
 const ME = "Marta Cruz 🙋‍♀️";<br>       
-var LANGUAGES = {
+let languages = {
   "Javascript",
   "PHP",
   "SQL",
   "HTML",
   "CSS"};<br>
-var INTERESTS = {
+let interests = {
              "Design 🖋️ ", 
              "Coding 👩🏼‍💻", 
              "Basketball ⛹🏼‍♀️ ", 
@@ -32,6 +32,6 @@ var INTERESTS = {
              "See mood 🧜🏼‍♀️"
         };<br> 
         
-var CONTACT = {
+let contact = {
             http://wavesforweirdos.com/
         };<br>
