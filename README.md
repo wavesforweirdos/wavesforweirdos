@@ -33,5 +33,6 @@ let interests = {
         };<br> 
         
 let contact = {
-            http://wavesforweirdos.com/
+            inmerset@gmail.com,
+            wavesforweirdos@gmail.com
         };<br>
