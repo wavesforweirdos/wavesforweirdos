@@ -82,20 +82,7 @@
     }
   }
 
-  // Navegación a las categorías hermanas (no filtra esta lista, enlaza a otras áreas).
-  // Fija respecto al viewport, igual que __stack, para quedar siempre justo
-  // encima del footer sin importar la altura del listado. El estilo del
-  // enlace en sí (punto + tracking en hover) vive en el componente DotLink.
-  &__categories {
-    position: fixed;
-    bottom: clamp(9rem, 7rem + 6vw, 13rem);
-    left: clamp(1.5rem, 1rem + 3vw, 6rem);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  // Fijo respecto al viewport (no al contenido), como en la referencia
+  // Fijo respecto al viewport (misma altura en todas las páginas)
   &__stack {
     position: fixed;
     bottom: clamp(9rem, 7rem + 6vw, 13rem);

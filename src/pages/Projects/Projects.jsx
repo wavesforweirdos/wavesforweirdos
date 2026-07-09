@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import projects from '../../data/projects.json'
 import profile from '../../data/profile.json'
 import DotLink from '../../components/DotLink/DotLink.jsx'
+import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
 import './Projects.scss'
 
 function yearValue(year) {
@@ -41,14 +42,14 @@ function Projects() {
         </ul>
       </div>
 
-      <nav className="projects__categories" aria-label="Otras áreas de trabajo">
+      <DotLinkGrid ariaLabel="Otras áreas de trabajo">
         <DotLink href={profile.contact.behance} target="_blank" rel="noreferrer">
           ilustración.
         </DotLink>
         <DotLink href={profile.contact.behance} target="_blank" rel="noreferrer">
           diseño.
         </DotLink>
-      </nav>
+      </DotLinkGrid>
 
       {hovered && (
         <aside className="projects__stack">

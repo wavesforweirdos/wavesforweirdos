@@ -1,0 +1,26 @@
+// Contenedor fijo compartido por projects__categories y project-detail__others:
+// misma posición (bottom-left, igual altura en cualquier página) y misma
+// disposición en grid de 3 filas que crece en horizontal con scroll.
+.dot-link-grid {
+  position: fixed;
+  bottom: clamp(9rem, 7rem + 6vw, 13rem);
+  left: clamp(1.5rem, 1rem + 3vw, 6rem);
+  max-width: min(55vw, 42rem);
+
+  &__scroll {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+    column-gap: var(--space-6);
+    row-gap: 0.4rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+
+    // Oculta la barra de scroll nativa manteniendo el scroll funcional
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

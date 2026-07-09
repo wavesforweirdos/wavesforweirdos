@@ -1,9 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
 import projects from '../../data/projects.json'
 import DotLink from '../../components/DotLink/DotLink.jsx'
+import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
 import './ProjectDetail.scss'
-
-const MAX_OTHERS = 3
 
 function ProjectDetail() {
   const { slug } = useParams()
@@ -18,7 +17,7 @@ function ProjectDetail() {
     )
   }
 
-  const others = projects.filter((p) => p.slug !== project.slug).slice(0, MAX_OTHERS)
+  const others = projects.filter((p) => p.slug !== project.slug)
 
   return (
     <article className="project-detail">
@@ -45,13 +44,13 @@ function ProjectDetail() {
       </div>
 
       {others.length > 0 && (
-        <nav className="project-detail__others" aria-label="Otros proyectos">
+        <DotLinkGrid ariaLabel="Otros proyectos">
           {others.map((p) => (
             <DotLink key={p.slug} to={`/proyectos/${p.slug}`}>
               {p.title}
             </DotLink>
           ))}
-        </nav>
+        </DotLinkGrid>
       )}
 
       <aside className="project-detail__stack">
@@ -62,10 +61,6 @@ function ProjectDetail() {
           ))}
         </ul>
       </aside>
-
-      <Link className="project-detail__back" to="/proyectos">
-        ← volver a proyectos
-      </Link>
     </article>
   )
 }
