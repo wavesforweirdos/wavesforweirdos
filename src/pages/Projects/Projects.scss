@@ -14,9 +14,6 @@
 
   &__list {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
   }
 
   &__item {
@@ -30,6 +27,7 @@
       font-family: var(--font-display);
       font-weight: 500;
       font-size: var(--fs-display);
+      line-height: 1;
       letter-spacing: -4px;
       text-transform: lowercase;
       color: var(--fg);
@@ -55,50 +53,45 @@
     }
   }
 
-  &__filters {
+  // Navegación a las categorías hermanas (no filtra esta lista, enlaza a otras áreas)
+  &__categories {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    list-style: none;
     margin-top: var(--space-6);
-  }
 
-  &__filter {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 1.25rem;
-    letter-spacing: -1px;
-    text-transform: lowercase;
-    color: var(--accent);
-    cursor: pointer;
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.25rem;
+      letter-spacing: -1px;
+      text-transform: lowercase;
+      color: var(--accent);
+      text-decoration: none;
+      transition: letter-spacing var(--duration-slow) var(--ease-hover);
 
-    input {
-      position: absolute;
-      opacity: 0;
-      width: 0.9rem;
-      height: 0.9rem;
+      &:hover,
+      &:focus-visible {
+        letter-spacing: -2px;
+      }
 
-      &:focus-visible + .projects__filter-marker {
-        outline: 2px solid var(--accent);
-        outline-offset: 3px;
+      span {
+        width: 0.6rem;
+        height: 0.6rem;
+        background: #000;
+        flex-shrink: 0;
       }
     }
   }
 
-  &__filter-marker {
-    width: 0.6rem;
-    height: 0.6rem;
-    background: #000;
-    flex-shrink: 0;
-  }
-
+  // Fijo respecto al viewport (no al contenido), como en la referencia
   &__stack {
-    position: absolute;
-    top: clamp(6rem, 4rem + 5vw, 9rem);
-    right: 0;
+    position: fixed;
+    bottom: clamp(9rem, 7rem + 6vw, 13rem);
+    right: clamp(1.5rem, 1rem + 3vw, 6rem);
     text-align: right;
     font-family: var(--font-display);
 

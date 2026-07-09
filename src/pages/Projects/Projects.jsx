@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import projects from '../../data/projects.json'
+import profile from '../../data/profile.json'
 import './Projects.scss'
 
 function yearValue(year) {
@@ -8,11 +9,6 @@ function yearValue(year) {
 }
 
 function Projects() {
-  const categories = useMemo(
-    () => [...new Set(projects.map((p) => p.category))],
-    [],
-  )
-  const [activeCategories, setActiveCategories] = useState(new Set(categories))
   const [hoveredSlug, setHoveredSlug] = useState(null)
 
   const sorted = useMemo(
@@ -20,27 +16,14 @@ function Projects() {
     [],
   )
 
-  const visible = sorted.filter((p) => activeCategories.has(p.category))
-  const hovered = visible.find((p) => p.slug === hoveredSlug) ?? visible[0]
-
-  const toggleCategory = (category) => {
-    setActiveCategories((prev) => {
-      const next = new Set(prev)
-      if (next.has(category)) {
-        next.delete(category)
-      } else {
-        next.add(category)
-      }
-      return next
-    })
-  }
+  const hovered = sorted.find((p) => p.slug === hoveredSlug) ?? sorted[0]
 
   return (
     <div className="projects">
-      <span className="projects__kicker">web.</span>
+      <span className="projects__kicker">proyectos.</span>
 
-      <ul className="projects__list">
-        {visible.map((project) => (
+      <ol className="projects__list">
+        {sorted.map((project) => (
           <li
             key={project.slug}
             className={`projects__item${hovered?.slug === project.slug ? ' is-active' : ''}`}
@@ -52,23 +35,18 @@ function Projects() {
             </Link>
           </li>
         ))}
-      </ul>
+      </ol>
 
-      <ul className="projects__filters">
-        {categories.map((category) => (
-          <li key={category}>
-            <label className="projects__filter">
-              <input
-                type="checkbox"
-                checked={activeCategories.has(category)}
-                onChange={() => toggleCategory(category)}
-              />
-              <span className="projects__filter-marker" aria-hidden="true" />
-              {category}.
-            </label>
-          </li>
-        ))}
-      </ul>
+      <nav className="projects__categories" aria-label="Otras áreas de trabajo">
+        <a href={profile.contact.behance} target="_blank" rel="noreferrer">
+          <span aria-hidden="true" />
+          ilustración.
+        </a>
+        <a href={profile.contact.behance} target="_blank" rel="noreferrer">
+          <span aria-hidden="true" />
+          diseño.
+        </a>
+      </nav>
 
       {hovered && (
         <aside className="projects__stack">
