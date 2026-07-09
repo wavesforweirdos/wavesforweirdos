@@ -1,0 +1,26 @@
+{
+  "name": "Marta Cruz",
+  "role": "Full Stack / Frontend Developer",
+  "tagline": "Fullstack PHP Dev",
+  "location": "Barcelona, España",
+  "bio": "Desarrolladora Full Stack y diseñadora gráfica/web con experiencia en los sectores digital, inmobiliario y aeronáutico. Combino la programación con la sensibilidad por el diseño, aportando soluciones eficientes y orientadas a resultados tanto en front-end como en back-end. Experiencia en el uso de IA aplicada al desarrollo (Claude Code, GitHub Copilot).",
+  "photo": "src/assets/profile/photo-4.jpeg",
+  "photoMood": "src/assets/profile/photo-1.jpeg",
+  "contact": {
+    "email": "wavesforweirdos@gmail.com",
+    "phone": "+34 647 038 163",
+    "linkedin": "https://www.linkedin.com/in/wavesforweirdos/",
+    "github": "https://github.com/wavesforweirdos",
+    "behance": "https://www.behance.net/wavesforweirdos"
+  },
+  "languages": [
+    { "name": "Catalán y Castellano", "level": "Nativo" },
+    { "name": "Inglés", "level": "Básico" }
+  ],
+  "education": [
+    { "school": "LinkiaFP", "title": "GS Desarrollo de aplicaciones web", "period": "2024 - 2026" },
+    { "school": "IT Academy", "title": "Bootcamp Full Stack PHP", "period": "2022" },
+    { "school": "UOC", "title": "Grado Diseño y Creaciones Digitales", "period": "2017 - 2019" },
+    { "school": "EMAV", "title": "GS en Animación 2D y 3D", "period": "2013 - 2015" }
+  ]
+}
