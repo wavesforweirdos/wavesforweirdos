@@ -16,13 +16,13 @@
   // siempre visible por encima del footer, aunque el listado sea largo.
   &__list-wrap {
     position: relative;
-    max-height: 46vh;
+    max-height: 38vh;
     overflow: hidden;
 
     // Pérdida de opacidad en vez de un bloque de color superpuesto —
     // deja pasar la textura de grano del fondo sin costuras visibles.
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 35%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 35%, transparent 100%);
   }
 
   &__list {
@@ -77,12 +77,16 @@
     }
   }
 
-  // Navegación a las categorías hermanas (no filtra esta lista, enlaza a otras áreas)
+  // Navegación a las categorías hermanas (no filtra esta lista, enlaza a otras áreas).
+  // Fija respecto al viewport, igual que __stack, para quedar siempre justo
+  // encima del footer sin importar la altura del listado.
   &__categories {
+    position: fixed;
+    bottom: clamp(9rem, 7rem + 6vw, 13rem);
+    left: clamp(1.5rem, 1rem + 3vw, 6rem);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-top: var(--space-6);
 
     a {
       display: flex;
