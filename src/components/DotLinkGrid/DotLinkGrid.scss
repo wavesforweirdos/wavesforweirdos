@@ -5,7 +5,10 @@
   position: fixed;
   bottom: clamp(9rem, 7rem + 6vw, 13rem);
   left: clamp(1.5rem, 1rem + 3vw, 6rem);
-  max-width: min(55vw, 42rem);
+  // Se mantiene dentro del ancho de la columna de texto (26rem) para no
+  // invadir el hueco reservado al panel __stack en ProjectDetail — con
+  // más ítems de los que caben, el scroll horizontal ya se encarga.
+  max-width: min(38vw, 26rem);
 
   &__scroll {
     display: grid;

@@ -47,17 +47,6 @@ function ProjectDetail() {
         </div>
       </div>
 
-      {gallery.length > 0 && (
-        <div className="project-detail__gallery">
-          {gallery.map((img) => (
-            <figure key={img.src} className="project-detail__gallery-item">
-              <img src={img.src} alt="" loading="lazy" />
-              <figcaption>{img.label}</figcaption>
-            </figure>
-          ))}
-        </div>
-      )}
-
       {others.length > 0 && (
         <DotLinkGrid ariaLabel="Otros proyectos">
           {others.map((p) => (
@@ -76,6 +65,21 @@ function ProjectDetail() {
           ))}
         </ul>
       </aside>
+
+      {gallery.length > 0 && (
+        <div className="project-detail__gallery">
+          {gallery.map((img) => (
+            <figure key={img.src} className="project-detail__gallery-item">
+              <img src={img.src} alt="" loading="lazy" />
+              <div className="project-detail__gallery-tags">
+                {img.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+            </figure>
+          ))}
+        </div>
+      )}
     </article>
   )
 }

@@ -1,7 +1,7 @@
 .project-detail {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 30rem) 1fr;
+  grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
   gap: var(--space-6) var(--space-8);
   align-items: start;
 
@@ -13,6 +13,10 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+  }
+
+  &__main {
+    grid-column: 1;
   }
 
   &__kicker {
@@ -68,45 +72,21 @@
     }
   }
 
-  // Capturas reales del proyecto (deploy en vivo o cover de Behance).
-  // Vacío en la mayoría de proyectos todavía — se añaden en projectGalleries.js.
-  &__gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
-  }
-
-  &__gallery-item {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--line);
-
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    figcaption {
-      position: absolute;
-      left: 0.6rem;
-      bottom: 0.6rem;
-      padding: 0.25rem 0.5rem;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(2px);
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--fg);
-      text-transform: lowercase;
-    }
-  }
-
-  // Fijo respecto al viewport, mismo patrón que .projects__stack
+  // Fijo respecto al viewport, mismo "bottom" que el resto de paneles fijos.
+  // Se ancla con "left" (no "right") justo donde termina la columna de texto
+  // (26rem + padding de página), para quedar a la izquierda de la galería
+  // sin invadirla, sea cual sea el ancho real de las capturas.
   &__stack {
     position: fixed;
     bottom: clamp(9rem, 7rem + 6vw, 13rem);
-    right: clamp(1.5rem, 1rem + 3vw, 6rem);
-    text-align: right;
+    left: calc(clamp(1.5rem, 1rem + 3vw, 6rem) + 26rem + var(--space-8));
+    white-space: nowrap;
     font-family: var(--font-display);
+
+    @media (max-width: 900px) {
+      position: static;
+      margin-bottom: var(--space-6);
+    }
 
     h2 {
       font-weight: 600;
@@ -124,6 +104,57 @@
       gap: 0.3rem;
       font-size: 0.875rem;
       text-transform: lowercase;
+    }
+  }
+
+  // Capturas reales del proyecto, pegadas al borde derecho — mosaico de
+  // 2 columnas que se adapta a la altura natural de cada imagen (horizontal
+  // o vertical), como el original. Vacío en la mayoría de proyectos todavía.
+  &__gallery {
+    grid-column: 2;
+    column-count: 2;
+    column-gap: var(--space-4);
+
+    // Con una sola imagen, el layout multi-columna la deja a la izquierda
+    // del área de galería en vez de pegada al borde derecho — se fuerza
+    // una columna y se empuja a la derecha con margin-left:auto.
+    &:has(.project-detail__gallery-item:only-child) {
+      column-count: 1;
+      max-width: 50%;
+      margin-left: auto;
+    }
+  }
+
+  &__gallery-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    break-inside: avoid;
+    margin-bottom: var(--space-4);
+
+    img {
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__gallery-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+
+    span {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: var(--font-display);
+      font-size: 0.625rem;
+      color: #000;
+      text-transform: lowercase;
+      white-space: nowrap;
     }
   }
 }
