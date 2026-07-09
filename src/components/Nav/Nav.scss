@@ -1,0 +1,86 @@
+.nav {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: var(--z-nav);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-3) var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+
+  @media (min-width: 768px) {
+    padding: var(--space-3) var(--space-6);
+  }
+
+  &__identity {
+    margin-right: auto;
+  }
+
+  &__location {
+    color: var(--fg);
+  }
+
+  &__name {
+    font-weight: 700;
+    color: var(--fg);
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+
+    li {
+      display: flex;
+      gap: 0.5rem;
+      align-items: baseline;
+    }
+  }
+
+  &__index {
+    color: var(--fg);
+    font-weight: 500;
+  }
+
+  &__links a {
+    color: var(--accent);
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      text-decoration: underline;
+    }
+  }
+
+  &__mark {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-left: auto;
+  }
+
+  &__logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--fg);
+  }
+
+  &__dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: var(--fg);
+  }
+
+  &__copyright {
+    width: 100%;
+    order: 10;
+    color: var(--fg-dim);
+    font-size: 0.65rem;
+  }
+}

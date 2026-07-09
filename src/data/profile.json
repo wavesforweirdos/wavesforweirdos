@@ -6,6 +6,12 @@
   "bio": "Desarrolladora Full Stack y diseñadora gráfica/web con experiencia en los sectores digital, inmobiliario y aeronáutico. Combino la programación con la sensibilidad por el diseño, aportando soluciones eficientes y orientadas a resultados tanto en front-end como en back-end. Experiencia en el uso de IA aplicada al desarrollo (Claude Code, GitHub Copilot).",
   "photo": "src/assets/profile/photo-4.jpeg",
   "photoMood": "src/assets/profile/photo-1.jpeg",
+  "services": [
+    "Frontend Development",
+    "Full Stack Development",
+    "Maquetación & UI a partir de Figma/Zeplin",
+    "Diseño gráfico & web"
+  ],
   "contact": {
     "email": "wavesforweirdos@gmail.com",
     "phone": "+34 647 038 163",

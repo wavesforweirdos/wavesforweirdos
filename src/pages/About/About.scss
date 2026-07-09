@@ -1,0 +1,50 @@
+.about {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1.3fr 0.7fr 1fr;
+    align-items: start;
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+    margin-bottom: var(--space-4);
+    max-width: 20ch;
+  }
+
+  &__bio {
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 48ch;
+  }
+
+  &__services-title {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+  }
+
+  &__services ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    font-family: var(--font-body);
+    color: var(--fg);
+  }
+
+  &__photo img {
+    width: 100%;
+    max-width: 320px;
+    border: 8px solid var(--bg);
+    box-shadow: 0 12px 30px rgba(23, 24, 26, 0.18);
+    transform: rotate(-3deg);
+  }
+}

@@ -1,0 +1,71 @@
+.project-detail {
+  max-width: 60ch;
+
+  &--not-found {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  &__kicker {
+    display: block;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    margin-bottom: var(--space-2);
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 1.6rem + 3vw, 3.5rem);
+    margin-bottom: var(--space-4);
+  }
+
+  &__year {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--fg-dim);
+  }
+
+  &__description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--fg);
+    margin-bottom: var(--space-4);
+  }
+
+  &__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin-bottom: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+
+    li {
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--line);
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+
+    a {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+  }
+
+  &__back {
+    display: inline-block;
+    color: var(--fg-dim);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+}

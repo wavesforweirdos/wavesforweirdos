@@ -1,0 +1,30 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 12vh;
+  background: var(--bg);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12vh;
+    height: 1px;
+    background: var(--fg);
+  }
+
+  &__pct {
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--space-3);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--fg);
+  }
+}
