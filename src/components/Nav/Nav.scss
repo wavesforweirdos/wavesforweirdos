@@ -6,14 +6,23 @@
   flex-wrap: wrap;
   align-items: flex-end;
   gap: var(--space-3) var(--space-6);
-  padding: var(--space-3) var(--space-4);
-  background: var(--bg);
-  border-top: 1px solid var(--line);
+  padding: 5rem var(--space-4) var(--space-3);
   font-family: var(--font-mono);
   font-size: 0.75rem;
 
+  // Degradado en vez de un borde/fondo sólido, para que el contenido que
+  // queda debajo al hacer scroll se atenúe con suavidad.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(to top, var(--bg) 0%, var(--bg) 45%, transparent 100%);
+  }
+
   @media (min-width: 768px) {
-    padding: var(--space-3) var(--space-6);
+    padding: 5rem var(--space-6) var(--space-3);
   }
 
   &__identity {
@@ -65,10 +74,8 @@
   }
 
   &__logo {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--fg);
+    height: 1.5rem;
+    width: auto;
   }
 
   &__dot {

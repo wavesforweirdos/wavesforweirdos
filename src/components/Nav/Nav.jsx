@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import profile from '../../data/profile.json'
+import logo from '../../assets/logo/wf-logo-black.png'
 import './Nav.scss'
 
 function Nav() {
@@ -39,7 +40,7 @@ function Nav() {
       </ul>
 
       <div className="nav__mark">
-        <span className="nav__logo">.mc</span>
+        <img className="nav__logo" src={logo} alt="wavesforweirdos" />
         <span className="nav__dot" aria-hidden="true" />
       </div>
 

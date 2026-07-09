@@ -1,27 +1,73 @@
 import profile from '../../data/profile.json'
+import skills from '../../data/skills.json'
+import experience from '../../data/experience.json'
 import photoMain from '../../assets/profile/photo-4.jpeg'
+import photoMood from '../../assets/profile/photo-1.jpeg'
 import './About.scss'
 
 function About() {
   return (
     <div className="about">
-      <div className="about__intro">
-        <h1 className="about__title">{profile.role}.</h1>
-        <p className="about__bio">{profile.bio}</p>
+      <div className="about__top">
+        <div className="about__intro">
+          <h1 className="about__title">{profile.role}.</h1>
+          <p className="about__bio">{profile.bio}</p>
+        </div>
+
+        <div className="about__services">
+          <h2 className="about__label">Services</h2>
+          <ul>
+            {profile.services.map((service) => (
+              <li key={service}>{service}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="about__photo about__photo--main">
+          <img src={photoMain} alt={profile.name} />
+        </div>
       </div>
 
-      <div className="about__services">
-        <h2 className="about__services-title">Services</h2>
-        <ul>
-          {profile.services.map((service) => (
-            <li key={service}>{service}</li>
+      <section className="about__skills">
+        <h2 className="about__label">Skills</h2>
+        <div className="about__skills-grid">
+          {skills.map((group) => (
+            <div key={group.category} className="about__skills-group">
+              <h3>{group.category}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item.name}>{item.name}</li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
+      </section>
+
+      <div className="about__photo about__photo--mood">
+        <img src={photoMood} alt="" />
       </div>
 
-      <div className="about__photo">
-        <img src={photoMain} alt={profile.name} />
-      </div>
+      <section className="about__experience">
+        <h2 className="about__label">Experience</h2>
+        <ol className="about__timeline">
+          {experience.map((job) => (
+            <li key={`${job.company}-${job.period}`}>
+              <div className="about__timeline-head">
+                <h3>
+                  {job.role} <span>— {job.company}{job.client ? ` (${job.client})` : ''}</span>
+                </h3>
+                <span className="about__timeline-period">{job.period}</span>
+              </div>
+              <ul className="about__timeline-desc">
+                {job.description.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      </section>
     </div>
   )
 }
