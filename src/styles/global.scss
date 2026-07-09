@@ -13,6 +13,10 @@
 html {
   color-scheme: light;
   -webkit-text-size-adjust: 100%;
+  // El grid de capturas de ProjectDetail se ancla a la "f" del footer y
+  // puede sobresalir del viewport a propósito — se recorta aquí en vez de
+  // generar scroll horizontal en toda la página.
+  overflow-x: hidden;
 }
 
 body {

@@ -4,12 +4,14 @@ import projects from '../../data/projects.json'
 import projectGalleries from '../../data/projectGalleries.js'
 import DotLink from '../../components/DotLink/DotLink.jsx'
 import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
+import useNavLogoFPosition from '../../hooks/useNavLogoFPosition.js'
 import './ProjectDetail.scss'
 
 function ProjectDetail() {
   const { slug } = useParams()
   const project = projects.find((p) => p.slug === slug)
   const [orientations, setOrientations] = useState({})
+  const logoFX = useNavLogoFPosition()
 
   const handleImageLoad = (src) => (event) => {
     const { naturalWidth, naturalHeight } = event.target
@@ -28,6 +30,13 @@ function ProjectDetail() {
 
   const others = projects.filter((p) => p.slug !== project.slug)
   const gallery = projectGalleries[project.slug] ?? []
+
+  // El grid de capturas ancla su borde izquierdo a la "f" de ".wf" del
+  // footer; el stack se queda a la izquierda de ese mismo borde, con un
+  // margen, para no invadirlo nunca.
+  const galleryStyle = logoFX != null ? { left: `${logoFX}px` } : undefined
+  const stackStyle =
+    logoFX != null ? { right: `calc(100vw - ${logoFX}px + var(--space-4))` } : undefined
 
   return (
     <article className="project-detail">
@@ -65,7 +74,7 @@ function ProjectDetail() {
         </DotLinkGrid>
       )}
 
-      <aside className="project-detail__stack">
+      <aside className="project-detail__stack" style={stackStyle}>
         <h2>stack</h2>
         <ul>
           {project.stack.map((tech) => (
@@ -75,7 +84,7 @@ function ProjectDetail() {
       </aside>
 
       {gallery.length > 0 && (
-        <div className="project-detail__gallery">
+        <div className="project-detail__gallery" style={galleryStyle}>
           {gallery.map((img) => (
             <figure
               key={img.src}

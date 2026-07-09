@@ -1,13 +1,5 @@
 .project-detail {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
-  gap: var(--space-6) var(--space-8);
-  align-items: start;
-
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-  }
 
   &--not-found {
     display: flex;
@@ -16,7 +8,7 @@
   }
 
   &__main {
-    grid-column: 1;
+    max-width: 26rem;
   }
 
   &__kicker {
@@ -73,27 +65,20 @@
   }
 
   // Fijo respecto al viewport, mismo "bottom" que el resto de paneles fijos.
-  // Se ancla con "left" (no "right") justo donde termina la columna de texto
-  // (26rem + padding de página), para quedar a la izquierda de la galería.
-  // Su x cae dentro de la primera columna del grid de capturas, así que
-  // lleva fondo opaco: con galerías de varias imágenes horizontales (que
-  // ahora ocupan las dos columnas y crecen en altura) el panel puede acabar
-  // superpuesto sobre una imagen y debe seguir siendo legible.
+  // "right" se calcula en JS (ver useNavLogoFPosition) para terminar justo
+  // donde empieza el grid de capturas — nunca se superponen. Fallback en
+  // CSS antes de la primera medición.
   &__stack {
     position: fixed;
     bottom: clamp(9rem, 7rem + 6vw, 13rem);
-    left: calc(clamp(1.5rem, 1rem + 3vw, 6rem) + 26rem + var(--space-8));
+    right: 62vw;
     white-space: nowrap;
     font-family: var(--font-display);
-    background: var(--bg);
-    padding: var(--space-2) var(--space-3);
-    margin: calc(var(--space-2) * -1) calc(var(--space-3) * -1);
 
     @media (max-width: 900px) {
       position: static;
+      right: auto;
       margin-bottom: var(--space-6);
-      background: none;
-      padding: 0;
     }
 
     h2 {
@@ -115,15 +100,43 @@
     }
   }
 
-  // Capturas reales del proyecto, pegadas al borde derecho. Grid real de 2
-  // columnas: cada imagen ocupa 1 o 2 columnas según su orientación real
-  // (detectada en tiempo de carga, ver --wide más abajo). Vacío en la
-  // mayoría de proyectos todavía.
+  // Capturas reales del proyecto: panel fijo a pantalla completa en alto
+  // (100vh) y ~40vw de ancho. "left" se fija en JS a la posición real de
+  // la "f" de ".wf" del footer (ver useNavLogoFPosition) — el panel se
+  // extiende 40vw hacia la derecha desde ahí y lo que sobresalga del
+  // viewport queda recortado (overflow-x:hidden en html, ver global.scss).
+  // Grid real de 2 columnas: cada imagen ocupa 1 o 2 columnas según su
+  // orientación real (detectada en tiempo de carga, ver --wide). Vacío en
+  // la mayoría de proyectos todavía.
   &__gallery {
-    grid-column: 2;
+    position: fixed;
+    top: 0;
+    left: 62vw;
+    width: 40vw;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: var(--space-6) var(--space-4);
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-4);
+    align-content: start;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      position: static;
+      left: auto;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      padding: 0;
+      margin-top: var(--space-6);
+    }
 
     // Con una sola imagen vertical, el grid la deja en la columna
     // izquierda — se fuerza a la columna derecha para quedar pegada al
