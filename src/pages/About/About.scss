@@ -90,8 +90,8 @@
     font-size: 0.85rem;
   }
 
-  // Formato compacto (patrón areoladaniel.com): Experience apilado bajo
-  // Services en la misma columna — sin bullets de detalle, solo empresa/rol/periodo.
+  // Formato compacto: Experience apilado bajo Services en la misma columna
+  // — sin bullets de detalle, solo empresa/rol/periodo.
   &__timeline {
     list-style: none;
     display: flex;

@@ -96,12 +96,6 @@ Google Fonts). Inter **no se usa** en el diseño real — se retiró de
 > Nav, Home, Proyectos y Loading. La página **About** y el **detalle de
 > proyecto** siguen sin inspeccionar en detalle (límite de cuota de la API
 > de Figma) — sus valores de spacing/tipografía exactos aún están pendientes.
->
-> Referencia externa: el diseño de Marta está basado en
-> `https://areoladaniel.com/` (mismo patrón de nav, categorías, listado de
-> proyectos). Cuando falte contexto de Figma para un detalle de interacción
-> (hover, spacing, animación), es válido inspeccionar esa web como apoyo —
-> pero Figma manda siempre que haya conflicto.
 
 Además del layout de página, el sitio incluye un **preloader** de carga
 inicial (indicador de progreso 0→100% antes de revelar el contenido).
@@ -214,12 +208,11 @@ componentes ya construidos.
 Animaciones pendientes detectadas durante la Fase 3 (no implementar hasta
 esta fase, pero no olvidarlas al abordarla):
 - **Animación de entrada/posición al cargar o hacer scroll** (stagger
-  reveal): en `areoladaniel.com` casi todos los elementos (nav, listado de
-  proyectos, categorías, foto de About...) se animan desde una posición/
-  opacidad inicial hasta su posición final al aparecer en viewport —
-  visible en los atributos `transform`/`opacity` que deja Webflow/GSAP en
-  el DOM. Replicar con GSAP + ScrollTrigger (o al montar cada página),
-  respetando `prefers-reduced-motion`.
+  reveal): casi todos los elementos (nav, listado de proyectos, categorías,
+  foto de About...) deben animarse desde una posición/opacidad inicial
+  hasta su posición final al aparecer en viewport. Replicar con GSAP +
+  ScrollTrigger (o al montar cada página), respetando
+  `prefers-reduced-motion`.
 
 **Fase 5 — La pieza 2D/3D**
 Construir `<WaveScene />` según la sección 5. Esta fase es la más delicada —
