@@ -24,26 +24,24 @@
     list-style: none;
     max-height: 100%;
     overflow-y: auto;
-    padding-right: var(--space-2);
-  }
 
-  &__list-fade {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 4rem;
-    background: linear-gradient(to bottom, transparent, var(--bg));
-    pointer-events: none;
+    // Pérdida de opacidad en vez de un bloque de color superpuesto —
+    // deja pasar la textura de grano del fondo sin costuras visibles.
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+
+    // Oculta la barra de scroll nativa mantiendo el scroll funcional
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &__item {
-    opacity: 0.2;
-    transition: opacity var(--duration-fast) var(--ease);
-
     a {
       display: inline-flex;
-      align-items: baseline;
+      align-items: flex-start;
       gap: 0.75rem;
       font-family: var(--font-display);
       font-weight: 500;
@@ -53,6 +51,7 @@
       text-transform: lowercase;
       color: var(--fg);
       text-decoration: none;
+      opacity: 0.9;
       transition: letter-spacing var(--duration-slow) var(--ease-hover);
 
       &:hover,
@@ -61,11 +60,15 @@
       }
     }
 
-    &.is-active {
-      opacity: 0.9;
+    // Reservado para entradas sin destino real (p. ej. "próximamente"):
+    // hoy ningún proyecto usa esta variante, todos son enlaces reales.
+    &.is-muted a {
+      opacity: 0.2;
+      pointer-events: none;
     }
 
     .projects__year {
+      margin-top: 0.15em;
       font-family: var(--font-display);
       font-size: 1.2rem;
       font-weight: 400;
