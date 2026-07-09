@@ -1,13 +1,16 @@
 .projects {
   position: relative;
-  min-height: calc(100vh - 12rem);
+  min-height: calc(100vh - 14rem);
 
   &__kicker {
     display: block;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.25rem;
-    margin-bottom: var(--space-4);
+    font-size: var(--fs-display);
+    letter-spacing: -4px;
+    text-transform: lowercase;
+    margin-bottom: var(--space-5);
+    text-align: right;
   }
 
   &__list {
@@ -18,7 +21,7 @@
   }
 
   &__item {
-    opacity: 0.35;
+    opacity: 0.2;
     transition: opacity var(--duration-fast) var(--ease);
 
     a {
@@ -26,51 +29,79 @@
       align-items: baseline;
       gap: 0.75rem;
       font-family: var(--font-display);
-      font-weight: 700;
-      font-size: clamp(1.5rem, 1.2rem + 3vw, 3.25rem);
+      font-weight: 500;
+      font-size: var(--fs-display);
+      letter-spacing: -4px;
+      text-transform: lowercase;
       color: var(--fg);
       text-decoration: none;
     }
 
     &.is-active {
-      opacity: 1;
+      opacity: 0.9;
     }
 
     .projects__year {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
       font-weight: 400;
-      color: var(--fg-dim);
+      letter-spacing: -1px;
+      color: var(--fg);
     }
   }
 
   &__filters {
     display: flex;
-    gap: var(--space-4);
+    flex-direction: column;
+    gap: 0.5rem;
     list-style: none;
     margin-top: var(--space-6);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+  }
 
-    label {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      color: var(--accent);
-      cursor: pointer;
+  &__filter {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: -1px;
+    text-transform: lowercase;
+    color: var(--accent);
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      width: 0.9rem;
+      height: 0.9rem;
+
+      &:focus-visible + .projects__filter-marker {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
     }
+  }
+
+  &__filter-marker {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: #000;
+    flex-shrink: 0;
   }
 
   &__stack {
     position: absolute;
-    top: 0;
+    top: clamp(6rem, 4rem + 5vw, 9rem);
     right: 0;
     text-align: right;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-family: var(--font-display);
 
     h2 {
       font-weight: 600;
+      font-size: 1.125rem;
+      letter-spacing: -1px;
+      text-transform: lowercase;
       margin-bottom: var(--space-2);
     }
 
@@ -79,7 +110,9 @@
       color: var(--fg);
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: 0.3rem;
+      font-size: 0.875rem;
+      text-transform: lowercase;
     }
   }
 }

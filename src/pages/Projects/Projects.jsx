@@ -57,12 +57,13 @@ function Projects() {
       <ul className="projects__filters">
         {categories.map((category) => (
           <li key={category}>
-            <label>
+            <label className="projects__filter">
               <input
                 type="checkbox"
                 checked={activeCategories.has(category)}
                 onChange={() => toggleCategory(category)}
               />
+              <span className="projects__filter-marker" aria-hidden="true" />
               {category}.
             </label>
           </li>

@@ -1,22 +1,28 @@
 // Design tokens — fuente de verdad: Figma (ver CLAUDE.md sección 3).
-// Colores: lectura aproximada de capturas de pantalla, pendiente de
-// confirmar hex exactos con Marta / Figma Dev Mode.
+// Colores y tipografía extraídos vía Figma Dev Mode MCP (frames Navbar,
+// Home, Projects, Loading). About/Project detail siguen pendientes de
+// extracción exacta (límite de cuota de la API alcanzado).
 
 :root {
   // Color
-  --bg: #f1f0ee;
-  --fg: #17181a;
-  --fg-dim: #b3b2ae;
-  --accent: #1edb64;
-  --accent-soft: #a9a0ff;
-  --line: rgba(23, 24, 26, 0.12);
+  --bg: #ffffff;
+  --fg: #1f1f1f;
+  --fg-dim: rgba(31, 31, 31, 0.5);
+  --accent: #06f039;
+  --accent-soft: #a9a0ff; // APROXIMADO — pendiente de confirmar en la página About
+  --line: rgba(31, 31, 31, 0.12);
 
-  // Tipografía
+  // Tipografía — HK Grotesk aparece en TODOS los frames inspeccionados
+  // (Nav, Home, Proyectos, Loading), incluida la copy de párrafo. Inter no
+  // se ha visto en ningún frame real todavía — pendiente de confirmar en About.
   --font-display: "HK Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-body: "HK Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --fs-display: clamp(4rem, 2.5rem + 8vw, 9.5rem);
+  // Escala de tamaños real (medida a 1920px de referencia, con clamp fluido)
+  --fs-hero: clamp(2.75rem, 1rem + 7vw, 8.4rem); // 134.4px en 1920w — Home
+  --fs-display: clamp(2rem, 0.75rem + 4vw, 4.8rem); // 76.8px en 1920w — kicker/listado Proyectos, Loading
+  --fs-nav-mark: clamp(2.5rem, 1.5rem + 3vw, 5rem); // 80px en 1920w — logotipo del nav
 
   // Espaciado — escala base 8px
   --space-1: 0.5rem;
