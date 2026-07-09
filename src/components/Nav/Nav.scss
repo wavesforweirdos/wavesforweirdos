@@ -60,9 +60,12 @@
   }
 
   &__index {
+    display: inline-block;
+    min-width: 1.4rem;
     color: var(--fg);
     font-weight: 700;
     font-size: 0.75rem;
+    text-align: left;
   }
 
   &__links a {
