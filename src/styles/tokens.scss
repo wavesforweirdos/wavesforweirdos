@@ -1,0 +1,44 @@
+// Design tokens — fuente de verdad: Figma (ver CLAUDE.md sección 3).
+// Estos valores son el punto de partida y el fallback para secciones
+// que Figma no cubre (Skills, Experiencia, Contacto, Footer).
+
+:root {
+  // Color
+  --bg: #0b0d0c;
+  --bg-raised: #131615;
+  --fg: #ece7dd;
+  --fg-dim: #8a8c86;
+  --accent: #4fd1c0;
+  --line: rgba(236, 231, 221, 0.14);
+
+  // Tipografía
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --fs-display: clamp(4rem, 2.5rem + 8vw, 9.5rem);
+
+  // Espaciado — escala base 8px
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --space-8: 8rem;
+
+  // Layout
+  --content-max: 1440px;
+  --radius: 4px;
+
+  // Movimiento
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.4s;
+  --duration-slow: 0.8s;
+
+  // z-index
+  --z-nav: 100;
+  --z-overlay: 200;
+}
