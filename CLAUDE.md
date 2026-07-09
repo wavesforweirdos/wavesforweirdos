@@ -82,15 +82,19 @@ en la esquina inferior.
 --accent-soft: #a9a0ff;   // lila suave, solo enlaces inline en párrafos largos — APROXIMADO
 --line: rgba(23, 24, 26, 0.12);
 
---font-display: TBD, sans-serif;  // grotesk geométrico — falta confirmar nombre exacto con Marta
---font-body: TBD, sans-serif;     // misma familia que display, variando peso
+--font-display: "HK Grotesk", sans-serif;  // titulares — fuente de pago, self-hosteada (licencia de Marta)
+--font-body: "Inter", sans-serif;          // vía Google Fonts
 --font-mono: "JetBrains Mono", monospace;  // labels técnicos: nav numerada, ficha EXIF (f/4.0, ISO), lista de stack
 ```
 
-> Estos valores son una lectura aproximada de capturas de pantalla, no de
-> Figma Dev Mode. Antes de darlos por definitivos en la Fase 3, confirma con
-> Marta el nombre exacto de la fuente display/body y los hex reales (o
-> conéctate al MCP de Figma si está disponible).
+HK Grotesk es de pago (Hanken Design Co.) — Marta tiene licencia y aporta los
+`.woff2` para self-hostear en `src/assets/fonts/` con `@font-face` (no vía
+Google Fonts). Inter sigue vía Google Fonts como en la Fase 1.
+
+> Los colores (`--bg`, `--fg`, `--accent`, etc.) siguen siendo una lectura
+> aproximada de capturas de pantalla, no de Figma Dev Mode. Confirmar hex
+> reales con Marta o vía MCP de Figma si está disponible antes de darlos por
+> definitivos.
 
 Además del layout de página, el sitio incluye un **preloader** de carga
 inicial (indicador de progreso 0→100% antes de revelar el contenido).
