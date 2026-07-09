@@ -75,26 +75,33 @@ marca `.mc` (o `.wf`) + un cuadrado negro decorativo a la derecha, y copyright
 en la esquina inferior.
 
 ```scss
---bg: #f1f0ee;           // gris/blanco roto con grano — APROXIMADO, confirmar hex exacto
---fg: #17181a;            // texto casi negro — APROXIMADO
---fg-dim: #b3b2ae;        // texto secundario/deshabilitado (ítems inactivos) — APROXIMADO
---accent: #1edb64;        // verde vivo, único acento primario — APROXIMADO
---accent-soft: #a9a0ff;   // lila suave, solo enlaces inline en párrafos largos — APROXIMADO
---line: rgba(23, 24, 26, 0.12);
+--bg: #ffffff;             // blanco puro — CONFIRMADO vía Figma Dev Mode MCP
+--fg: #1f1f1f;              // texto casi negro — CONFIRMADO
+--fg-dim: rgba(31, 31, 31, 0.5); // texto secundario/opacidad de items inactivos — CONFIRMADO (patrón de opacidad, no un gris fijo)
+--accent: #06f039;          // verde vivo, único acento primario — CONFIRMADO
+--accent-soft: #a9a0ff;     // lila suave, solo enlaces inline en párrafos largos — APROXIMADO, pendiente de confirmar en About
+--line: rgba(31, 31, 31, 0.12);
 
 --font-display: "HK Grotesk", sans-serif;  // titulares — fuente de pago, self-hosteada (licencia de Marta)
---font-body: "Inter", sans-serif;          // vía Google Fonts
+--font-body: "HK Grotesk", sans-serif;     // CONFIRMADO: el body text también es HK Grotesk (no Inter) en todos los frames inspeccionados
 --font-mono: "JetBrains Mono", monospace;  // labels técnicos: nav numerada, ficha EXIF (f/4.0, ISO), lista de stack
 ```
 
 HK Grotesk es de pago (Hanken Design Co.) — Marta tiene licencia y aporta los
 `.woff2` para self-hostear en `src/assets/fonts/` con `@font-face` (no vía
-Google Fonts). Inter sigue vía Google Fonts como en la Fase 1.
+Google Fonts). Inter **no se usa** en el diseño real — se retiró de
+`index.html` tras confirmarlo con Figma Dev Mode.
 
-> Los colores (`--bg`, `--fg`, `--accent`, etc.) siguen siendo una lectura
-> aproximada de capturas de pantalla, no de Figma Dev Mode. Confirmar hex
-> reales con Marta o vía MCP de Figma si está disponible antes de darlos por
-> definitivos.
+> Colores y tipografía confirmados vía Figma Dev Mode MCP para los frames
+> Nav, Home, Proyectos y Loading. La página **About** y el **detalle de
+> proyecto** siguen sin inspeccionar en detalle (límite de cuota de la API
+> de Figma) — sus valores de spacing/tipografía exactos aún están pendientes.
+>
+> Referencia externa: el diseño de Marta está basado en
+> `https://areoladaniel.com/` (mismo patrón de nav, categorías, listado de
+> proyectos). Cuando falte contexto de Figma para un detalle de interacción
+> (hover, spacing, animación), es válido inspeccionar esa web como apoyo —
+> pero Figma manda siempre que haya conflicto.
 
 Además del layout de página, el sitio incluye un **preloader** de carga
 inicial (indicador de progreso 0→100% antes de revelar el contenido).
@@ -203,6 +210,16 @@ sección 3 y pregunta a Marta antes de asumir la ubicación.
 **Fase 4 — Scroll y animación**
 `useSmoothScroll` (Lenis) + `useScrollReveal` (GSAP ScrollTrigger) sobre los
 componentes ya construidos.
+
+Animaciones pendientes detectadas durante la Fase 3 (no implementar hasta
+esta fase, pero no olvidarlas al abordarla):
+- **Animación de entrada/posición al cargar o hacer scroll** (stagger
+  reveal): en `areoladaniel.com` casi todos los elementos (nav, listado de
+  proyectos, categorías, foto de About...) se animan desde una posición/
+  opacidad inicial hasta su posición final al aparecer en viewport —
+  visible en los atributos `transform`/`opacity` que deja Webflow/GSAP en
+  el DOM. Replicar con GSAP + ScrollTrigger (o al montar cada página),
+  respetando `prefers-reduced-motion`.
 
 **Fase 5 — La pieza 2D/3D**
 Construir `<WaveScene />` según la sección 5. Esta fase es la más delicada —
