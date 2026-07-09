@@ -1,0 +1,72 @@
+[
+  {
+    "category": "Lenguajes & frameworks",
+    "items": [
+      { "name": "HTML5", "months": 48 },
+      { "name": "SASS/SCSS", "months": 36 },
+      { "name": "CSS3", "months": 36 },
+      { "name": "JavaScript", "months": 24 },
+      { "name": "jQuery", "months": 24 },
+      { "name": "Bootstrap", "months": 24 },
+      { "name": "Smarty", "months": 24 },
+      { "name": "PHP", "months": 12 },
+      { "name": "Laravel", "months": 12 },
+      { "name": "Blade", "months": 12 },
+      { "name": "Angular 13", "months": 12 },
+      { "name": "TailwindCSS", "months": 12 }
+    ]
+  },
+  {
+    "category": "Arquitectura & tooling frontend",
+    "items": [
+      { "name": "Vite", "months": 12 },
+      { "name": "Git/GitHub", "months": 12 },
+      { "name": "Jenkins (CI/CD)", "months": 12 },
+      { "name": "npm" }
+    ]
+  },
+  {
+    "category": "BBDD & APIs",
+    "items": [
+      { "name": "MySQL", "months": 36 },
+      { "name": "MongoDB", "months": 12 },
+      { "name": "APIs REST", "months": 12 },
+      { "name": "Workbench" },
+      { "name": "PHPMyAdmin" },
+      { "name": "Postman" }
+    ]
+  },
+  {
+    "category": "IA & Herramientas",
+    "items": [
+      { "name": "Claude Code" },
+      { "name": "GitHub Copilot" },
+      { "name": "Prompting" },
+      { "name": "Integración de APIs de IA" }
+    ]
+  },
+  {
+    "category": "Metodologías & entornos",
+    "items": [
+      { "name": "JIRA", "months": 12 },
+      { "name": "Confluence", "months": 12 },
+      { "name": "Entornos de desarrollo y producción" }
+    ]
+  },
+  {
+    "category": "CMS & e-commerce",
+    "items": [
+      { "name": "WordPress" },
+      { "name": "Shopify" }
+    ]
+  },
+  {
+    "category": "Diseño",
+    "items": [
+      { "name": "Figma", "months": 24 },
+      { "name": "Photoshop", "months": 12 },
+      { "name": "Illustrator", "months": 12 },
+      { "name": "InDesign", "months": 12 }
+    ]
+  }
+]
