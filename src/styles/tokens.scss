@@ -1,18 +1,18 @@
 // Design tokens — fuente de verdad: Figma (ver CLAUDE.md sección 3).
-// Estos valores son el punto de partida y el fallback para secciones
-// que Figma no cubre (Skills, Experiencia, Contacto, Footer).
+// Colores: lectura aproximada de capturas de pantalla, pendiente de
+// confirmar hex exactos con Marta / Figma Dev Mode.
 
 :root {
   // Color
-  --bg: #0b0d0c;
-  --bg-raised: #131615;
-  --fg: #ece7dd;
-  --fg-dim: #8a8c86;
-  --accent: #4fd1c0;
-  --line: rgba(236, 231, 221, 0.14);
+  --bg: #f1f0ee;
+  --fg: #17181a;
+  --fg-dim: #b3b2ae;
+  --accent: #1edb64;
+  --accent-soft: #a9a0ff;
+  --line: rgba(23, 24, 26, 0.12);
 
   // Tipografía
-  --font-display: "Fraunces", serif;
+  --font-display: "HK Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
