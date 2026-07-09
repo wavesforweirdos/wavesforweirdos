@@ -73,7 +73,7 @@
     "description": "Prueba técnica para Inditex/Zara: catálogo de móviles con listado con búsqueda y filtro por color, ficha de producto con selector de almacenamiento/color y carrito persistente. Gestión de estado con useReducer, caché de peticiones en sessionStorage, 54 tests (Jest + Testing Library) y accesibilidad WCAG AA.",
     "stack": ["React 19", "React Router v7", "SCSS", "Jest", "Testing Library", "Webpack 5"],
     "repoUrl": "https://github.com/wavesforweirdos/zara-phones",
-    "liveUrl": null,
+    "liveUrl": "https://zara-phones.vercel.app",
     "cover": null
   },
   {

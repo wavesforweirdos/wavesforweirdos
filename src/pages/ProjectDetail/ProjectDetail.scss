@@ -1,6 +1,13 @@
 .project-detail {
   position: relative;
-  max-width: 30rem;
+  display: grid;
+  grid-template-columns: minmax(0, 30rem) 1fr;
+  gap: var(--space-6) var(--space-8);
+  align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
 
   &--not-found {
     display: flex;
@@ -53,12 +60,43 @@
   &__links {
     display: flex;
     gap: var(--space-3);
-    margin-bottom: var(--space-6);
 
     a {
       color: var(--accent);
       font-family: var(--font-mono);
       font-size: 0.85rem;
+    }
+  }
+
+  // Capturas reales del proyecto (deploy en vivo o cover de Behance).
+  // Vacío en la mayoría de proyectos todavía — se añaden en projectGalleries.js.
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  &__gallery-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    figcaption {
+      position: absolute;
+      left: 0.6rem;
+      bottom: 0.6rem;
+      padding: 0.25rem 0.5rem;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(2px);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--fg);
+      text-transform: lowercase;
     }
   }
 
@@ -88,5 +126,4 @@
       text-transform: lowercase;
     }
   }
-
 }
