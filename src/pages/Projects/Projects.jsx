@@ -22,20 +22,23 @@ function Projects() {
     <div className="projects">
       <span className="projects__kicker">proyectos.</span>
 
-      <ol className="projects__list">
-        {sorted.map((project) => (
-          <li
-            key={project.slug}
-            className={`projects__item${hovered?.slug === project.slug ? ' is-active' : ''}`}
-            onMouseEnter={() => setHoveredSlug(project.slug)}
-            onFocus={() => setHoveredSlug(project.slug)}
-          >
-            <Link to={`/proyectos/${project.slug}`}>
-              {project.title} <span className="projects__year">/ {project.year}</span>
-            </Link>
-          </li>
-        ))}
-      </ol>
+      <div className="projects__list-wrap">
+        <ol className="projects__list">
+          {sorted.map((project) => (
+            <li
+              key={project.slug}
+              className={`projects__item${hovered?.slug === project.slug ? ' is-active' : ''}`}
+              onMouseEnter={() => setHoveredSlug(project.slug)}
+              onFocus={() => setHoveredSlug(project.slug)}
+            >
+              <Link to={`/proyectos/${project.slug}`}>
+                {project.title} <span className="projects__year">/ {project.year}</span>
+              </Link>
+            </li>
+          ))}
+        </ol>
+        <div className="projects__list-fade" aria-hidden="true" />
+      </div>
 
       <nav className="projects__categories" aria-label="Otras áreas de trabajo">
         <a href={profile.contact.behance} target="_blank" rel="noreferrer">

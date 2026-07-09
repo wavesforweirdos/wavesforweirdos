@@ -12,8 +12,29 @@
     text-align: right;
   }
 
+  // Altura máxima con scroll interno: así el menú de categorías queda
+  // siempre visible por encima del footer, aunque el listado sea largo.
+  &__list-wrap {
+    position: relative;
+    max-height: 46vh;
+    overflow: hidden;
+  }
+
   &__list {
     list-style: none;
+    max-height: 100%;
+    overflow-y: auto;
+    padding-right: var(--space-2);
+  }
+
+  &__list-fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4rem;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    pointer-events: none;
   }
 
   &__item {
