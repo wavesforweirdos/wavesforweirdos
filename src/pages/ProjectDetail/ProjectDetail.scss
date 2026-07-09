@@ -74,18 +74,26 @@
 
   // Fijo respecto al viewport, mismo "bottom" que el resto de paneles fijos.
   // Se ancla con "left" (no "right") justo donde termina la columna de texto
-  // (26rem + padding de página), para quedar a la izquierda de la galería
-  // sin invadirla, sea cual sea el ancho real de las capturas.
+  // (26rem + padding de página), para quedar a la izquierda de la galería.
+  // Su x cae dentro de la primera columna del grid de capturas, así que
+  // lleva fondo opaco: con galerías de varias imágenes horizontales (que
+  // ahora ocupan las dos columnas y crecen en altura) el panel puede acabar
+  // superpuesto sobre una imagen y debe seguir siendo legible.
   &__stack {
     position: fixed;
     bottom: clamp(9rem, 7rem + 6vw, 13rem);
     left: calc(clamp(1.5rem, 1rem + 3vw, 6rem) + 26rem + var(--space-8));
     white-space: nowrap;
     font-family: var(--font-display);
+    background: var(--bg);
+    padding: var(--space-2) var(--space-3);
+    margin: calc(var(--space-2) * -1) calc(var(--space-3) * -1);
 
     @media (max-width: 900px) {
       position: static;
       margin-bottom: var(--space-6);
+      background: none;
+      padding: 0;
     }
 
     h2 {
@@ -107,21 +115,24 @@
     }
   }
 
-  // Capturas reales del proyecto, pegadas al borde derecho — mosaico de
-  // 2 columnas que se adapta a la altura natural de cada imagen (horizontal
-  // o vertical), como el original. Vacío en la mayoría de proyectos todavía.
+  // Capturas reales del proyecto, pegadas al borde derecho. Grid real de 2
+  // columnas: cada imagen ocupa 1 o 2 columnas según su orientación real
+  // (detectada en tiempo de carga, ver --wide más abajo). Vacío en la
+  // mayoría de proyectos todavía.
   &__gallery {
     grid-column: 2;
-    column-count: 2;
-    column-gap: var(--space-4);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
 
-    // Con una sola imagen, el layout multi-columna la deja a la izquierda
-    // del área de galería en vez de pegada al borde derecho — se fuerza
-    // una columna y se empuja a la derecha con margin-left:auto.
-    &:has(.project-detail__gallery-item:only-child) {
-      column-count: 1;
-      max-width: 50%;
-      margin-left: auto;
+    // Con una sola imagen vertical, el grid la deja en la columna
+    // izquierda — se fuerza a la columna derecha para quedar pegada al
+    // borde. Si esa única imagen es horizontal (--wide) ya ocupa las dos
+    // columnas y esta regla no aplica.
+    &:has(.project-detail__gallery-item:only-child):not(:has(.project-detail__gallery-item--wide)) {
+      .project-detail__gallery-item {
+        grid-column: 2;
+      }
     }
   }
 
@@ -129,8 +140,11 @@
     display: flex;
     align-items: flex-start;
     gap: 0.5rem;
-    break-inside: avoid;
-    margin-bottom: var(--space-4);
+
+    // Imagen horizontal: ocupa las dos columnas del grid.
+    &--wide {
+      grid-column: 1 / -1;
+    }
 
     img {
       flex: 1;
