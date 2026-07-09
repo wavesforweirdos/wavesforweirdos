@@ -1,6 +1,5 @@
 .projects {
   position: relative;
-  min-height: calc(100vh - 14rem);
 
   &__kicker {
     display: block;
@@ -35,6 +34,12 @@
       text-transform: lowercase;
       color: var(--fg);
       text-decoration: none;
+      transition: letter-spacing var(--duration-slow) var(--ease-hover);
+
+      &:hover,
+      &:focus-visible {
+        letter-spacing: -6px;
+      }
     }
 
     &.is-active {

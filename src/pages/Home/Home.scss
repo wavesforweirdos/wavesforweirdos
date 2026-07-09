@@ -1,7 +1,6 @@
 .home {
   display: flex;
   align-items: center;
-  min-height: calc(100vh - 14rem);
 
   &__categories {
     display: flex;
@@ -19,11 +18,11 @@
     color: var(--fg);
     text-decoration: none;
     width: fit-content;
-    transition: color var(--duration-fast) var(--ease);
+    transition: letter-spacing var(--duration-slow) var(--ease-hover);
 
     &:hover,
     &:focus-visible {
-      color: var(--accent);
+      letter-spacing: -10px;
     }
   }
 }

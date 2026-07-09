@@ -69,10 +69,11 @@
       font-size: 1rem;
       letter-spacing: -1px;
       text-decoration: none;
+      transition: letter-spacing var(--duration-slow) var(--ease-hover);
 
       &:hover,
       &.active {
-        text-decoration: underline;
+        letter-spacing: -2px;
       }
     }
   }
