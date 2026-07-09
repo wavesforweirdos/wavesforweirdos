@@ -1,0 +1,25 @@
+.dot-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: -1px;
+  text-transform: lowercase;
+  color: var(--accent);
+  text-decoration: none;
+  transition: letter-spacing var(--duration-slow) var(--ease-hover);
+
+  &:hover,
+  &:focus-visible {
+    letter-spacing: -2px;
+  }
+
+  span {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: #000;
+    flex-shrink: 0;
+  }
+}

@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import projects from '../../data/projects.json'
 import profile from '../../data/profile.json'
+import DotLink from '../../components/DotLink/DotLink.jsx'
 import './Projects.scss'
 
 function yearValue(year) {
@@ -41,14 +42,12 @@ function Projects() {
       </div>
 
       <nav className="projects__categories" aria-label="Otras áreas de trabajo">
-        <a href={profile.contact.behance} target="_blank" rel="noreferrer">
-          <span aria-hidden="true" />
+        <DotLink href={profile.contact.behance} target="_blank" rel="noreferrer">
           ilustración.
-        </a>
-        <a href={profile.contact.behance} target="_blank" rel="noreferrer">
-          <span aria-hidden="true" />
+        </DotLink>
+        <DotLink href={profile.contact.behance} target="_blank" rel="noreferrer">
           diseño.
-        </a>
+        </DotLink>
       </nav>
 
       {hovered && (
