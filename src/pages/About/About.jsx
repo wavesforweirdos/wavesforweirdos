@@ -14,13 +14,30 @@ function About() {
           <p className="about__bio">{profile.bio}</p>
         </div>
 
-        <div className="about__services">
-          <h2 className="about__label">Services</h2>
-          <ul>
-            {profile.services.map((service) => (
-              <li key={service}>{service}</li>
-            ))}
-          </ul>
+        <div className="about__column">
+          <div className="about__services">
+            <h2 className="about__label">Services</h2>
+            <ul>
+              {profile.services.map((service) => (
+                <li key={service}>{service}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="about__experience">
+            <h2 className="about__label">Experience</h2>
+            <ul className="about__timeline">
+              {experience.map((job) => (
+                <li key={`${job.company}-${job.period}`}>
+                  <p className="about__timeline-role">
+                    {job.company}
+                    {job.client ? ` (${job.client})` : ''} — {job.role}
+                  </p>
+                  <p className="about__timeline-period">{job.period}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="about__photo about__photo--main">
@@ -47,27 +64,6 @@ function About() {
       <div className="about__photo about__photo--mood">
         <img src={photoMood} alt="" />
       </div>
-
-      <section className="about__experience">
-        <h2 className="about__label">Experience</h2>
-        <ol className="about__timeline">
-          {experience.map((job) => (
-            <li key={`${job.company}-${job.period}`}>
-              <div className="about__timeline-head">
-                <h3>
-                  {job.role} <span>— {job.company}{job.client ? ` (${job.client})` : ''}</span>
-                </h3>
-                <span className="about__timeline-period">{job.period}</span>
-              </div>
-              <ul className="about__timeline-desc">
-                {job.description.map((line) => (
-                  <li key={line}>{line}</li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ol>
-      </section>
     </div>
   )
 }

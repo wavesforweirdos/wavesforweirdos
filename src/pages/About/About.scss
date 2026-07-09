@@ -24,6 +24,12 @@
     max-width: 48ch;
   }
 
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
   &__label {
     font-family: var(--font-mono);
     font-size: 0.8rem;
@@ -84,52 +90,27 @@
     font-size: 0.85rem;
   }
 
+  // Formato compacto (patrón areoladaniel.com): Experience apilado bajo
+  // Services en la misma columna — sin bullets de detalle, solo empresa/rol/periodo.
   &__timeline {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--space-5);
-
-    li {
-      border-top: 1px solid var(--line);
-      padding-top: var(--space-3);
-    }
+    gap: var(--space-3);
+    font-family: var(--font-body);
   }
 
-  &__timeline-head {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: var(--space-2);
-    margin-bottom: var(--space-2);
-
-    h3 {
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 1rem;
-
-      span {
-        font-weight: 400;
-        color: var(--fg-dim);
-      }
-    }
+  &__timeline-role {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--fg);
   }
 
   &__timeline-period {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 0.8rem;
     color: var(--fg-dim);
-  }
-
-  &__timeline-desc {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    color: var(--fg);
-    font-size: 0.9rem;
-    max-width: 65ch;
   }
 
   @media (min-width: 1024px) {
