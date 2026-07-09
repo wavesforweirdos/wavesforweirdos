@@ -14,9 +14,14 @@
 
   // Altura máxima con scroll interno: así el menú de categorías queda
   // siempre visible por encima del footer, aunque el listado sea largo.
+  // Mismo valor explícito en wrap y list: max-height:100% en el hijo NO
+  // funciona de forma fiable cuando el padre solo tiene max-height (sin
+  // height propia), así que el <ul> no se comprimía y casi no scrolleaba.
+  --list-cap: 38vh;
+
   &__list-wrap {
     position: relative;
-    max-height: 38vh;
+    max-height: var(--list-cap);
     overflow: hidden;
 
     // Pérdida de opacidad en vez de un bloque de color superpuesto —
@@ -27,7 +32,7 @@
 
   &__list {
     list-style: none;
-    max-height: 100%;
+    max-height: var(--list-cap);
     overflow-y: auto;
 
     // Oculta la barra de scroll nativa mantiendo el scroll funcional
@@ -86,7 +91,6 @@
     left: clamp(1.5rem, 1rem + 3vw, 6rem);
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
 
     a {
       display: flex;

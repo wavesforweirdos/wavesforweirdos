@@ -54,7 +54,7 @@
     margin-right: auto;
     display: grid;
     grid-auto-flow: column;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(2, auto);
     column-gap: var(--space-6);
     row-gap: 0.25rem;
     padding-left: 1.4rem;
