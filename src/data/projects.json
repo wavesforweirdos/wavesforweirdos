@@ -1,5 +1,16 @@
 [
   {
+    "slug": "kfacil",
+    "title": "KFacil Inmobiliaria",
+    "year": 2026,
+    "category": "web",
+    "description": "Aplicación de gestión inmobiliaria (KFacil Inmobiliaria) con backend en Laravel/PHP y base de datos MySQL.",
+    "stack": ["Laravel", "PHP", "MySQL"],
+    "repoUrl": "https://github.com/wavesforweirdos/kfacil",
+    "liveUrl": null,
+    "cover": null
+  },
+  {
     "slug": "photo-gallery",
     "title": "Photo Gallery",
     "year": 2023,

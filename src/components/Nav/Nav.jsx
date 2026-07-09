@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom'
 import profile from '../../data/profile.json'
-import logo from '../../assets/logo/wf-logo-black.png'
 import './Nav.scss'
 
 function Nav() {
@@ -40,7 +39,7 @@ function Nav() {
           </li>
         </ul>
 
-        <img className="nav__logo" src={logo} alt="wavesforweirdos" />
+        <span className="nav__logo">.wf</span>
       </div>
 
       <p className="nav__copyright">

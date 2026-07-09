@@ -79,8 +79,11 @@
   }
 
   &__logo {
-    height: var(--fs-nav-mark);
-    width: auto;
+    font-weight: 700;
+    font-size: var(--fs-nav-mark);
+    line-height: 1;
+    letter-spacing: -5px;
+    color: #000;
   }
 
   &__dot {
