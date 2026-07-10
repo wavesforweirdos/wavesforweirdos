@@ -28,6 +28,17 @@
     // deja pasar la textura de grano del fondo sin costuras visibles.
     mask-image: linear-gradient(to bottom, black 35%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 35%, transparent 100%);
+
+    // Con scroll (ver onScroll en Projects.jsx), la parte superior deja de
+    // cortarse en seco: también se difumina, igual que el borde inferior.
+    &--scrolled {
+      mask-image: linear-gradient(to bottom, transparent 0%, black 15%);
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 15%
+      );
+    }
   }
 
   &__list {
