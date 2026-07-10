@@ -12,7 +12,6 @@ function yearValue(year) {
 
 function Projects() {
   const [hoveredSlug, setHoveredSlug] = useState(null)
-  const [isListScrolled, setIsListScrolled] = useState(false)
 
   const sorted = useMemo(
     () => [...projects].sort((a, b) => yearValue(b.year) - yearValue(a.year)),
@@ -25,11 +24,8 @@ function Projects() {
     <div className="projects">
       <span className="projects__kicker">proyectos.</span>
 
-      <div className={`projects__list-wrap${isListScrolled ? ' projects__list-wrap--scrolled' : ''}`}>
-        <ul
-          className="projects__list"
-          onScroll={(event) => setIsListScrolled(event.currentTarget.scrollTop > 0)}
-        >
+      <div className="projects__list-wrap">
+        <ul className="projects__list">
           {sorted.map((project) => (
             <li
               key={project.slug}

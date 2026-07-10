@@ -5,10 +5,11 @@
   position: fixed;
   bottom: clamp(9rem, 7rem + 6vw, 13rem);
   left: clamp(1.5rem, 1rem + 3vw, 6rem);
-  // Se mantiene dentro del ancho de la columna de texto (26rem) para no
-  // invadir el hueco reservado al panel __stack en ProjectDetail — con
-  // más ítems de los que caben, el scroll horizontal ya se encarga.
-  max-width: min(38vw, 26rem);
+  max-width: min(38vw, 30rem);
+  // Pérdida de opacidad en vez de un bloque de color superpuesto —
+  // deja pasar la textura de grano del fondo sin costuras visibles.
+  mask-image: linear-gradient(to right, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
 
   &__scroll {
     display: grid;
