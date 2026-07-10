@@ -31,10 +31,7 @@ function Nav() {
           </li>
         </ol>
 
-        <span className="nav__logo">
-          <span>.w</span>
-          <span className="nav__logo-f">f</span>
-        </span>
+        <span className="nav__logo">.wf</span>
       </div>
 
       <small className="nav__copyright">

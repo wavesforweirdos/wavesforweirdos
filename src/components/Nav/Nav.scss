@@ -18,7 +18,7 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background: linear-gradient(to top, var(--bg) 0%, var(--bg) 30%, transparent 100%);
+    background: linear-gradient(180deg, transparent 30%, var(--bg));
   }
 
   &__row {
