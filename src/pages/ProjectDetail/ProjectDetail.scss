@@ -111,11 +111,10 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 40vw;
+    width: 35vw;
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: var(--space-6) var(--space-4);
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-4);

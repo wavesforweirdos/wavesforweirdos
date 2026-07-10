@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import projects from '../../data/projects.json'
 import projectGalleries from '../../data/projectGalleries.js'
@@ -12,6 +12,28 @@ function ProjectDetail() {
   const project = projects.find((p) => p.slug === slug)
   const [orientations, setOrientations] = useState({})
   const logoFX = useNavLogoFPosition()
+  const galleryRef = useRef(null)
+  // Espacio que la columna de etiquetas rotadas (+ el gap) le "roba" a la
+  // foto por la derecha dentro de cada item — se mide de verdad en vez de
+  // asumir un valor, para que el borde derecho de LA FOTO (no del grid,
+  // que incluye esa columna) sea el que coincide con la f.
+  const [tagReserve, setTagReserve] = useState(0)
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      const item = galleryRef.current?.querySelector('.project-detail__gallery-item')
+      const tags = galleryRef.current?.querySelector('.project-detail__gallery-tags')
+      if (!item || !tags) {
+        setTagReserve(0)
+        return
+      }
+      const gap = parseFloat(getComputedStyle(item).columnGap) || 0
+      setTagReserve(gap + tags.getBoundingClientRect().width)
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [slug])
 
   const handleImageLoad = (src) => (event) => {
     const { naturalWidth, naturalHeight } = event.target
@@ -31,14 +53,17 @@ function ProjectDetail() {
   const others = projects.filter((p) => p.slug !== project.slug)
   const gallery = projectGalleries[project.slug] ?? []
 
-  // El grid de capturas ancla su borde DERECHO a la "f" de ".wf" del
-  // footer (se extiende 40vw hacia la izquierda desde ahí, sin salirse
-  // del viewport); el stack se queda más a la izquierda todavía, con un
-  // margen respecto al borde izquierdo real de la galería.
-  const galleryRight = logoFX != null ? `calc(100vw - ${logoFX}px)` : undefined
+  // El borde derecho de LA FOTO (no del contenedor, que incluye la
+  // columna de etiquetas) ancla con la "f" de ".wf" del footer — se resta
+  // tagReserve para compensar esa columna. El grid se extiende ~35vw
+  // hacia la izquierda desde ahí, sin salirse del viewport; el stack se
+  // queda más a la izquierda todavía, con margen respecto al borde
+  // izquierdo real de la galería.
+  const galleryRight =
+    logoFX != null ? `calc(100vw - ${logoFX}px - ${tagReserve}px)` : undefined
   const galleryStyle = galleryRight != null ? { right: galleryRight } : undefined
   const stackStyle =
-    galleryRight != null ? { right: `calc(${galleryRight} + 40vw + var(--space-4))` } : undefined
+    galleryRight != null ? { right: `calc(${galleryRight} + 35vw + var(--space-4))` } : undefined
 
   return (
     <article className="project-detail">
@@ -86,7 +111,7 @@ function ProjectDetail() {
       </aside>
 
       {gallery.length > 0 && (
-        <div className="project-detail__gallery" style={galleryStyle}>
+        <div className="project-detail__gallery" style={galleryStyle} ref={galleryRef}>
           {gallery.map((img) => (
             <figure
               key={img.src}
