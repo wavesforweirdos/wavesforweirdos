@@ -31,12 +31,14 @@ function ProjectDetail() {
   const others = projects.filter((p) => p.slug !== project.slug)
   const gallery = projectGalleries[project.slug] ?? []
 
-  // El grid de capturas ancla su borde izquierdo a la "f" de ".wf" del
-  // footer; el stack se queda a la izquierda de ese mismo borde, con un
-  // margen, para no invadirlo nunca.
-  const galleryStyle = logoFX != null ? { left: `${logoFX}px` } : undefined
+  // El grid de capturas ancla su borde DERECHO a la "f" de ".wf" del
+  // footer (se extiende 40vw hacia la izquierda desde ahí, sin salirse
+  // del viewport); el stack se queda más a la izquierda todavía, con un
+  // margen respecto al borde izquierdo real de la galería.
+  const galleryRight = logoFX != null ? `calc(100vw - ${logoFX}px)` : undefined
+  const galleryStyle = galleryRight != null ? { right: galleryRight } : undefined
   const stackStyle =
-    logoFX != null ? { right: `calc(100vw - ${logoFX}px + var(--space-4))` } : undefined
+    galleryRight != null ? { right: `calc(${galleryRight} + 40vw + var(--space-4))` } : undefined
 
   return (
     <article className="project-detail">

@@ -67,11 +67,11 @@
   // Fijo respecto al viewport, mismo "bottom" que el resto de paneles fijos.
   // "right" se calcula en JS (ver useNavLogoFPosition) para terminar justo
   // donde empieza el grid de capturas — nunca se superponen. Fallback en
-  // CSS antes de la primera medición.
+  // CSS antes de la primera medición (gallery por defecto: right:0, 40vw).
   &__stack {
     position: fixed;
     bottom: clamp(9rem, 7rem + 6vw, 13rem);
-    right: 62vw;
+    right: 42vw;
     white-space: nowrap;
     font-family: var(--font-display);
 
@@ -101,17 +101,16 @@
   }
 
   // Capturas reales del proyecto: panel fijo a pantalla completa en alto
-  // (100vh) y ~40vw de ancho. "left" se fija en JS a la posición real de
+  // (100vh) y ~40vw de ancho. "right" se fija en JS a la posición real de
   // la "f" de ".wf" del footer (ver useNavLogoFPosition) — el panel se
-  // extiende 40vw hacia la derecha desde ahí y lo que sobresalga del
-  // viewport queda recortado (overflow-x:hidden en html, ver global.scss).
+  // extiende 40vw hacia la izquierda desde ahí, siempre dentro del viewport.
   // Grid real de 2 columnas: cada imagen ocupa 1 o 2 columnas según su
   // orientación real (detectada en tiempo de carga, ver --wide). Vacío en
   // la mayoría de proyectos todavía.
   &__gallery {
     position: fixed;
     top: 0;
-    left: 62vw;
+    right: 0;
     width: 40vw;
     height: 100vh;
     overflow-y: auto;
@@ -130,7 +129,7 @@
 
     @media (max-width: 900px) {
       position: static;
-      left: auto;
+      right: auto;
       width: auto;
       height: auto;
       overflow: visible;
