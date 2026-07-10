@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import profile from '../../data/profile.json'
 import './Nav.scss'
 
@@ -31,13 +31,13 @@ function Nav() {
           </li>
         </ol>
 
-        <span className="nav__logo">.wf</span>
+        <Link to="/" className="nav__logo">.wf</Link>
       </div>
 
       <small className="nav__copyright">
         Copyright © {year} {profile.name}. All rights reserved.
       </small>
-      <span className="nav__dot" aria-hidden="true" />
+      <Link to="/" className="nav__dot" aria-label="Inicio" />
     </footer>
   )
 }

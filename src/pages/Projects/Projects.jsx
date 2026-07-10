@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import projects from '../../data/projects.json'
 import profile from '../../data/profile.json'
 import DotLink from '../../components/DotLink/DotLink.jsx'
@@ -11,6 +11,7 @@ function yearValue(year) {
 }
 
 function Projects() {
+  const navigate = useNavigate()
   const [hoveredSlug, setHoveredSlug] = useState(null)
 
   const sorted = useMemo(
@@ -22,7 +23,15 @@ function Projects() {
 
   return (
     <div className="projects">
-      <span className="projects__kicker">proyectos.</span>
+      <div className="projects__heading">
+        <button
+          type="button"
+          className="projects__back"
+          onClick={() => navigate(-1)}
+          aria-label="Volver a la página anterior"
+        />
+        <span className="projects__kicker">proyectos.</span>
+      </div>
 
       <div className="projects__list-wrap">
         <ul className="projects__list">

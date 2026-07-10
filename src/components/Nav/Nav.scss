@@ -98,6 +98,9 @@
     width: 0.9rem;
     height: 0.9rem;
     background: #000;
+    // Fuera de .nav__row: sin esto hereda pointer-events:none de .nav y
+    // el enlace queda inerte.
+    pointer-events: auto;
   }
 
   &__copyright {
