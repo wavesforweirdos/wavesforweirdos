@@ -5,16 +5,16 @@ function DotLink({ to, children, ...rest }) {
   if (to) {
     return (
       <Link to={to} className="dot-link">
-        <span aria-hidden="true" />
-        {children}
+        <span className="dot-link__marker" aria-hidden="true" />
+        <span className="dot-link__label">{children}</span>
       </Link>
     )
   }
 
   return (
     <a className="dot-link" {...rest}>
-      <span aria-hidden="true" />
-      {children}
+      <span className="dot-link__marker" aria-hidden="true" />
+      <span className="dot-link__label">{children}</span>
     </a>
   )
 }

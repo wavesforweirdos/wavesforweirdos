@@ -69,6 +69,10 @@
     }
 
     a {
+      display: inline-block;
+      // Evita que el hover (letter-spacing más ajustado) reduzca el ancho
+      // por debajo del texto en reposo y desplace la columna del grid.
+      min-width: 4rem;
       color: var(--accent);
       font-weight: 500;
       font-size: 1rem;
