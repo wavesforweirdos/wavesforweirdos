@@ -5,7 +5,7 @@
   position: fixed;
   bottom: clamp(9rem, 7rem + 6vw, 13rem);
   left: clamp(1.5rem, 1rem + 3vw, 6rem);
-  max-width: min(38vw, 30rem);
+  max-width: min(38vw, 35rem);
   // Pérdida de opacidad en vez de un bloque de color superpuesto —
   // deja pasar la textura de grano del fondo sin costuras visibles.
   mask-image: linear-gradient(to right, black 70%, transparent 100%);
