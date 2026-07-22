@@ -8,10 +8,14 @@ import './About.scss'
 function About() {
   return (
     <div className="about">
-      <div className="about__top">
+      <div className="about__grid">
         <div className="about__intro">
           <h1 className="about__title">{profile.role}.</h1>
-          <p className="about__bio">{profile.bio}</p>
+          <div className="about__bio">
+            {profile.bio.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
         </div>
 
         <div className="about__column">
@@ -43,26 +47,26 @@ function About() {
         <div className="about__photo about__photo--main">
           <img src={photoMain} alt={profile.name} />
         </div>
-      </div>
 
-      <section className="about__skills">
-        <h2 className="about__label">Skills</h2>
-        <div className="about__skills-grid">
-          {skills.map((group) => (
-            <div key={group.category} className="about__skills-group">
-              <h3>{group.category}</h3>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item.name}>{item.name}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <div className="about__photo about__photo--mood">
+          <img src={photoMood} alt="" />
         </div>
-      </section>
 
-      <div className="about__photo about__photo--mood">
-        <img src={photoMood} alt="" />
+        <section className="about__skills">
+          <h2 className="about__label">Skills</h2>
+          <div className="about__skills-grid">
+            {skills.map((group) => (
+              <div key={group.category} className="about__skills-group">
+                <h3>{group.category}</h3>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item.name}>{item.name}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   )
