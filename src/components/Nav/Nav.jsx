@@ -1,9 +1,29 @@
-import { Link, NavLink } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import profile from '../../data/profile.json'
 import './Nav.scss'
 
+// Por debajo de este ancho no hay hover: el logo pasa a abrir/cerrar el
+// menú en vez de navegar (mismo umbral que el resto de ajustes mobile del nav).
+const MOBILE_QUERY = '(max-width: 1023px)'
+
 function Nav() {
   const year = new Date().getFullYear()
+  const navigate = useNavigate()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isHomeOpen, setIsHomeOpen] = useState(false)
+
+  function handleLogoClick() {
+    if (window.matchMedia(MOBILE_QUERY).matches) {
+      setIsMenuOpen((open) => !open)
+      return
+    }
+    navigate('/')
+  }
+
+  function closeMenu() {
+    setIsMenuOpen(false)
+  }
 
   return (
     <footer className="nav">
@@ -13,25 +33,59 @@ function Nav() {
           <p className="nav__name">{profile.name.toLowerCase()}</p>
         </address>
 
-        <ol className="nav__links" start="0">
-          <li>
-            <NavLink to="/" end>home</NavLink>
+        <ol id="nav-menu" className={`nav__links${isMenuOpen ? ' is-open' : ''}`} start="0">
+          <li className="nav__links-item">
+            <div className="nav__links-row">
+              <NavLink to="/" end onClick={closeMenu}>home</NavLink>
+              <button
+                type="button"
+                className="nav__links-toggle"
+                aria-expanded={isHomeOpen}
+                aria-controls="nav-home-submenu"
+                aria-label="Mostrar áreas de trabajo"
+                onClick={() => setIsHomeOpen((open) => !open)}
+              />
+            </div>
+
+            <ul id="nav-home-submenu" className={`nav__submenu${isHomeOpen ? ' is-open' : ''}`}>
+              <li>
+                <NavLink to="/proyectos" onClick={closeMenu}>web.</NavLink>
+              </li>
+              <li>
+                <a href={profile.contact.behance} target="_blank" rel="noreferrer" onClick={closeMenu}>
+                  ilustración.
+                </a>
+              </li>
+              <li>
+                <a href={profile.contact.behance} target="_blank" rel="noreferrer" onClick={closeMenu}>
+                  diseño.
+                </a>
+              </li>
+            </ul>
           </li>
           <li>
-            <NavLink to="/about">about</NavLink>
+            <NavLink to="/about" onClick={closeMenu}>about</NavLink>
           </li>
           <li>
-            <a href={`mailto:${profile.contact.email}`}>e-mail</a>
+            <a href={`mailto:${profile.contact.email}`} onClick={closeMenu}>e-mail</a>
           </li>
           <li>
-            <a href={profile.contact.github} target="_blank" rel="noreferrer">github</a>
+            <a href={profile.contact.github} target="_blank" rel="noreferrer" onClick={closeMenu}>github</a>
           </li>
           <li>
-            <a href={profile.contact.linkedin} target="_blank" rel="noreferrer">linkedin</a>
+            <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" onClick={closeMenu}>linkedin</a>
           </li>
         </ol>
 
-        <Link to="/" className="nav__logo">.wf</Link>
+        <button
+          type="button"
+          className="nav__logo"
+          aria-expanded={isMenuOpen}
+          aria-controls="nav-menu"
+          onClick={handleLogoClick}
+        >
+          .wf
+        </button>
       </div>
 
       <small className="nav__copyright">
