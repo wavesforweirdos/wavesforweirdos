@@ -3,13 +3,17 @@
   "role": "Full Stack / Frontend Developer",
   "tagline": "Fullstack PHP Dev",
   "location": "Barcelona, España",
-  "bio": "Desarrolladora Full Stack y diseñadora gráfica/web con experiencia en los sectores digital, inmobiliario y aeronáutico. Combino la programación con la sensibilidad por el diseño, aportando soluciones eficientes y orientadas a resultados tanto en front-end como en back-end. Experiencia en el uso de IA aplicada al desarrollo (Claude Code, GitHub Copilot).",
+  "bio": [
+    "Crecí rodeada de diseño. Mi padre era diseñador gráfico por lo que la sensibilidad visual me viene desde bien pequeña. Por eso no es casualidad que acabara estudiando animación y más tarde diseño y creación digital.",
+    "El giro hacia la programación llegó casi sin buscarlo, trabajando en ImpulseBrand. Mantenía su web al día y cooperaba con el desarrollo de una nueva tienda construida en Shopify. Fue toparme con Liquid lo que despertó mi curiosidad por el código. Decidí tomármelo en serio y empecé a formarme en un Bootcamp especializado en desarrollo web Full Stack PHP, para más tarde completar mi formación con un Grado Superior en Desarrollo de Aplicaciones Web.",
+    "Con el tiempo he entendido que no tengo que elegir entre diseñar y programar: lo mío es no renunciar a ninguna de las dos. Quiero seguir creciendo como desarrolladora Full Stack sin perder ese mimo por el pixel perfect que traigo de origen. Es ahí, en el frontend, donde de verdad disfruto."
+  ],
   "photo": "src/assets/profile/photo-4.jpeg",
   "photoMood": "src/assets/profile/photo-1.jpeg",
   "services": [
-    "Frontend Development",
     "Full Stack Development",
-    "Maquetación & UI a partir de Figma/Zeplin",
+    "Frontend Development",
+    "Maquetación & UI a partir de Figma",
     "Diseño gráfico & web"
   ],
   "contact": {
@@ -20,7 +24,8 @@
     "behance": "https://www.behance.net/wavesforweirdos"
   },
   "languages": [
-    { "name": "Catalán y Castellano", "level": "Nativo" },
+    { "name": "Catalán", "level": "Nativo" },
+    { "name": "Castellano", "level": "Nativo" },
     { "name": "Inglés", "level": "Básico" }
   ],
   "education": [
