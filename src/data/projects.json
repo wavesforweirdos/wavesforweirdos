@@ -1,7 +1,20 @@
 [
   {
+    "slug": "kfacil",
+    "title": "KFacil Inmobiliaria",
+    "year": 2026,
+    "category": "web",
+    "description": "Aplicación de gestión inmobiliaria (KFacil Inmobiliaria) con backend en Laravel/PHP y base de datos MySQL.",
+    "stack": ["Laravel", "PHP", "MySQL"],
+    "repoUrl": "https://github.com/wavesforweirdos/kfacil",
+    "liveUrl": null,
+    "cover": null
+  },
+  {
     "slug": "photo-gallery",
     "title": "Photo Gallery",
+    "year": 2023,
+    "category": "web",
     "description": "Visor de imágenes construido con Vue.js que consume la API de Unsplash — Front End Challenge personal.",
     "stack": ["Vue.js", "Unsplash API"],
     "repoUrl": "https://github.com/wavesforweirdos/photo-gallery",
@@ -11,6 +24,8 @@
   {
     "slug": "3x3-basket-league",
     "title": "3×3 Basket League Management App",
+    "year": 2022,
+    "category": "web",
     "description": "Aplicación de gestión para una liga de baloncesto 3×3, desarrollada con Laravel 9 y MySQL.",
     "stack": ["Laravel 9", "MySQL"],
     "repoUrl": "https://github.com/wavesforweirdos/3X3basketleague",
@@ -20,6 +35,8 @@
   {
     "slug": "dices-api-rest",
     "title": "API REST DiceGame",
+    "year": 2022,
+    "category": "web",
     "description": "API REST de un juego de dados con Laravel 9 y Vue.js: autenticación con Passport, gestión de roles y desarrollo guiado por tests (TDD).",
     "stack": ["Laravel 9", "Vue.js", "Passport", "TDD"],
     "repoUrl": "https://github.com/wavesforweirdos/dices-api-rest",
@@ -29,6 +46,8 @@
   {
     "slug": "mission-list",
     "title": "Mission List",
+    "year": 2022,
+    "category": "web",
     "description": "To-Do App: aplicación de gestión de tareas construida en PHP.",
     "stack": ["PHP"],
     "repoUrl": "https://github.com/wavesforweirdos/mission-list",
@@ -38,6 +57,8 @@
   {
     "slug": "landing-template",
     "title": "Landing Template",
+    "year": 2023,
+    "category": "web",
     "description": "Plantilla de landing page maquetada con CSS.",
     "stack": ["CSS"],
     "repoUrl": "https://github.com/wavesforweirdos/landing-template",
@@ -47,15 +68,19 @@
   {
     "slug": "zara-phones",
     "title": "Zara Phones",
+    "year": 2026,
+    "category": "web",
     "description": "Prueba técnica para Inditex/Zara: catálogo de móviles con listado con búsqueda y filtro por color, ficha de producto con selector de almacenamiento/color y carrito persistente. Gestión de estado con useReducer, caché de peticiones en sessionStorage, 54 tests (Jest + Testing Library) y accesibilidad WCAG AA.",
     "stack": ["React 19", "React Router v7", "SCSS", "Jest", "Testing Library", "Webpack 5"],
     "repoUrl": "https://github.com/wavesforweirdos/zara-phones",
-    "liveUrl": null,
+    "liveUrl": "https://zara-phones.vercel.app",
     "cover": null
   },
   {
     "slug": "meal-planner",
     "title": "Meal Planner",
+    "year": 2023,
+    "category": "web",
     "description": "Planificador de comidas con recetas de la API de Spoonacular, desarrollado para el IT Hackathon de JOBarcelona'23. Organización semanal de recetas mediante drag & drop.",
     "stack": ["React", "Vite", "Bootstrap", "SASS", "react-dnd", "styled-components"],
     "repoUrl": "https://github.com/wavesforweirdos/meal-planner",
@@ -65,6 +90,8 @@
   {
     "slug": "la-marialluisa",
     "title": "La Marialluïsa",
+    "year": "2021-2022",
+    "category": "web",
     "description": "Desarrollo web para floristería.",
     "stack": ["Laravel 10", "Blade", "TailwindCSS"],
     "repoUrl": null,
@@ -74,6 +101,8 @@
   {
     "slug": "sprint-3-it-academy",
     "title": "Sprint 3 IT Academy — Shopping Cart",
+    "year": 2023,
+    "category": "web",
     "description": "Ejercicio del Bootcamp Full Stack PHP de IT Academy: lógica de carrito de compra y precios promocionales en JavaScript puro, sobre datos de producto hardcodeados.",
     "stack": ["JavaScript"],
     "repoUrl": "https://github.com/wavesforweirdos/starter-code-frontend-sprint-3",

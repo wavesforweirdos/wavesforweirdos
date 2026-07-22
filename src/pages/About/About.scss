@@ -1,0 +1,176 @@
+.about {
+  // .page ya reserva hueco para el nav fijo, pero el grid de About es
+  // más alto de lo habitual (2 filas): margen extra para poder scrollear
+  // hasta leer el último elemento sin que el nav lo tape.
+  padding-block: var(--space-8);
+
+  &__grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: var(--space-4);
+    max-width: 20ch;
+  }
+
+  &__bio {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 1.1875rem;
+    line-height: 1.8;
+    letter-spacing: -1px;
+    max-width: 48ch;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  &__label {
+    font-family: var(--font-mono);
+    font-size: .90rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: var(--space-3);
+  }
+
+  &__services ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    font-family: var(--font-body);
+    font-size: 0.938rem;
+    color: var(--fg);
+  }
+
+  &__photo img {
+    width: 100%;
+    border: 30px solid var(--bg);
+    box-shadow: 0 12px 30px rgba(23, 24, 26, 0.18);
+    transform-origin: bottom right;
+    transition: transform var(--duration-base) var(--ease);
+
+    // Más específico que .about__photo--main/--mood img (la pseudo-clase
+    // suma especificidad), así endereza cualquiera de las dos al hacer hover.
+    &:hover {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__photo--main {
+    max-width: 450px;
+    margin-left: var(--space-6);
+    img {
+      transform: rotate(6deg);
+    }
+  }
+
+  &__photo--mood {
+    max-width: 420px;
+    margin: 0 auto;
+    img {
+      transform: rotate(2deg);
+    }
+  }
+
+  // Flujo de texto en 2 columnas (como un periódico) en vez de grid: con
+  // grid, cada fila se estiraba a la altura de su categoría más larga y
+  // dejaba huecos enormes bajo las cortas. Así cada categoría ocupa solo
+  // su propia altura y la siguiente sube a rellenar el hueco.
+  &__skills-grid {
+    column-count: 3;
+    column-gap: var(--space-5);
+  }
+
+  &__skills-group {
+    break-inside: avoid;
+    margin-bottom: var(--space-4);
+  }
+
+  &__skills-group h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: var(--space-2);
+  }
+
+  &__skills-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    color: var(--fg-dim);
+    font-size: 0.85rem;
+  }
+
+  // Formato compacto: Experience apilado bajo Services en la misma columna
+  // — sin bullets de detalle, solo empresa/rol/periodo.
+  &__timeline {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    font-family: var(--font-body);
+  }
+
+  &__timeline-role {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--fg);
+  }
+
+  // Misma prominencia que la línea de empresa/rol (sin atenuar ni encoger):
+  // en la referencia la fecha pesa igual, solo cambia a itálica.
+  &__timeline-period {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 0.938rem;
+    color: var(--fg);
+  }
+
+  @media (min-width: 1024px) {
+    &__grid {
+      grid-template-columns: 0.75fr 0.5fr 1.5fr;
+      grid-template-areas:
+        "intro column photo-main"
+        "mood  skills  skills";
+      align-items: start;
+      gap: var(--space-7);
+    }
+
+    &__intro {
+      grid-area: intro;
+    }
+
+    &__column {
+      grid-area: column;
+    }
+
+    &__photo--main {
+      grid-area: photo-main;
+    }
+
+    // La foto deja de ir centrada a ancho completo: ahora vive en su
+    // propia celda, a la izquierda de Skills.
+    &__photo--mood {
+      grid-area: mood;
+      margin: 0;
+    }
+
+    &__skills {
+      grid-area: skills;
+    }
+  }
+}

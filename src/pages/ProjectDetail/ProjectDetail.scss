@@ -1,0 +1,195 @@
+// Reserva desde el borde real del viewport hasta donde empieza la foto:
+// el padding-derecho del footer (mismo que usa .nav para posicionar ".wf")
+// más sitio para la columna de etiquetas rotadas + un pelín extra para
+// asegurar que la foto llega a tocar la "f" sin dejar hueco visible.
+$photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
+
+.project-detail {
+  position: relative;
+
+  &--not-found {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  &__main {
+    max-width: 26rem;
+  }
+
+  &__kicker {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 2rem;
+    letter-spacing: -2px;
+    text-transform: lowercase;
+    color: var(--fg);
+    margin-bottom: var(--space-4);
+  }
+
+  &__title {
+    display: inline-flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-display);
+    line-height: 0.85;
+    letter-spacing: -4px;
+    text-transform: lowercase;
+    color: var(--fg);
+    margin-bottom: var(--space-4);
+  }
+
+  &__year {
+    margin-top: 0.6em;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+    color: var(--fg);
+  }
+
+  &__description {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--fg);
+    margin-bottom: var(--space-4);
+  }
+
+  &__links {
+    display: flex;
+    gap: var(--space-3);
+
+    a {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+  }
+
+  // Fijo respecto al viewport, mismo "bottom" que el resto de paneles fijos.
+  // "right" se calcula a partir de la misma reserva que usa la galería
+  // (ver $photo-edge-reserve) más su ancho — así el stack termina justo
+  // donde empieza la foto y nunca se superponen, sin medir nada en JS.
+  &__stack {
+    position: fixed;
+    bottom: clamp(14rem, 7rem + 6vw, 13rem);
+    right: calc(#{$photo-edge-reserve} + 35vw + var(--space-4));
+    white-space: nowrap;
+    font-family: var(--font-display);
+
+    @media (max-width: 900px) {
+      position: static;
+      right: auto;
+      margin-bottom: var(--space-6);
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 1.125rem;
+      letter-spacing: -1px;
+      text-transform: lowercase;
+      margin-bottom: var(--space-2);
+    }
+
+    ul {
+      list-style: none;
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.875rem;
+      text-transform: lowercase;
+    }
+  }
+
+  // Capturas reales del proyecto: panel fijo a pantalla completa en alto
+  // (100vh) y ~35vw de ancho. "right:0" pega el panel al borde real del
+  // viewport y "margin-right" lo empuja hacia dentro exactamente
+  // $photo-edge-reserve — el mismo valor que usa .nav para su padding
+  // derecho (donde vive ".wf") más sitio para la columna de etiquetas.
+  // Resultado: el borde derecho de LA FOTO (no del panel) coincide con la
+  // "f", sin medir nada en JS. Grid real de 2 columnas: cada imagen ocupa
+  // 1 o 2 columnas según su orientación real (ver --wide). Vacío en la
+  // mayoría de proyectos todavía.
+  &__gallery {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-right: $photo-edge-reserve;
+    width: 35vw;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+    align-content: start;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      position: static;
+      right: auto;
+      margin-right: 0;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      padding: 0;
+      margin-top: var(--space-6);
+    }
+
+    // Con una sola imagen vertical, el grid la deja en la columna
+    // izquierda — se fuerza a la columna derecha para quedar pegada al
+    // borde. Si esa única imagen es horizontal (--wide) ya ocupa las dos
+    // columnas y esta regla no aplica.
+    &:has(.project-detail__gallery-item:only-child):not(:has(.project-detail__gallery-item--wide)) {
+      .project-detail__gallery-item {
+        grid-column: 2;
+      }
+    }
+  }
+
+  &__gallery-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    // Imagen horizontal: ocupa las dos columnas del grid.
+    &--wide {
+      grid-column: 1 / -1;
+    }
+
+    img {
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__gallery-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+
+    span {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: var(--font-display);
+      font-size: 0.625rem;
+      color: #000;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+  }
+}
