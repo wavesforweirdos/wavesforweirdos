@@ -5,8 +5,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-3);
-    margin-bottom: var(--space-5);
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+
+    @media (min-width: 768px) {
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
   }
 
   &__kicker {
@@ -23,8 +28,8 @@
   // apuntar a la izquierda, a modo de "<".
   &__back {
     flex-shrink: 0;
-    width: 50px;
-    height: 50px;
+    width: 34px;
+    height: 34px;
     border: none;
     background-color: transparent;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.1l-8-8 2.1-2.2 5.9 5.9 5.9-5.9 2.1 2.2z'/%3E%3C/svg%3E");
@@ -34,6 +39,11 @@
     transform: rotate(90deg);
     cursor: pointer;
     padding: 0;
+
+    @media (min-width: 768px) {
+      width: 50px;
+      height: 50px;
+    }
   }
 
   // Altura máxima con scroll interno: así el menú de categorías queda
@@ -41,7 +51,11 @@
   // Mismo valor explícito en wrap y list: max-height:100% en el hijo NO
   // funciona de forma fiable cuando el padre solo tiene max-height (sin
   // height propia), así que el <ul> no se comprimía y casi no scrolleaba.
-  --list-cap: 38vh;
+  --list-cap: 65vh;
+
+  @media (min-width: 768px) {
+    --list-cap: 38vh;
+  }
 
   &__list-wrap {
     position: relative;
@@ -58,7 +72,11 @@
     list-style: none;
     max-height: var(--list-cap);
     overflow-y: auto;
-    padding-block: 3.5rem;
+    padding-block: 2rem;
+
+    @media (min-width: 768px) {
+      padding-block: 3.5rem;
+    }
 
     // Oculta la barra de scroll nativa mantiendo el scroll funcional
     scrollbar-width: none;
@@ -84,6 +102,14 @@
       opacity: 0.9;
       transition: letter-spacing var(--duration-slow) var(--ease-hover);
 
+      // Con el título en una sola línea el año cabe al lado; si el título
+      // ocupa 2 líneas en mobile/tablet, la fila lo empujaba fuera. Se
+      // apila debajo en vez de perseguir el ancho disponible.
+      @media (max-width: 767px) {
+        flex-direction: column;
+        gap: 0;
+      }
+
       &:hover,
       &:focus-visible {
         letter-spacing: -6px;
@@ -99,8 +125,18 @@
 
     .projects__year {
       margin-top: 1em;
+
+      // Apilado (mobile/tablet): el hueco va debajo, pegado a su título,
+      // para que no parezca que pertenece al siguiente proyecto.
+      @media (max-width: 767px) {
+        margin-top: 0.25rem;
+        margin-bottom: 1em;
+      }
+
       font-family: var(--font-display);
-      font-size: 1.2rem;
+      // Fluido en mobile/tablet; a partir de ~960px se estabiliza en el
+      // mismo 1.2rem que tenía antes fijo.
+      font-size: clamp(0.85rem, 0.6rem + 1vw, 1.2rem);
       font-weight: 400;
       letter-spacing: -1px;
       color: var(--fg);
@@ -108,12 +144,19 @@
   }
 
   // Fijo respecto al viewport (misma altura en todas las páginas)
+  // Depende de hover/focus sobre cada proyecto, así que sin puntero no
+  // hay forma de cambiarlo: se oculta en mobile/tablet.
   &__stack {
+    display: none;
     position: fixed;
-    bottom: clamp(9rem, 7rem + 6vw, 13rem);
+    bottom: clamp(14rem, 7rem + 6vw, 13rem);
     right: clamp(1.5rem, 1rem + 3vw, 6rem);
     text-align: right;
     font-family: var(--font-display);
+
+    @media (min-width: 768px) {
+      display: block;
+    }
 
     h2 {
       font-weight: 600;
