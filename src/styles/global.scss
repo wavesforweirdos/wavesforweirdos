@@ -1,0 +1,103 @@
+@use "./tokens";
+@use "./fonts";
+
+// Reset mínimo
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+  // El grid de capturas de ProjectDetail se ancla a la "f" del footer y
+  // puede sobresalir del viewport a propósito — se recorta aquí en vez de
+  // generar scroll horizontal en toda la página.
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Grano real (asset de Figma), a la misma opacidad y tamaño de mosaico que en el diseño
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("../assets/textures/grain.png");
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  opacity: 0.8;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+// Foco de teclado visible en todos los elementos interactivos
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+// Respeta prefers-reduced-motion en toda la app (GSAP, Lenis, R3F leen esto también)
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

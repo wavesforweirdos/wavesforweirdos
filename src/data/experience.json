@@ -1,0 +1,54 @@
+[
+  {
+    "company": "Hola Consultores",
+    "client": "Volotea",
+    "role": "FrontEnd Developer",
+    "period": "2025 - 2026",
+    "description": [
+      "Desarrollo y mantenimiento de interfaces web con HTML5, CSS3, SASS y Angular 13.",
+      "Migración de Gulp a Vite, modernizando la arquitectura frontend (SCSS, gestión de dependencias y build).",
+      "Integración con backend (PHP) y despliegues con Jenkins y AWS (CloudFront/S3).",
+      "Control de versiones con Git/GitHub y trabajo en metodología ágil (JIRA, Confluence).",
+      "Optimización de rendimiento, mantenibilidad y calidad del código."
+    ],
+    "stack": ["HTML5", "CSS3", "SASS", "Angular 13", "Vite", "PHP", "Jenkins", "AWS", "Git"]
+  },
+  {
+    "company": "Mediaelx",
+    "client": null,
+    "role": "FullStack Developer",
+    "period": "2023 - 2025",
+    "description": [
+      "Desarrollo y mantenimiento de aplicaciones web con HTML5, CSS3, JavaScript, jQuery, Bootstrap, SCSS y Smarty.",
+      "Maquetación responsive a partir de diseños en Zeplin/Figma e integración con CRM.",
+      "Gestión y optimización de bases de datos MySQL, garantizando rendimiento y consistencia.",
+      "Mantenimiento, evolución y desarrollo de nuevas funcionalidades en CRM para clientes del sector inmobiliario.",
+      "Implantación en servidores, configuración de conexiones y gestión de servicios (incluido SMTP) para formularios y comunicaciones."
+    ],
+    "stack": ["HTML5", "CSS3", "JavaScript", "jQuery", "Bootstrap", "SCSS", "Smarty", "MySQL", "Figma"]
+  },
+  {
+    "company": "Freelance",
+    "client": null,
+    "role": "Jr Full Stack Developer",
+    "period": "2021 - 2022",
+    "description": [
+      "Desarrollo web para floristería (Laravel 10, Blade, TailwindCSS).",
+      "To-Do App (HTML5, TailwindCSS, MySQL/MongoDB).",
+      "3×3 Basket League Management App (Laravel 9, MySQL).",
+      "API REST DiceGame (Laravel 9 + Vue.js, Passport, roles, TDD)."
+    ],
+    "stack": ["Laravel", "Blade", "TailwindCSS", "HTML5", "MySQL", "MongoDB", "Vue.js", "APIs REST"]
+  },
+  {
+    "company": "ImpulseBrand",
+    "client": null,
+    "role": "Diseñadora gráfica & web",
+    "period": "2020 - 2021",
+    "description": [
+      "Creación de material gráfico on/offline, landings y webs.",
+      "Soporte al equipo de marketing (RRSS, newsletters, packaging)."
+    ],
+    "stack": ["Photoshop", "Illustrator", "InDesign"]
+  }
+]
