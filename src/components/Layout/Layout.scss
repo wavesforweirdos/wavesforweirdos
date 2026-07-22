@@ -1,0 +1,8 @@
+.page {
+  min-height: 100vh;
+  padding: var(--space-4) var(--space-4) 9rem;
+
+  @media (min-width: 768px) {
+    padding: var(--space-6) var(--space-6) 7rem;
+  }
+}

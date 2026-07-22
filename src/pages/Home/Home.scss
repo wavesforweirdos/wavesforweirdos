@@ -1,0 +1,28 @@
+.home {
+  display: flex;
+  align-items: center;
+
+  &__categories {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 0.3rem + 1vw, 2.4rem); // 38.39px en 1920w
+  }
+
+  &__category {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--fs-hero);
+    line-height: 1;
+    letter-spacing: -4px;
+    text-transform: lowercase;
+    color: var(--fg);
+    text-decoration: none;
+    width: fit-content;
+    transition: letter-spacing var(--duration-slow) var(--ease-hover);
+
+    &:hover,
+    &:focus-visible {
+      letter-spacing: -10px;
+    }
+  }
+}
