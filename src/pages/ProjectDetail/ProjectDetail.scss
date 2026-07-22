@@ -76,7 +76,7 @@ $photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
   // donde empieza la foto y nunca se superponen, sin medir nada en JS.
   &__stack {
     position: fixed;
-    bottom: clamp(9rem, 7rem + 6vw, 13rem);
+    bottom: clamp(14rem, 7rem + 6vw, 13rem);
     right: calc(#{$photo-edge-reserve} + 35vw + var(--space-4));
     white-space: nowrap;
     font-family: var(--font-display);
