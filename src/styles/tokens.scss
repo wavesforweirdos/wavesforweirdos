@@ -1,0 +1,51 @@
+// Design tokens — fuente de verdad: Figma (ver CLAUDE.md sección 3).
+// Colores y tipografía extraídos vía Figma Dev Mode MCP (frames Navbar,
+// Home, Projects, Loading). About/Project detail siguen pendientes de
+// extracción exacta (límite de cuota de la API alcanzado).
+
+:root {
+  // Color
+  --bg: #ffffff;
+  --fg: #1f1f1f;
+  --fg-dim: rgba(31, 31, 31, 0.5);
+  --accent: #06f039;
+  --accent-soft: #a9a0ff; // APROXIMADO — pendiente de confirmar en la página About
+  --line: rgba(31, 31, 31, 0.12);
+
+  // Tipografía — HK Grotesk aparece en TODOS los frames inspeccionados
+  // (Nav, Home, Proyectos, Loading), incluida la copy de párrafo. Inter no
+  // se ha visto en ningún frame real todavía — pendiente de confirmar en About.
+  --font-display: "HK Grotesk", sans-serif;
+  --font-body: "HK Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  // Escala de tamaños real (medida a 1920px de referencia, con clamp fluido)
+  --fs-hero: clamp(2.75rem, 1rem + 7vw, 8.4rem); // 134.4px en 1920w — Home
+  --fs-display: clamp(2rem, 0.75rem + 4vw, 4.8rem); // 76.8px en 1920w — kicker/listado Proyectos, Loading
+  --fs-nav-mark: clamp(2.5rem, 1.5rem + 3vw, 5rem); // 80px en 1920w — logotipo del nav
+
+  // Espaciado — escala base 8px
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --space-8: 8rem;
+
+  // Layout
+  --content-max: 1440px;
+  --radius: 4px;
+
+  // Movimiento
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-hover: cubic-bezier(0.075, 0.82, 0.165, 1); // easing real del hover en enlaces
+  --duration-fast: 0.2s;
+  --duration-base: 0.4s;
+  --duration-slow: 1.5s;
+
+  // z-index
+  --z-nav: 100;
+  --z-overlay: 200;
+}

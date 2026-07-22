@@ -19,7 +19,10 @@ Portfolio + CV personal, construido desde cero, que sirva como:
    JavaScript avanzado, integración de librerías complejas, visualización
    2D/3D, y procesamiento en cliente con buen rendimiento.
 
-No es un sitio de contenido pesado ni un CMS. Es una SPA estática, sin backend.
+No es un sitio de contenido pesado ni un CMS. Es una SPA estática, sin backend,
+pero **multi-página**: navegación client-side entre Home, About, listado de
+Proyectos y una página de detalle por proyecto (case study), según el diseño
+real de Figma (ver sección 3).
 
 ---
 
@@ -28,6 +31,7 @@ No es un sitio de contenido pesado ni un CMS. Es una SPA estática, sin backend.
 | Capa | Tecnología | Motivo |
 |---|---|---|
 | Framework | **React 19 + Vite** | Rápido en desarrollo, build óptimo, ya dominado |
+| Enrutado | **React Router** | El diseño de Figma es multi-página (Home, About, listado de Proyectos, detalle por proyecto) — estándar de facto con React + Vite |
 | Estilos | **SCSS** (variables/tokens, sin frameworks de UI) | Control total, demuestra CSS avanzado real |
 | Scroll | **Lenis** | Scroll suave performante, sucesor mantenido de Locomotive Scroll |
 | Animación 2D | **GSAP + ScrollTrigger** | Estándar de la industria para animación basada en scroll |
@@ -48,37 +52,53 @@ el diseño es a medida.
 `https://www.figma.com/design/TTxtWMw7tXf1AEAsaYhJsW/wavesforweirdos?m=auto&t=PqHYFrsr16NOmW05-6`
 
 El archivo de Figma (marcado "Ready for dev") contiene el layout definitivo
-del Hero, la nav numerada y las tarjetas de proyecto. Los tokens de esta
-sección son el punto de partida y el fallback para cualquier sección que
-Figma no cubra (Skills, Experiencia, Contacto, Footer) — pero si hay conflicto
-entre un valor de aquí y lo que muestra Figma (espaciados, tamaños, color
-exacto de algún componente), **manda Figma**. Antes de maquetar el Hero, la
-nav o las tarjetas de proyecto en la Fase 3, revisa el archivo de Figma y
-extrae medidas exactas (usa el modo Inspect/Dev Mode si tienes acceso).
+del sitio: **Home**, **About**, **listado de Proyectos** (con filtros por
+categoría y panel de stack técnico) y **página de detalle por proyecto**
+(case study a página completa). Es la fuente de verdad para layout, color,
+tipografía y comportamiento — **manda Figma** siempre que haya conflicto con
+los valores de esta sección. Antes de maquetar cualquier pantalla en la
+Fase 3, revisa el frame correspondiente en Figma y extrae medidas exactas
+(usa el modo Inspect/Dev Mode si tienes acceso).
 
 Si tienes conectado el MCP de Figma (Dev Mode), pide explícitamente:
-*"extrae el contexto de diseño del frame Hero/Nav/Proyectos"* antes de
-escribir el CSS de esas secciones, en vez de asumir valores.
+*"extrae el contexto de diseño del frame [Home/About/Proyectos/Detalle de
+proyecto]"* antes de escribir el CSS de esas pantallas, en vez de asumir
+valores.
 
-Estética: **100% oscura, editorial, minimalista.** Sin clichés de IA (nada de
-fondo crema + serif + terracota; nada de negro + verde ácido genérico).
+Estética: **clara, editorial, minimalista**, con textura de grano sutil sobre
+el fondo. Un único acento en verde vivo; un lila suave como acento secundario
+solo para enlaces inline en texto largo (bio de About). Nav numerada fija
+**abajo** (no arriba), como barra de pie persistente en todas las páginas:
+`00 home`, `01 about`, `02 e-mail` a la izquierda-centro, `03 github`,
+`04 linkedin` al lado; "Barcelona, Catalunya. / marta cruz" a la izquierda,
+marca `.mc` (o `.wf`) + un cuadrado negro decorativo a la derecha, y copyright
+en la esquina inferior.
 
 ```scss
---bg: #0b0d0c;           // negro casi puro
---bg-raised: #131615;
---fg: #ece7dd;           // blanco cálido, no #fff puro
---fg-dim: #8a8c86;
---accent: #4fd1c0;       // teal apagado — único acento, úsalo con moderación
---line: rgba(236, 231, 221, 0.14);
+--bg: #ffffff;             // blanco puro — CONFIRMADO vía Figma Dev Mode MCP
+--fg: #1f1f1f;              // texto casi negro — CONFIRMADO
+--fg-dim: rgba(31, 31, 31, 0.5); // texto secundario/opacidad de items inactivos — CONFIRMADO (patrón de opacidad, no un gris fijo)
+--accent: #06f039;          // verde vivo, único acento primario — CONFIRMADO
+--accent-soft: #a9a0ff;     // lila suave, solo enlaces inline en párrafos largos — APROXIMADO, pendiente de confirmar en About
+--line: rgba(31, 31, 31, 0.12);
 
---font-display: "Fraunces", serif;   // titulares, con cursiva itálica para matices
---font-body: "Inter", sans-serif;
---font-mono: "JetBrains Mono", monospace;  // labels, nav numerada, datos técnicos
+--font-display: "HK Grotesk", sans-serif;  // titulares — fuente de pago, self-hosteada (licencia de Marta)
+--font-body: "HK Grotesk", sans-serif;     // CONFIRMADO: el body text también es HK Grotesk (no Inter) en todos los frames inspeccionados
+--font-mono: "JetBrains Mono", monospace;  // labels técnicos: nav numerada, ficha EXIF (f/4.0, ISO), lista de stack
 ```
 
-Elemento de identidad: **navegación numerada fija** (`00 Inicio`, `01 Sobre
-mí`, `02 Skills`...) con `mix-blend-mode: difference`. Tipografía display
-enorme (`clamp(4rem, 2.5rem + 8vw, 9.5rem)`) como protagonista del hero.
+HK Grotesk es de pago (Hanken Design Co.) — Marta tiene licencia y aporta los
+`.woff2` para self-hostear en `src/assets/fonts/` con `@font-face` (no vía
+Google Fonts). Inter **no se usa** en el diseño real — se retiró de
+`index.html` tras confirmarlo con Figma Dev Mode.
+
+> Colores y tipografía confirmados vía Figma Dev Mode MCP para los frames
+> Nav, Home, Proyectos y Loading. La página **About** y el **detalle de
+> proyecto** siguen sin inspeccionar en detalle (límite de cuota de la API
+> de Figma) — sus valores de spacing/tipografía exactos aún están pendientes.
+
+Además del layout de página, el sitio incluye un **preloader** de carga
+inicial (indicador de progreso 0→100% antes de revelar el contenido).
 
 Reglas no negociables:
 - Respeta `prefers-reduced-motion` en TODAS las animaciones (GSAP, Lenis, R3F).
@@ -93,7 +113,8 @@ Reglas no negociables:
 ```
 src/
   data/            # profile.json, skills.json, experience.json, projects.json
-  components/      # un componente = un .jsx + un .scss junto a él
+  pages/           # Home, About, Projects (listado), ProjectDetail — una ruta = una page
+  components/      # un componente = un .jsx + un .scss junto a él (compartidos entre pages)
   hooks/           # useSmoothScroll, useScrollReveal, hooks de R3F
   three/           # escenas y componentes de Three.js/R3F, separados de la UI
   styles/          # tokens.scss, global.scss
@@ -170,15 +191,28 @@ usado en cada uno).
 
 **Fase 3 — Layout y componentes base**
 **Antes de escribir código de esta fase, revisa el archivo de Figma** (sección
-3) para el Hero, la nav numerada y las tarjetas de proyecto — son las
-secciones ya maquetadas ahí. Header (nav numerada), Hero, About, Skills,
-Experience, Projects, Contact, Footer. Sin animación todavía — que funcione y
-se vea bien estático primero. Para Skills/Experiencia/Contacto/Footer
-(no maquetadas en Figma), sigue los tokens de la sección 3 directamente.
+3) frame a frame — el diseño es multi-página. Instalar y configurar React
+Router. Construir: nav numerada fija (footer persistente en todas las
+páginas), página Home, página About (bio + servicios + foto), página de
+listado de Proyectos (con filtros por categoría y panel de stack técnico) y
+página de detalle por proyecto (case study). Preloader de carga inicial.
+Sin animación todavía — que funcione y se vea bien estático primero. Para
+cualquier sección que Figma no cubra explícitamente (p. ej. dónde viven
+Skills/Experiencia si no tienen pantalla propia), sigue los tokens de la
+sección 3 y pregunta a Marta antes de asumir la ubicación.
 
 **Fase 4 — Scroll y animación**
 `useSmoothScroll` (Lenis) + `useScrollReveal` (GSAP ScrollTrigger) sobre los
 componentes ya construidos.
+
+Animaciones pendientes detectadas durante la Fase 3 (no implementar hasta
+esta fase, pero no olvidarlas al abordarla):
+- **Animación de entrada/posición al cargar o hacer scroll** (stagger
+  reveal): casi todos los elementos (nav, listado de proyectos, categorías,
+  foto de About...) deben animarse desde una posición/opacidad inicial
+  hasta su posición final al aparecer en viewport. Replicar con GSAP +
+  ScrollTrigger (o al montar cada página), respetando
+  `prefers-reduced-motion`.
 
 **Fase 5 — La pieza 2D/3D**
 Construir `<WaveScene />` según la sección 5. Esta fase es la más delicada —

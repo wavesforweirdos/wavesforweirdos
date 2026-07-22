@@ -1,0 +1,34 @@
+// Contenedor fijo compartido por projects__categories y project-detail__others:
+// misma posición (bottom-left, igual altura en cualquier página) y misma
+// disposición en grid de 3 filas que crece en horizontal con scroll.
+.dot-link-grid {
+  display: none;
+  position: fixed;
+  bottom: clamp(14rem, 7rem + 6vw, 13rem);
+  max-width: min(38vw, 35rem);
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+  // Pérdida de opacidad en vez de un bloque de color superpuesto —
+  // deja pasar la textura de grano del fondo sin costuras visibles.
+  mask-image: linear-gradient(to right, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
+
+  &__scroll {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+    column-gap: var(--space-6);
+    row-gap: 0.4rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+
+    // Oculta la barra de scroll nativa manteniendo el scroll funcional
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
