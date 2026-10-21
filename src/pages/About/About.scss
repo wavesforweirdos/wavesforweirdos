@@ -152,7 +152,11 @@
     }
   }
 
+  // width: 100% da a cada foto un ancho definido desde el primer pintado. Sin él
+  // el contenedor se ajustaba al contenido y, hasta que cargaba la imagen, el
+  // width: 80% del <img> se resolvía a 0: al llegar la foto todo saltaba (CLS 0.13).
   &__photo--main {
+    width: 100%;
     max-width: 450px;
     img {
       transform: rotate(6deg);
@@ -165,6 +169,7 @@
   }
 
   &__photo--mood {
+    width: 100%;
     max-width: 420px;
     margin: 0 auto;
     img {

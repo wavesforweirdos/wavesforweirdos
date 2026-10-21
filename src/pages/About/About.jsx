@@ -2,9 +2,14 @@ import profile from '../../data/profile.json'
 import skills from '../../data/skills.json'
 import experience from '../../data/experience.json'
 import photoMain from '../../assets/profile/photo-4.jpeg'
+import photoMainSm from '../../assets/profile/photo-4-600.jpeg'
 import photoMood from '../../assets/profile/photo-1.jpeg'
+import photoMoodSm from '../../assets/profile/photo-1-560.jpeg'
 import './About.scss'
 import usePageMeta from '../../hooks/usePageMeta.js'
+
+// Las fotos ocupan el 80% del ancho en móvil/tablet y como máximo 450px en escritorio.
+const PHOTO_SIZES = '(max-width: 1023px) 80vw, 450px'
 
 function About() {
   usePageMeta({
@@ -51,11 +56,29 @@ function About() {
         </div>
 
         <div className="about__photo about__photo--main">
-          <img src={photoMain} alt={profile.name} width="900" height="1096" decoding="async" />
+          <img
+            src={photoMain}
+            srcSet={`${photoMainSm} 600w, ${photoMain} 900w`}
+            sizes={PHOTO_SIZES}
+            alt={profile.name}
+            width="900"
+            height="1096"
+            decoding="async"
+            fetchPriority="high"
+          />
         </div>
 
         <div className="about__photo about__photo--mood">
-          <img src={photoMood} alt="" width="840" height="1120" decoding="async" />
+          <img
+            src={photoMood}
+            srcSet={`${photoMoodSm} 560w, ${photoMood} 840w`}
+            sizes={PHOTO_SIZES}
+            alt=""
+            width="840"
+            height="1120"
+            decoding="async"
+            fetchPriority="high"
+          />
         </div>
 
         <section className="about__skills">

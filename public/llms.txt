@@ -1,0 +1,32 @@
+# wavesforweirdos
+
+> Portfolio y CV de Marta Cruz, Full Stack / Frontend Developer en Barcelona. Sitio estático multipágina con su presentación, experiencia, skills y proyectos web.
+
+## Páginas
+
+- [Home](https://www.wavesforweirdos.com/): áreas de trabajo.
+- [About](https://www.wavesforweirdos.com/about): bio, servicios, experiencia y skills.
+- [Proyectos](https://www.wavesforweirdos.com/proyectos): listado de proyectos.
+
+## Proyectos
+
+- [KFacil Inmobiliaria](https://www.wavesforweirdos.com/proyectos/kfacil): Aplicación de gestión inmobiliaria (KFacil Inmobiliaria) con backend en Laravel/PHP y base de datos MySQL.
+- [Photo Gallery](https://www.wavesforweirdos.com/proyectos/photo-gallery): Visor de fotos de Unsplash, nacido como Front End Challenge de NUWE y modernizado en 2026: búsqueda por palabra clave con el término en la URL, paginación con…
+- [3×3 Basket League Management App](https://www.wavesforweirdos.com/proyectos/3x3-basket-league): Aplicación de gestión para una liga de baloncesto 3×3, desarrollada con Laravel 9 y MySQL.
+- [API REST DiceGame](https://www.wavesforweirdos.com/proyectos/dices-api-rest): API REST de un juego de dados con Laravel 9 y Vue.js: autenticación con Passport, gestión de roles y desarrollo guiado por tests (TDD).
+- [Mission List](https://www.wavesforweirdos.com/proyectos/mission-list): To-Do App: aplicación de gestión de tareas construida en PHP.
+- [Landing Template](https://www.wavesforweirdos.com/proyectos/landing-template): Plantilla de landing page maquetada con CSS.
+- [Zara Phones](https://www.wavesforweirdos.com/proyectos/zara-phones): Prueba técnica para Inditex/Zara: catálogo de móviles con listado con búsqueda y filtro por color, ficha de producto con selector de almacenamiento/color y…
+- [Meal Planner](https://www.wavesforweirdos.com/proyectos/meal-planner): Planificador de comidas con recetas de la API de Spoonacular, desarrollado para el IT Hackathon de JOBarcelona'23. Organización semanal de recetas mediante…
+- [La Marialluïsa](https://www.wavesforweirdos.com/proyectos/la-marialluisa): Desarrollo web para floristería.
+- [Sprint 3 IT Academy — Shopping Cart](https://www.wavesforweirdos.com/proyectos/sprint-3-it-academy): Ejercicio del Bootcamp Full Stack PHP de IT Academy: lógica de carrito de compra y precios promocionales en JavaScript puro, sobre datos de producto…
+
+## Enlaces
+
+- [GitHub](https://github.com/wavesforweirdos)
+- [LinkedIn](https://www.linkedin.com/in/wavesforweirdos/)
+- [Behance](https://www.behance.net/wavesforweirdos)
+
+## Optional
+
+- [Sitemap](https://www.wavesforweirdos.com/sitemap.xml)

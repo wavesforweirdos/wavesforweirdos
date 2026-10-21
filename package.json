@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "sitemap": "node scripts/generate-sitemap.mjs",
-    "prebuild": "npm run sitemap",
+    "seo": "node scripts/generate-seo-files.mjs",
+    "prebuild": "npm run seo",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"
