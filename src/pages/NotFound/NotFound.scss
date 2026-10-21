@@ -1,0 +1,16 @@
+@use '../../styles/focus' as *;
+
+// Misma presentación que el "proyecto no encontrado" de ProjectDetail.
+.not-found {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  &__title {
+    font: inherit;
+  }
+
+  a {
+    @include focus-underline;
+  }
+}
