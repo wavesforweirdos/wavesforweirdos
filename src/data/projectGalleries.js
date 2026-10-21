@@ -14,8 +14,12 @@ import zaraMobileFicha from '../assets/projects/zara-phones/mobile-ficha.png'
 import zaraTabletListado from '../assets/projects/zara-phones/tablet-listado.png'
 import basketCover from '../assets/projects/3x3-basket-league/cover.jpg'
 import missionCover from '../assets/projects/mission-list/cover.jpg'
-import photoListado from '../assets/projects/photo-gallery/listado.jpg'
-import photoDetalle from '../assets/projects/photo-gallery/detalle.jpg'
+import photoListadoDesktop from '../assets/projects/photo-gallery/listado-desktop.jpg'
+import photoDetalleDesktop from '../assets/projects/photo-gallery/detalle-desktop.jpg'
+import photoListadoTablet from '../assets/projects/photo-gallery/listado-tablet.jpg'
+import photoListadoMobile from '../assets/projects/photo-gallery/listado-mobile.jpg'
+import photoDetalleMobile from '../assets/projects/photo-gallery/detalle-mobile.jpg'
+import photoFocoInput from '../assets/projects/photo-gallery/foco-input.jpg'
 
 const projectGalleries = {
   'zara-phones': [
@@ -30,8 +34,12 @@ const projectGalleries = {
     { src: zaraTabletListado, tags: ['listado', 'tablet', '834px'] },
   ],
   'photo-gallery': [
-    { src: photoListado, tags: ['búsqueda', 'mosaico', 'desktop'] },
-    { src: photoDetalle, tags: ['detalle', 'atribución', 'desktop'] },
+    { src: photoListadoDesktop, tags: ['búsqueda', 'mosaico', 'desktop'] },
+    { src: photoDetalleDesktop, tags: ['detalle', 'atribución', 'desktop'] },
+    { src: photoListadoTablet, tags: ['listado', 'tablet', '834px'] },
+    { src: photoListadoMobile, tags: ['listado', 'mobile', '390px'] },
+    { src: photoDetalleMobile, tags: ['detalle', 'mobile', '390px'] },
+    { src: photoFocoInput, tags: ['input', 'foco', 'teclado'] },
   ],
   '3x3-basket-league': [{ src: basketCover, tags: ['landing'] }],
   'mission-list': [{ src: missionCover, tags: ['gestión'] }],
