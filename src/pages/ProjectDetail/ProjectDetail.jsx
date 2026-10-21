@@ -1,29 +1,25 @@
-import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import projects from '../../data/projects.json'
 import projectGalleries from '../../data/projectGalleries.js'
 import DotLink from '../../components/DotLink/DotLink.jsx'
 import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
-import useDocumentTitle from '../../hooks/useDocumentTitle.js'
+import usePageMeta, { truncate } from '../../hooks/usePageMeta.js'
 import './ProjectDetail.scss'
 
 function ProjectDetail() {
   const { slug } = useParams()
   const project = projects.find((p) => p.slug === slug)
-  const [orientations, setOrientations] = useState({})
 
-  useDocumentTitle(project ? project.title : 'Proyecto no encontrado')
-
-  const handleImageLoad = (src) => (event) => {
-    const { naturalWidth, naturalHeight } = event.target
-    const orientation = naturalWidth >= naturalHeight ? 'landscape' : 'portrait'
-    setOrientations((prev) => (prev[src] === orientation ? prev : { ...prev, [src]: orientation }))
-  }
+  usePageMeta(
+    project
+      ? { title: project.title, description: truncate(project.description) }
+      : { title: 'Proyecto no encontrado', noindex: true },
+  )
 
   if (!project) {
     return (
       <div className="project-detail project-detail--not-found">
-        <p>No se ha encontrado el proyecto.</p>
+        <h1 className="project-detail__missing">No se ha encontrado el proyecto.</h1>
         <Link to="/proyectos">← Volver a proyectos</Link>
       </div>
     )
@@ -69,17 +65,29 @@ function ProjectDetail() {
       )}
 
       {gallery.length > 0 && (
-        <div className="project-detail__gallery">
+        <div
+          className="project-detail__gallery"
+          role="region"
+          aria-label={`Capturas de ${project.title}`}
+          tabIndex={0}
+        >
           {gallery.map((img) => (
             <figure
               key={img.src}
               className={
-                orientations[img.src] === 'landscape'
+                img.width >= img.height
                   ? 'project-detail__gallery-item project-detail__gallery-item--wide'
                   : 'project-detail__gallery-item'
               }
             >
-              <img src={img.src} alt="" loading="lazy" onLoad={handleImageLoad(img.src)} />
+              <img
+                src={img.src}
+                width={img.width}
+                height={img.height}
+                alt={`${project.title}: ${img.tags.join(', ')}`}
+                loading="lazy"
+                decoding="async"
+              />
               <div className="project-detail__gallery-tags">
                 {img.tags.map((tag) => (
                   <span key={tag}>{tag}</span>

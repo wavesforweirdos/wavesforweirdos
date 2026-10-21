@@ -1,0 +1,16 @@
+// Accesibilidad: mixins reutilizables.
+//
+// visually-hidden: el contenido sigue disponible para lectores de pantalla
+// (y para el orden de lectura/SEO) pero no se ve, p. ej. el <h1> de Home.
+// Solo mixins (sin CSS propio) para no duplicar reglas al importarlo.
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

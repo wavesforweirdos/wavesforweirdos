@@ -37,8 +37,8 @@ function Preloader() {
   if (done) return null
 
   return (
-    <div className="preloader" role="status" aria-live="polite">
-      <span className="preloader__pct">{progress}%</span>
+    <div className="preloader" role="status" aria-label="Cargando">
+      <span className="preloader__pct" aria-hidden="true">{progress}%</span>
     </div>
   )
 }

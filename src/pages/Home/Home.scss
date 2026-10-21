@@ -1,8 +1,14 @@
 @use '../../styles/focus' as *;
 
+@use '../../styles/a11y' as *;
+
 .home {
   display: flex;
   align-items: center;
+
+  &__title {
+    @include visually-hidden;
+  }
 
   &__categories {
     display: flex;

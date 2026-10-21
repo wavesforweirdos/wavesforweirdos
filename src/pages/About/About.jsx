@@ -4,10 +4,14 @@ import experience from '../../data/experience.json'
 import photoMain from '../../assets/profile/photo-4.jpeg'
 import photoMood from '../../assets/profile/photo-1.jpeg'
 import './About.scss'
-import useDocumentTitle from '../../hooks/useDocumentTitle.js'
+import usePageMeta from '../../hooks/usePageMeta.js'
 
 function About() {
-  useDocumentTitle('About')
+  usePageMeta({
+    title: 'About',
+    description:
+      'Marta Cruz: de la animación y el diseño al desarrollo Full Stack y Frontend. Trayectoria, experiencia y skills.',
+  })
   return (
     <div className="about">
       <div className="about__grid">
@@ -47,11 +51,11 @@ function About() {
         </div>
 
         <div className="about__photo about__photo--main">
-          <img src={photoMain} alt={profile.name} />
+          <img src={photoMain} alt={profile.name} width="900" height="1096" decoding="async" />
         </div>
 
         <div className="about__photo about__photo--mood">
-          <img src={photoMood} alt="" />
+          <img src={photoMood} alt="" width="840" height="1120" decoding="async" />
         </div>
 
         <section className="about__skills">

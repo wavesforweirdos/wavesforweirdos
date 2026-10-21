@@ -129,6 +129,7 @@
 
   &__photo img {
     width: 100%;
+    height: auto; // con width/height en el <img>: reserva el hueco sin deformar
     border: 30px solid var(--bg);
     box-shadow: 0 12px 30px rgba(23, 24, 26, 0.18);
     transform-origin: bottom right;
