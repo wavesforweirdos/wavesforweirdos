@@ -1,3 +1,5 @@
+@use '../../styles/focus' as *;
+
 .dot-link {
   display: flex;
   align-items: center;
@@ -11,6 +13,9 @@
   color: var(--accent);
   text-decoration: none;
   transition: letter-spacing var(--duration-slow) var(--ease-hover);
+
+  // Más fino que el subrayado global: el texto del dot-link es pequeño.
+  @include focus-underline('.dot-link__label', var(--focus-thickness-thin));
 
   &:focus-visible {
     letter-spacing: -2px;
