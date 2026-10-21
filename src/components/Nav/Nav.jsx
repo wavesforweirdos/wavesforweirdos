@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import profile from '../../data/profile.json'
 import './Nav.scss'
 
-// Por debajo de este ancho no hay hover: el logo pasa a abrir/cerrar el
+// Por debajo de este ancho no hay hover: el punto pasa a abrir/cerrar el
 // menú en vez de navegar (mismo umbral que el resto de ajustes mobile del nav).
 const MOBILE_QUERY = '(max-width: 1023px)'
 
@@ -13,7 +13,7 @@ function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHomeOpen, setIsHomeOpen] = useState(false)
 
-  function handleLogoClick() {
+  function handleDotClick() {
     if (window.matchMedia(MOBILE_QUERY).matches) {
       setIsMenuOpen((open) => !open)
       return
@@ -77,21 +77,24 @@ function Nav() {
           </li>
         </ol>
 
-        <button
-          type="button"
-          className="nav__logo"
-          aria-expanded={isMenuOpen}
-          aria-controls="nav-menu"
-          onClick={handleLogoClick}
-        >
-          .wf
-        </button>
+        <Link to="/" className="nav__logo">.wf</Link>
       </div>
 
       <small className="nav__copyright">
         Copyright © {year} {profile.name}. All rights reserved.
       </small>
-      <Link to="/" className="nav__dot" aria-label="Inicio" />
+      <button
+        type="button"
+        className={`nav__dot${isMenuOpen ? ' is-open' : ''}`}
+        aria-label={isMenuOpen ? 'Cerrar menú' : 'Inicio'}
+        aria-expanded={isMenuOpen}
+        aria-controls="nav-menu"
+        onClick={handleDotClick}
+      >
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+      </button>
     </footer>
   )
 }
