@@ -12,7 +12,7 @@
 
     @media (min-width: 768px) {
       gap: var(--space-3);
-      margin-bottom: var(--space-5);
+      margin-bottom: var(--space-2);
     }
   }
 
@@ -162,7 +162,7 @@
   &__stack {
     display: none;
     position: fixed;
-    bottom: clamp(14rem, 7rem + 6vw, 13rem);
+    bottom: var(--nav-clearance);
     right: clamp(1.5rem, 1rem + 3vw, 6rem);
     text-align: right;
     font-family: var(--font-display);
