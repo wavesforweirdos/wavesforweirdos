@@ -47,11 +47,11 @@ function About() {
         </div>
 
         <div className="about__photo about__photo--main">
-          <img src={photoMain} alt={profile.name} />
+          <img src={photoMain} alt={profile.name} width="900" height="1096" decoding="async" />
         </div>
 
         <div className="about__photo about__photo--mood">
-          <img src={photoMood} alt="" />
+          <img src={photoMood} alt="" width="840" height="1120" decoding="async" />
         </div>
 
         <section className="about__skills">
