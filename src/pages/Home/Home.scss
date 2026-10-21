@@ -20,9 +20,16 @@
     width: fit-content;
     transition: letter-spacing var(--duration-slow) var(--ease-hover);
 
-    &:hover,
+    // Solo con puntero real: en touch el hover se queda "pegado" tras el
+    // tap, sin forma de deshacerlo. El foco de teclado sigue siempre activo.
     &:focus-visible {
       letter-spacing: -10px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        letter-spacing: -10px;
+      }
     }
   }
 }
