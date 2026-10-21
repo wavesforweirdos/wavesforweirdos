@@ -1,3 +1,5 @@
+@use '../../styles/focus' as *;
+
 .projects {
   position: relative;
 
@@ -39,6 +41,8 @@
     transform: rotate(90deg);
     cursor: pointer;
     padding: 0;
+
+    @include focus-outline;
 
     @media (min-width: 768px) {
       width: 50px;
@@ -110,19 +114,12 @@
         gap: 0;
       }
 
-      // Foco de teclado: el mismo desplazamiento del hover y, en lugar del
-      // outline global, un subrayado grueso solo bajo el título (el año
-      // queda sin subrayar).
+      // Foco de teclado: subrayado grueso solo bajo el título (el año queda
+      // sin subrayar) y el mismo desplazamiento que el hover.
+      @include focus-underline('.projects__title');
+
       &:focus-visible {
         letter-spacing: -6px;
-        outline: none;
-
-        .projects__title {
-          text-decoration: underline;
-          text-decoration-color: var(--accent);
-          text-decoration-thickness: max(3px, 0.08em);
-          text-underline-offset: 0.14em;
-        }
       }
 
       @media (hover: hover) {

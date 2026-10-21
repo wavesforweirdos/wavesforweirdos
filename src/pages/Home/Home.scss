@@ -1,3 +1,5 @@
+@use '../../styles/focus' as *;
+
 .home {
   display: flex;
   align-items: center;
@@ -19,6 +21,8 @@
     text-decoration: none;
     width: fit-content;
     transition: letter-spacing var(--duration-slow) var(--ease-hover);
+
+    @include focus-underline;
 
     // Solo con puntero real: en touch el hover se queda "pegado" tras el
     // tap, sin forma de deshacerlo. El foco de teclado sigue siempre activo.
