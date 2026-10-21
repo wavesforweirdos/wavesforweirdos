@@ -3,10 +3,82 @@
   // más alto de lo habitual (2 filas): margen extra para poder scrollear
   // hasta leer el último elemento sin que el nav lo tape.
   padding-block: var(--space-8);
+  // Las fotos rotadas (transform) sobresalen un poco de su caja al girar;
+  // se recorta aquí en vez de generar scroll horizontal en toda la página.
+  overflow-x: hidden;
 
   &__grid {
     display: grid;
+    // minmax(0, 1fr) en vez de dejar la columna implícita en auto: por
+    // defecto los items de grid no se encogen por debajo de su
+    // min-content, así que un texto largo sin cortes empujaba todo el
+    // grid (y la página) más ancho que el viewport en mobile.
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-6);
+  }
+
+  // Orden visual en mobile: las dos fotos comparten la misma área de grid
+  // (se superponen, cada una con su propio ángulo de rotación, tipo pila
+  // de polaroids), y debajo va el texto, services+experience y skills.
+  @media (max-width: 767px) {
+    &__grid {
+      grid-template-areas:
+        "photos"
+        "intro"
+        "column"
+        "skills";
+    }
+
+    &__photo--main,
+    &__photo--mood {
+      grid-area: photos;
+    }
+
+    &__intro {
+      grid-area: intro;
+    }
+
+    &__column {
+      grid-area: column;
+    }
+
+    &__skills {
+      grid-area: skills;
+    }
+  }
+
+  // Tablet: a 2 columnas — el texto ocupa la izquierda a lo alto de 2
+  // filas (photo 1 + services/experience apilados a la derecha), y debajo
+  // photo 2 junto a skills (también a 2 columnas).
+  @media (min-width: 768px) and (max-width: 1439px) {
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "intro photo-main"
+        "intro column"
+        "photo-mood skills";
+      align-items: start;
+    }
+
+    &__intro {
+      grid-area: intro;
+    }
+
+    &__photo--main {
+      grid-area: photo-main;
+    }
+
+    &__photo--mood {
+      grid-area: photo-mood;
+    }
+
+    &__column {
+      grid-area: column;
+    }
+
+    &__skills {
+      grid-area: skills;
+    }
   }
 
   &__title {
@@ -39,7 +111,7 @@
 
   &__label {
     font-family: var(--font-mono);
-    font-size: .90rem;
+    font-size: 0.9rem;
     font-weight: 600;
     text-transform: capitalize;
     margin-bottom: var(--space-3);
@@ -62,18 +134,32 @@
     transform-origin: bottom right;
     transition: transform var(--duration-base) var(--ease);
 
+    @media (max-width: 1023px) {
+      width: 80%;
+      margin-inline: auto;
+      border-width: 20px;
+    }
+
     // Más específico que .about__photo--main/--mood img (la pseudo-clase
     // suma especificidad), así endereza cualquiera de las dos al hacer hover.
-    &:hover {
-      transform: rotate(0deg);
+    // Solo con puntero real: en touch el hover se queda "pegado" tras el
+    // tap, sin forma de deshacerlo.
+    @media (hover: hover) {
+      &:hover {
+        transform: rotate(0deg);
+      }
     }
   }
 
   &__photo--main {
     max-width: 450px;
-    margin-left: var(--space-6);
     img {
       transform: rotate(6deg);
+    }
+
+    // Superpuestas en mobile (misma área de grid): photo-4 va delante.
+    @media (max-width: 1023px) {
+      z-index: 1;
     }
   }
 
@@ -82,6 +168,13 @@
     margin: 0 auto;
     img {
       transform: rotate(2deg);
+
+      // Rotación en dirección opuesta a photo--main (en vez de +2deg) para
+      // que el ángulo distinto se note al estar superpuestas y no parezca
+      // la misma transformación.
+      @media (max-width: 1023px) {
+        transform: rotate(-4deg);
+      }
     }
   }
 
@@ -90,8 +183,18 @@
   // dejaba huecos enormes bajo las cortas. Así cada categoría ocupa solo
   // su propia altura y la siguiente sube a rellenar el hueco.
   &__skills-grid {
-    column-count: 3;
+    column-count: 1;
     column-gap: var(--space-5);
+
+    // Mismo umbral que about__grid: 2 columnas hasta 1440px, donde el
+    // grid general también pasa a 3.
+    @media (min-width: 768px) and (max-width: 1439px) {
+      column-count: 2;
+    }
+
+    @media (min-width: 1440px) {
+      column-count: 3;
+    }
   }
 
   &__skills-group {
@@ -140,14 +243,13 @@
     color: var(--fg);
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1440px) {
     &__grid {
       grid-template-columns: 0.75fr 0.5fr 1.5fr;
       grid-template-areas:
         "intro column photo-main"
         "mood  skills  skills";
       align-items: start;
-      gap: var(--space-7);
     }
 
     &__intro {
@@ -160,6 +262,7 @@
 
     &__photo--main {
       grid-area: photo-main;
+      margin-left: var(--space-6);
     }
 
     // La foto deja de ir centrada a ancho completo: ahora vive en su
@@ -171,6 +274,12 @@
 
     &__skills {
       grid-area: skills;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    &__grid {
+      gap: var(--space-7);
     }
   }
 }
