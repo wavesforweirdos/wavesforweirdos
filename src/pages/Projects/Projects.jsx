@@ -43,7 +43,7 @@ function Projects() {
               onFocus={() => setHoveredSlug(project.slug)}
             >
               <Link to={`/proyectos/${project.slug}`}>
-                {project.title}
+                <span className="projects__title">{project.title}</span>
                 <span className="projects__year">/ {project.year}</span>
               </Link>
             </li>
