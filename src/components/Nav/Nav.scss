@@ -1,3 +1,5 @@
+@use '../../styles/focus' as *;
+
 .nav {
   position: fixed;
   inset: auto 0 0 0;
@@ -201,6 +203,9 @@
       text-decoration: none;
       transition: letter-spacing var(--duration-slow) var(--ease-hover), color var(--duration-fast) var(--ease);
 
+      // Más fino que el subrayado global: el texto del nav es pequeño.
+      @include focus-underline($thickness: var(--focus-thickness-thin));
+
       &.active {
         letter-spacing: -2px;
       }
@@ -235,6 +240,8 @@
       cursor: pointer;
       padding: 0;
       transition: transform var(--duration-fast) var(--ease);
+
+      @include focus-outline;
 
       @media (max-width: 1023px) {
         display: inline-flex;
@@ -285,6 +292,8 @@
     line-height: 1;
     letter-spacing: -5px;
     color: #000;
+
+    @include focus-underline;
   }
 
   // En desktop: un único cuadrado, enlace a home (comportamiento original).
@@ -304,6 +313,8 @@
     // Fuera de .nav__row: sin esto hereda pointer-events:none de .nav y
     // el botón queda inerte.
     pointer-events: auto;
+
+    @include focus-outline;
 
     span {
       display: none;

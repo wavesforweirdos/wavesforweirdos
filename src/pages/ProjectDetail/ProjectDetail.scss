@@ -1,3 +1,5 @@
+@use '../../styles/focus' as *;
+
 // Reserva desde el borde real del viewport hasta donde empieza la foto:
 // el padding-derecho del footer (mismo que usa .nav para posicionar ".wf")
 // más sitio para la columna de etiquetas rotadas + un pelín extra para
@@ -11,6 +13,10 @@ $photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+
+    a {
+      @include focus-underline;
+    }
   }
 
   &__main {
@@ -67,6 +73,9 @@ $photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
       color: var(--accent);
       font-family: var(--font-mono);
       font-size: 0.85rem;
+
+      // Texto pequeño: subrayado más fino que el global.
+      @include focus-underline($thickness: var(--focus-thickness-thin));
     }
   }
 
