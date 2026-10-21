@@ -14,6 +14,8 @@ import zaraMobileFicha from '../assets/projects/zara-phones/mobile-ficha.png'
 import zaraTabletListado from '../assets/projects/zara-phones/tablet-listado.png'
 import basketCover from '../assets/projects/3x3-basket-league/cover.jpg'
 import missionCover from '../assets/projects/mission-list/cover.jpg'
+import photoListado from '../assets/projects/photo-gallery/listado.jpg'
+import photoDetalle from '../assets/projects/photo-gallery/detalle.jpg'
 
 const projectGalleries = {
   'zara-phones': [
@@ -26,6 +28,10 @@ const projectGalleries = {
     { src: zaraMobileListado, tags: ['listado', 'mobile', '390px'] },
     { src: zaraMobileFicha, tags: ['ficha', 'mobile', '390px'] },
     { src: zaraTabletListado, tags: ['listado', 'tablet', '834px'] },
+  ],
+  'photo-gallery': [
+    { src: photoListado, tags: ['búsqueda', 'mosaico', 'desktop'] },
+    { src: photoDetalle, tags: ['detalle', 'atribución', 'desktop'] },
   ],
   '3x3-basket-league': [{ src: basketCover, tags: ['landing'] }],
   'mission-list': [{ src: missionCover, tags: ['gestión'] }],
