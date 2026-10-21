@@ -1,9 +1,10 @@
+@use '../../styles/focus' as *;
+
 .nav {
   position: fixed;
   inset: auto 0 0 0;
   z-index: var(--z-nav);
-  padding: clamp(3rem, 2rem + 5vw, 6rem) var(--space-4)
-    clamp(2.5rem, 1.5rem + 4vw, 4.8rem);
+  padding: var(--nav-pad-top) var(--space-4) var(--nav-pad-bottom);
   font-family: var(--font-display);
   // La caja del nav es más alta que su contenido visible (para el
   // degradado). Sin esto, la zona "transparente" seguiría capturando
@@ -26,6 +27,13 @@
     z-index: -1;
     pointer-events: none;
     background: linear-gradient(180deg, transparent 30%, var(--bg));
+
+    // Con poca altura el contenido pasa más tiempo bajo el nav: el fundido
+    // empieza desde el borde superior (en vez de al 30%) para que sea más
+    // gradual.
+    @media (max-height: 899px) {
+      background: linear-gradient(180deg, transparent 0%, var(--bg));
+    }
   }
 
   &__row {
@@ -36,7 +44,9 @@
     pointer-events: auto;
 
     @media (max-width: 1023px) {
-      gap: var(--space-2) var(--space-3);
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: var(--space-2);
     }
   }
 
@@ -133,9 +143,17 @@
           letter-spacing: -1.5px;
 
           // Mismo delta de -1px que en desktop al hacer hover/estar activo.
-          &:hover,
+          // El hover solo se aplica con puntero real: en touch se queda
+          // "pegado" tras el tap y no hay forma de deshacerlo sin tocar
+          // otro sitio.
           &.active {
             letter-spacing: -2.5px;
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              letter-spacing: -2.5px;
+            }
           }
 
           // Solo tiene sentido subrayar el activo en el panel lateral: en
@@ -150,9 +168,14 @@
           font-size: 1.1rem;
           letter-spacing: -0.5px;
 
-          &:hover,
           &.active {
             letter-spacing: -1.5px;
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              letter-spacing: -1.5px;
+            }
           }
 
           &.active {
@@ -184,9 +207,17 @@
       text-decoration: none;
       transition: letter-spacing var(--duration-slow) var(--ease-hover), color var(--duration-fast) var(--ease);
 
-      &:hover,
+      // Más fino que el subrayado global: el texto del nav es pequeño.
+      @include focus-underline($thickness: var(--focus-thickness-thin));
+
       &.active {
         letter-spacing: -2px;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          letter-spacing: -2px;
+        }
       }
     }
 
@@ -213,6 +244,8 @@
       cursor: pointer;
       padding: 0;
       transition: transform var(--duration-fast) var(--ease);
+
+      @include focus-outline;
 
       @media (max-width: 1023px) {
         display: inline-flex;
@@ -258,32 +291,66 @@
   }
 
   &__logo {
-    position: relative;
-    // Por encima del panel de nav__links.is-open, para poder cerrarlo
-    // volviendo a hacer click en el logo.
-    z-index: calc(var(--z-overlay) + 1);
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    font-family: inherit;
     font-weight: 700;
     font-size: var(--fs-nav-mark);
     line-height: 1;
     letter-spacing: -5px;
     color: #000;
+
+    @include focus-underline;
   }
 
+  // En desktop: un único cuadrado, enlace a home (comportamiento original).
+  // En mobile/tablet: pasa a 3 cuadrados apilados y a botón que abre el
+  // menú lateral, en vez de navegar — necesita estar por encima del panel
+  // (nav__links.is-open) para poder cerrarlo volviendo a pulsarlo.
   &__dot {
     position: absolute;
     right: clamp(1.5rem, 1rem + 3vw, 2.4rem);
     bottom: clamp(1.5rem, 1rem + 2vw, 2.4rem);
     width: 0.9rem;
     height: 0.9rem;
+    border: none;
+    padding: 0;
     background: #000;
+    cursor: pointer;
     // Fuera de .nav__row: sin esto hereda pointer-events:none de .nav y
-    // el enlace queda inerte.
+    // el botón queda inerte.
     pointer-events: auto;
+
+    @include focus-outline;
+
+    span {
+      display: none;
+    }
+
+    @media (max-width: 1023px) {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      width: 0.6rem;
+      height: auto;
+      background: none;
+      z-index: calc(var(--z-overlay) + 1);
+
+      span {
+        display: block;
+        width: 0.6rem;
+        height: 0.6rem;
+        background: #000;
+        flex-shrink: 0;
+      }
+
+      // Con el menú abierto vuelve a ser un único cuadrado: los 3 puntos
+      // son la pista de "hay un menú", una vez abierto ya no hace falta.
+      &.is-open span {
+        display: none;
+
+        &:last-child {
+          display: block;
+        }
+      }
+    }
   }
 
   &__copyright {

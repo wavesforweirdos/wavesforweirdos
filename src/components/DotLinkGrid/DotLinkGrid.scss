@@ -4,12 +4,13 @@
 .dot-link-grid {
   display: none;
   position: fixed;
-  bottom: clamp(14rem, 7rem + 6vw, 13rem);
+  bottom: var(--nav-clearance);
   max-width: min(38vw, 35rem);
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     display: block;
   }
+  
   // Pérdida de opacidad en vez de un bloque de color superpuesto —
   // deja pasar la textura de grano del fondo sin costuras visibles.
   mask-image: linear-gradient(to right, black 70%, transparent 100%);

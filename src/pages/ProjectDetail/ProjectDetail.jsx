@@ -4,12 +4,15 @@ import projects from '../../data/projects.json'
 import projectGalleries from '../../data/projectGalleries.js'
 import DotLink from '../../components/DotLink/DotLink.jsx'
 import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
+import useDocumentTitle from '../../hooks/useDocumentTitle.js'
 import './ProjectDetail.scss'
 
 function ProjectDetail() {
   const { slug } = useParams()
   const project = projects.find((p) => p.slug === slug)
   const [orientations, setOrientations] = useState({})
+
+  useDocumentTitle(project ? project.title : 'Proyecto no encontrado')
 
   const handleImageLoad = (src) => (event) => {
     const { naturalWidth, naturalHeight } = event.target

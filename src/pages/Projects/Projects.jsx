@@ -5,12 +5,14 @@ import profile from '../../data/profile.json'
 import DotLink from '../../components/DotLink/DotLink.jsx'
 import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
 import './Projects.scss'
+import useDocumentTitle from '../../hooks/useDocumentTitle.js'
 
 function yearValue(year) {
   return typeof year === 'string' ? parseInt(year, 10) : year
 }
 
 function Projects() {
+  useDocumentTitle('Proyectos')
   const navigate = useNavigate()
   const [hoveredSlug, setHoveredSlug] = useState(null)
 
@@ -43,7 +45,7 @@ function Projects() {
               onFocus={() => setHoveredSlug(project.slug)}
             >
               <Link to={`/proyectos/${project.slug}`}>
-                {project.title}
+                <span className="projects__title">{project.title}</span>
                 <span className="projects__year">/ {project.year}</span>
               </Link>
             </li>

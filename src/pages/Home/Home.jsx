@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import profile from '../../data/profile.json'
 import './Home.scss'
+import useDocumentTitle from '../../hooks/useDocumentTitle.js'
 
 function Home() {
+  useDocumentTitle('Home')
   return (
     <div className="home">
       <nav className="home__categories" aria-label="Áreas de trabajo">

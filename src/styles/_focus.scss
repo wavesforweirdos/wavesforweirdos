@@ -1,0 +1,45 @@
+// Foco de teclado: mixins del sistema de foco de la web.
+//
+// Los valores (--focus-color, --focus-thickness, --focus-offset) viven en
+// global.scss, junto al :focus-visible por defecto, así el grosor es el mismo
+// para el subrayado y para el outline.
+//
+// - focus-underline: enlaces y botones con texto. Sustituye el outline por un
+//   subrayado grueso. Si el texto vive en un hijo que no hereda el subrayado
+//   (un inline-block, o cuando solo debe subrayarse una parte), se pasa su
+//   selector: @include focus-underline('.projects__title');
+//   El grosor por defecto es --focus-thickness; en texto pequeño (nav del
+//   footer, dot-link) se afina con --focus-thickness-thin:
+//   @include focus-underline($thickness: var(--focus-thickness-thin));
+// - focus-outline: iconos y controles sin texto (punto, flecha, chevron).
+//
+// Solo mixins (sin CSS propio): así importarlo en varios archivos no
+// duplica reglas.
+
+@mixin _underline-style($thickness) {
+  text-decoration: underline;
+  text-decoration-color: var(--focus-color);
+  text-decoration-thickness: $thickness;
+  text-underline-offset: max(3px, 0.14em);
+}
+
+@mixin focus-underline($text: null, $thickness: var(--focus-thickness)) {
+  &:focus-visible {
+    outline: none;
+
+    @if $text {
+      #{$text} {
+        @include _underline-style($thickness);
+      }
+    } @else {
+      @include _underline-style($thickness);
+    }
+  }
+}
+
+@mixin focus-outline {
+  &:focus-visible {
+    outline: var(--focus-thickness) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+  }
+}
