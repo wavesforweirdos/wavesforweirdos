@@ -37,6 +37,10 @@
 
     @media (max-width: 1023px) {
       gap: var(--space-2) var(--space-3);
+      // El logo .wf, con el nav__dot ahora apilado en 3 (más alto que
+      // el punto único de antes), necesitaba más aire por debajo para
+      // no solaparse con él.
+      margin-bottom: var(--space-4);
     }
   }
 
@@ -133,9 +137,17 @@
           letter-spacing: -1.5px;
 
           // Mismo delta de -1px que en desktop al hacer hover/estar activo.
-          &:hover,
+          // El hover solo se aplica con puntero real: en touch se queda
+          // "pegado" tras el tap y no hay forma de deshacerlo sin tocar
+          // otro sitio.
           &.active {
             letter-spacing: -2.5px;
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              letter-spacing: -2.5px;
+            }
           }
 
           // Solo tiene sentido subrayar el activo en el panel lateral: en
@@ -150,9 +162,14 @@
           font-size: 1.1rem;
           letter-spacing: -0.5px;
 
-          &:hover,
           &.active {
             letter-spacing: -1.5px;
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              letter-spacing: -1.5px;
+            }
           }
 
           &.active {
@@ -184,9 +201,14 @@
       text-decoration: none;
       transition: letter-spacing var(--duration-slow) var(--ease-hover), color var(--duration-fast) var(--ease);
 
-      &:hover,
       &.active {
         letter-spacing: -2px;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          letter-spacing: -2px;
+        }
       }
     }
 
@@ -258,15 +280,6 @@
   }
 
   &__logo {
-    position: relative;
-    // Por encima del panel de nav__links.is-open, para poder cerrarlo
-    // volviendo a hacer click en el logo.
-    z-index: calc(var(--z-overlay) + 1);
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    font-family: inherit;
     font-weight: 700;
     font-size: var(--fs-nav-mark);
     line-height: 1;
@@ -274,16 +287,55 @@
     color: #000;
   }
 
+  // En desktop: un único cuadrado, enlace a home (comportamiento original).
+  // En mobile/tablet: pasa a 3 cuadrados apilados y a botón que abre el
+  // menú lateral, en vez de navegar — necesita estar por encima del panel
+  // (nav__links.is-open) para poder cerrarlo volviendo a pulsarlo.
   &__dot {
     position: absolute;
     right: clamp(1.5rem, 1rem + 3vw, 2.4rem);
     bottom: clamp(1.5rem, 1rem + 2vw, 2.4rem);
     width: 0.9rem;
     height: 0.9rem;
+    border: none;
+    padding: 0;
     background: #000;
+    cursor: pointer;
     // Fuera de .nav__row: sin esto hereda pointer-events:none de .nav y
-    // el enlace queda inerte.
+    // el botón queda inerte.
     pointer-events: auto;
+
+    span {
+      display: none;
+    }
+
+    @media (max-width: 1023px) {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      width: 0.6rem;
+      height: auto;
+      background: none;
+      z-index: calc(var(--z-overlay) + 1);
+
+      span {
+        display: block;
+        width: 0.6rem;
+        height: 0.6rem;
+        background: #000;
+        flex-shrink: 0;
+      }
+
+      // Con el menú abierto vuelve a ser un único cuadrado: los 3 puntos
+      // son la pista de "hay un menú", una vez abierto ya no hace falta.
+      &.is-open span {
+        display: none;
+
+        &:last-child {
+          display: block;
+        }
+      }
+    }
   }
 
   &__copyright {
