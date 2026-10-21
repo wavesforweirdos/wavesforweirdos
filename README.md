@@ -19,7 +19,7 @@ Sitio estático multipágina, sin backend, con un diseño editorial y minimalist
 ## Características
 
 - Navegación en cliente con React Router y menú fijo inferior, que en móvil y tablet pasa a un panel lateral a pantalla completa.
-- Preloader inicial y layouts propios para móvil, tablet y escritorio.
+- Preloader en la primera visita de cada sesión del navegador y layouts propios para móvil, tablet y escritorio.
 - Contenido editable en JSON (perfil, experiencia, skills y proyectos), sin tocar los componentes.
 - Foco de teclado coherente en toda la web: subrayado grueso en los enlaces de texto y outline en iconos y controles, con el mismo grosor y definido con mixins de SCSS.
 - Accesibilidad: HTML semántico, un `h1` por página, galerías de capturas accesibles con teclado, textos alternativos y respeto a `prefers-reduced-motion`.
