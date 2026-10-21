@@ -7,7 +7,7 @@
   // Color
   --bg: #ffffff;
   --fg: #1f1f1f;
-  --fg-dim: rgba(31, 31, 31, 0.5);
+  --fg-dim: rgba(31, 31, 31, 0.64); // AA (>= 4.5:1) sobre blanco; con 0.5 quedaba en 3.2:1
   --accent: #06f039;
   --accent-soft: #a9a0ff; // APROXIMADO — pendiente de confirmar en la página About
   --line: rgba(31, 31, 31, 0.12);

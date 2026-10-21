@@ -7,6 +7,9 @@ function Home() {
   useDocumentTitle('Home')
   return (
     <div className="home">
+      <h1 className="home__title">
+        {profile.name} — {profile.role}
+      </h1>
       <nav className="home__categories" aria-label="Áreas de trabajo">
         <Link to="/proyectos" className="home__category">web.</Link>
         <a

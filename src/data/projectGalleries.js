@@ -21,28 +21,30 @@ import photoListadoMobile from '../assets/projects/photo-gallery/listado-mobile.
 import photoDetalleMobile from '../assets/projects/photo-gallery/detalle-mobile.jpg'
 import photoFocoInput from '../assets/projects/photo-gallery/foco-input.jpg'
 
+// width/height: dimensiones reales de cada imagen. Evitan saltos de layout al
+// cargar y definen la orientación (horizontal = ocupa las 2 columnas).
 const projectGalleries = {
   'zara-phones': [
-    { src: zaraListado, tags: ['listado', 'búsqueda', 'filtro'] },
-    { src: zaraFicha, tags: ['ficha', 'color', 'stock'] },
-    { src: zaraHover, tags: ['hover', 'listado', 'desktop'] },
-    { src: zaraBusqueda, tags: ['búsqueda', 'filtrado', 'desktop'] },
-    { src: zaraFichaConfig, tags: ['ficha', 'storage', 'specs'] },
-    { src: zaraCarrito, tags: ['carrito', 'checkout'] },
-    { src: zaraMobileListado, tags: ['listado', 'mobile', '390px'] },
-    { src: zaraMobileFicha, tags: ['ficha', 'mobile', '390px'] },
-    { src: zaraTabletListado, tags: ['listado', 'tablet', '834px'] },
+    { src: zaraListado, width: 1440, height: 900, tags: ['listado', 'búsqueda', 'filtro'] },
+    { src: zaraFicha, width: 1440, height: 900, tags: ['ficha', 'color', 'stock'] },
+    { src: zaraHover, width: 620, height: 320, tags: ['hover', 'listado', 'desktop'] },
+    { src: zaraBusqueda, width: 1440, height: 420, tags: ['búsqueda', 'filtrado', 'desktop'] },
+    { src: zaraFichaConfig, width: 1440, height: 900, tags: ['ficha', 'storage', 'specs'] },
+    { src: zaraCarrito, width: 1440, height: 900, tags: ['carrito', 'checkout'] },
+    { src: zaraMobileListado, width: 390, height: 844, tags: ['listado', 'mobile', '390px'] },
+    { src: zaraMobileFicha, width: 390, height: 844, tags: ['ficha', 'mobile', '390px'] },
+    { src: zaraTabletListado, width: 834, height: 1112, tags: ['listado', 'tablet', '834px'] },
   ],
   'photo-gallery': [
-    { src: photoListadoDesktop, tags: ['búsqueda', 'mosaico', 'desktop'] },
-    { src: photoDetalleDesktop, tags: ['detalle', 'atribución', 'desktop'] },
-    { src: photoListadoTablet, tags: ['listado', 'tablet', '834px'] },
-    { src: photoListadoMobile, tags: ['listado', 'mobile', '390px'] },
-    { src: photoDetalleMobile, tags: ['detalle', 'mobile', '390px'] },
-    { src: photoFocoInput, tags: ['input', 'foco', 'teclado'] },
+    { src: photoListadoDesktop, width: 1568, height: 782, tags: ['búsqueda', 'mosaico', 'desktop'] },
+    { src: photoDetalleDesktop, width: 1568, height: 782, tags: ['detalle', 'atribución', 'desktop'] },
+    { src: photoListadoTablet, width: 917, height: 810, tags: ['listado', 'tablet', '834px'] },
+    { src: photoListadoMobile, width: 429, height: 810, tags: ['listado', 'mobile', '390px'] },
+    { src: photoDetalleMobile, width: 429, height: 810, tags: ['detalle', 'mobile', '390px'] },
+    { src: photoFocoInput, width: 1568, height: 300, tags: ['input', 'foco', 'teclado'] },
   ],
-  '3x3-basket-league': [{ src: basketCover, tags: ['landing'] }],
-  'mission-list': [{ src: missionCover, tags: ['gestión'] }],
+  '3x3-basket-league': [{ src: basketCover, width: 404, height: 316, tags: ['landing'] }],
+  'mission-list': [{ src: missionCover, width: 404, height: 316, tags: ['gestión'] }],
 }
 
 export default projectGalleries

@@ -32,7 +32,7 @@ function Projects() {
           onClick={() => navigate(-1)}
           aria-label="Volver a la página anterior"
         />
-        <span className="projects__kicker">proyectos.</span>
+        <h1 className="projects__kicker">proyectos.</h1>
       </div>
 
       <div className="projects__list-wrap">
