@@ -23,7 +23,7 @@ Sitio estático multipágina, sin backend, con un diseño editorial y minimalist
 - Contenido editable en JSON (perfil, experiencia, skills y proyectos), sin tocar los componentes.
 - Foco de teclado coherente en toda la web: subrayado grueso en los enlaces de texto y outline en iconos y controles, con el mismo grosor y definido con mixins de SCSS.
 - Accesibilidad: HTML semántico, un `h1` por página, galerías de capturas accesibles con teclado, textos alternativos y respeto a `prefers-reduced-motion`.
-- SEO: título, descripción, `canonical` y Open Graph por página, datos estructurados JSON-LD, `robots.txt`, `sitemap.xml` generado desde los datos de los proyectos y 404 con `noindex`.
+- SEO: título, descripción, `canonical` y Open Graph por página, datos estructurados JSON-LD, `robots.txt`, `sitemap.xml` y `llms.txt` generados desde los datos de los proyectos y 404 con `noindex`.
 
 ## Tecnologías
 
@@ -56,13 +56,13 @@ npm run dev
 | `npm run build` | Genera el sitemap y compila para producción en `dist/` |
 | `npm run preview` | Sirve la build de producción en local |
 | `npm run lint` | Analiza el código con Oxlint |
-| `npm run sitemap` | Regenera `public/sitemap.xml` desde `projects.json` |
+| `npm run seo` | Regenera `public/sitemap.xml` y `public/llms.txt` desde los datos |
 
 ## Estructura
 
 ```
-public/           Favicon, imagen Open Graph, robots.txt y sitemap.xml
-scripts/          generate-sitemap.mjs
+public/           Favicon, imagen Open Graph, robots.txt, sitemap.xml y llms.txt
+scripts/          generate-seo-files.mjs
 src/
   assets/         Fuentes, fotos de perfil e imágenes de proyectos
   components/     DotLink, DotLinkGrid, Layout, Nav y Preloader
@@ -78,4 +78,4 @@ Cada componente y cada página tienen su `.jsx` y su `.scss` juntos.
 
 1. Añade una entrada en `src/data/projects.json` con `slug`, `title`, `year`, `category`, `description`, `stack`, `repoUrl` y `liveUrl`.
 2. Si quieres mostrar capturas, guárdalas en `src/assets/projects/<slug>/` y regístralas en `src/data/projectGalleries.js`, indicando su `width` y `height` reales.
-3. El sitemap se actualiza solo al ejecutar `npm run build`.
+3. El sitemap y `llms.txt` se actualizan solos al ejecutar `npm run build`.
