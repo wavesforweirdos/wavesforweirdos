@@ -2,15 +2,38 @@ import { useEffect, useState } from 'react'
 import './Preloader.scss'
 
 const DURATION = 1200
+const STORAGE_KEY = 'wf-preloader-seen'
+
+// El preloader solo sale en la primera visita de cada sesión del navegador (por
+// pestaña): al recargar o abrir otra ruta directamente ya no se repite. Se
+// protege el acceso a sessionStorage por si el navegador lo bloquea.
+function hasSeenPreloader() {
+  try {
+    return sessionStorage.getItem(STORAGE_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
+function markPreloaderSeen() {
+  try {
+    sessionStorage.setItem(STORAGE_KEY, '1')
+  } catch {
+    // sin sessionStorage simplemente se mostrará en cada carga
+  }
+}
 
 function Preloader() {
   const [progress, setProgress] = useState(0)
-  const [done, setDone] = useState(false)
+  const [done, setDone] = useState(hasSeenPreloader)
 
   useEffect(() => {
+    if (hasSeenPreloader()) return
+
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (reduceMotion) {
+      markPreloaderSeen()
       setDone(true)
       return
     }
@@ -26,7 +49,10 @@ function Preloader() {
       if (pct < 100) {
         frame = requestAnimationFrame(tick)
       } else {
-        setTimeout(() => setDone(true), 300)
+        setTimeout(() => {
+          markPreloaderSeen()
+          setDone(true)
+        }, 300)
       }
     }
 
