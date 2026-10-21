@@ -110,9 +110,14 @@
         gap: 0;
       }
 
-      &:hover,
       &:focus-visible {
         letter-spacing: -6px;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          letter-spacing: -6px;
+        }
       }
     }
 

@@ -12,9 +12,14 @@
   text-decoration: none;
   transition: letter-spacing var(--duration-slow) var(--ease-hover);
 
-  &:hover,
   &:focus-visible {
     letter-spacing: -2px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      letter-spacing: -2px;
+    }
   }
 
   &__marker {
