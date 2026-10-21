@@ -1,10 +1,10 @@
 import profile from '../../data/profile.json'
 import skills from '../../data/skills.json'
 import experience from '../../data/experience.json'
-import photoMain from '../../assets/profile/photo-4.jpeg'
-import photoMainSm from '../../assets/profile/photo-4-600.jpeg'
-import photoMood from '../../assets/profile/photo-1.jpeg'
-import photoMoodSm from '../../assets/profile/photo-1-560.jpeg'
+import photoMain from '../../assets/profile/photo-4.webp'
+import photoMainSm from '../../assets/profile/photo-4-600.webp'
+import photoMood from '../../assets/profile/photo-1.webp'
+import photoMoodSm from '../../assets/profile/photo-1-600.webp'
 import './About.scss'
 import usePageMeta from '../../hooks/usePageMeta.js'
 
@@ -71,7 +71,7 @@ function About() {
         <div className="about__photo about__photo--mood">
           <img
             src={photoMood}
-            srcSet={`${photoMoodSm} 560w, ${photoMood} 840w`}
+            srcSet={`${photoMoodSm} 600w, ${photoMood} 840w`}
             sizes={PHOTO_SIZES}
             alt=""
             width="840"
