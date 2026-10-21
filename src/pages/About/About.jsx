@@ -2,14 +2,20 @@ import profile from '../../data/profile.json'
 import skills from '../../data/skills.json'
 import experience from '../../data/experience.json'
 import photoMain from '../../assets/profile/photo-4.webp'
-import photoMainSm from '../../assets/profile/photo-4-600.webp'
+import photoMain360 from '../../assets/profile/photo-4-360.webp'
+import photoMain640 from '../../assets/profile/photo-4-640.webp'
 import photoMood from '../../assets/profile/photo-1.webp'
-import photoMoodSm from '../../assets/profile/photo-1-600.webp'
+import photoMood360 from '../../assets/profile/photo-1-360.webp'
+import photoMood640 from '../../assets/profile/photo-1-640.webp'
 import './About.scss'
 import usePageMeta from '../../hooks/usePageMeta.js'
 
-// Las fotos ocupan el 80% del ancho en móvil/tablet y como máximo 450px en escritorio.
-const PHOTO_SIZES = '(max-width: 1023px) 80vw, 450px'
+// Ancho real de cada foto (medido en el navegador): el 80% del ancho útil en móvil
+// (viewport menos 2rem de margen por lado), tope de 360px hasta 767px, dos
+// columnas en tablet y como máximo 450px en escritorio. Un valor ajustado evita
+// bajar más píxeles de los necesarios.
+const PHOTO_SIZES =
+  '(max-width: 600px) calc((100vw - 4rem) * 0.8), (max-width: 767px) 360px, (max-width: 1023px) calc((100vw - 8rem) * 0.4), 450px'
 
 function About() {
   usePageMeta({
@@ -58,7 +64,7 @@ function About() {
         <div className="about__photo about__photo--main">
           <img
             src={photoMain}
-            srcSet={`${photoMainSm} 600w, ${photoMain} 900w`}
+            srcSet={`${photoMain360} 360w, ${photoMain640} 640w, ${photoMain} 900w`}
             sizes={PHOTO_SIZES}
             alt={profile.name}
             width="900"
@@ -71,7 +77,7 @@ function About() {
         <div className="about__photo about__photo--mood">
           <img
             src={photoMood}
-            srcSet={`${photoMoodSm} 600w, ${photoMood} 840w`}
+            srcSet={`${photoMood360} 360w, ${photoMood640} 640w, ${photoMood} 840w`}
             sizes={PHOTO_SIZES}
             alt=""
             width="840"
