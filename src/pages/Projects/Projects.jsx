@@ -5,14 +5,17 @@ import profile from '../../data/profile.json'
 import DotLink from '../../components/DotLink/DotLink.jsx'
 import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
 import './Projects.scss'
-import useDocumentTitle from '../../hooks/useDocumentTitle.js'
+import usePageMeta from '../../hooks/usePageMeta.js'
 
 function yearValue(year) {
   return typeof year === 'string' ? parseInt(year, 10) : year
 }
 
 function Projects() {
-  useDocumentTitle('Proyectos')
+  usePageMeta({
+    title: 'Proyectos',
+    description: 'Proyectos web de Marta Cruz: aplicaciones y webs con React, Vue, Laravel y PHP.',
+  })
   const navigate = useNavigate()
   const [hoveredSlug, setHoveredSlug] = useState(null)
 

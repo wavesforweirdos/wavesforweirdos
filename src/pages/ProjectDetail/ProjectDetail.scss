@@ -19,6 +19,11 @@ $photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
     }
   }
 
+  // El mensaje de "no encontrado" es el h1 de la página pero se ve como texto normal.
+  &__missing {
+    font: inherit;
+  }
+
   &__main {
     max-width: 26rem;
   }

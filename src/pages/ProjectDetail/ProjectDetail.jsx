@@ -3,19 +3,23 @@ import projects from '../../data/projects.json'
 import projectGalleries from '../../data/projectGalleries.js'
 import DotLink from '../../components/DotLink/DotLink.jsx'
 import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
-import useDocumentTitle from '../../hooks/useDocumentTitle.js'
+import usePageMeta, { truncate } from '../../hooks/usePageMeta.js'
 import './ProjectDetail.scss'
 
 function ProjectDetail() {
   const { slug } = useParams()
   const project = projects.find((p) => p.slug === slug)
 
-  useDocumentTitle(project ? project.title : 'Proyecto no encontrado')
+  usePageMeta(
+    project
+      ? { title: project.title, description: truncate(project.description) }
+      : { title: 'Proyecto no encontrado', noindex: true },
+  )
 
   if (!project) {
     return (
       <div className="project-detail project-detail--not-found">
-        <p>No se ha encontrado el proyecto.</p>
+        <h1 className="project-detail__missing">No se ha encontrado el proyecto.</h1>
         <Link to="/proyectos">← Volver a proyectos</Link>
       </div>
     )
