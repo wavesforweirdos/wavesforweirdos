@@ -15,7 +15,7 @@
     "title": "Photo Gallery",
     "year": "2023-2026",
     "category": "web",
-    "description": "Visor de fotos de Unsplash, nacido como Front End Challenge de NUWE y modernizado en 2026: búsqueda por palabra clave con el término en la URL, paginación con «cargar más», mosaico con skeletons de carga, detalle con atribución al autor y mensajes claros ante el límite de peticiones de la API. Vue 3 y Vue Router con historial hash para alojarlo en estático, 10 tests con Vitest y CI y despliegue con GitHub Actions.",
+    "description": "Visor de fotos de Unsplash, nacido como Front End Challenge de NUWE y modernizado en 2026: búsqueda por palabra clave con el término en la URL, paginación con «cargar más», mosaico con skeletons de carga, detalle con atribución al autor y mensajes claros ante el límite de peticiones de la API. Vue 3 y Vue Router con historial hash para alojarlo en estático, 14 tests con Vitest y CI y despliegue con GitHub Actions.",
     "stack": ["Vue 3", "Vue Router", "Vite", "Vitest", "Unsplash API", "GitHub Actions"],
     "repoUrl": "https://github.com/wavesforweirdos/photo-gallery",
     "liveUrl": "https://wavesforweirdos.github.io/photo-gallery/",

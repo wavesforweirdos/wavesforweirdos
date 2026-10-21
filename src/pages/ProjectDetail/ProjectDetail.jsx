@@ -65,15 +65,6 @@ function ProjectDetail() {
         </DotLinkGrid>
       )}
 
-      <aside className="project-detail__stack">
-        <h2>stack</h2>
-        <ul>
-          {project.stack.map((tech) => (
-            <li key={tech}>{tech}</li>
-          ))}
-        </ul>
-      </aside>
-
       {gallery.length > 0 && (
         <div className="project-detail__gallery">
           {gallery.map((img) => (
@@ -95,6 +86,17 @@ function ProjectDetail() {
           ))}
         </div>
       )}
+
+      {/* Después de la galería: en móvil (flujo normal) se ve primero la galería y luego el stack;
+          en escritorio ambos son paneles fijos y el orden del DOM no cambia nada visualmente. */}
+      <aside className="project-detail__stack">
+        <h2>stack</h2>
+        <ul>
+          {project.stack.map((tech) => (
+            <li key={tech}>{tech}</li>
+          ))}
+        </ul>
+      </aside>
     </article>
   )
 }

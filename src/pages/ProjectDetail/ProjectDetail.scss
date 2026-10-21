@@ -84,6 +84,7 @@ $photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
     @media (max-width: 900px) {
       position: static;
       right: auto;
+      margin-top: var(--space-6);
       margin-bottom: var(--space-6);
     }
 
