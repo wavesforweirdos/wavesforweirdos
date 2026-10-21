@@ -49,3 +49,11 @@
   --z-nav: 100;
   --z-overlay: 200;
 }
+
+// A partir de 1440px (mismo umbral en el que about__grid pasa a 3
+// columnas) el contenido puede respirar más: el tope sube a 1600px.
+@media (min-width: 1440px) {
+  :root {
+    --content-max: 1600px;
+  }
+}
