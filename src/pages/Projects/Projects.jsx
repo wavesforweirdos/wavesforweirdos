@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import TransitionLink from '../../components/TransitionLink/TransitionLink.jsx'
 import projects from '../../data/projects.json'
 import profile from '../../data/profile.json'
+import BackButton from '../../components/BackButton/BackButton.jsx'
 import DotLink from '../../components/DotLink/DotLink.jsx'
 import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
 import './Projects.scss'
@@ -16,7 +17,6 @@ function Projects() {
     title: 'Proyectos',
     description: 'Proyectos web de Marta Cruz: aplicaciones y webs con React, Vue, Laravel y PHP.',
   })
-  const navigate = useNavigate()
   const [hoveredSlug, setHoveredSlug] = useState(null)
 
   const sorted = useMemo(
@@ -29,12 +29,7 @@ function Projects() {
   return (
     <div className="projects">
       <div className="projects__heading">
-        <button
-          type="button"
-          className="projects__back"
-          onClick={() => navigate(-1)}
-          aria-label="Volver a la página anterior"
-        />
+        <BackButton />
         <h1 className="projects__kicker">proyectos.</h1>
       </div>
 
@@ -47,10 +42,10 @@ function Projects() {
               onMouseEnter={() => setHoveredSlug(project.slug)}
               onFocus={() => setHoveredSlug(project.slug)}
             >
-              <Link to={`/proyectos/${project.slug}`}>
+              <TransitionLink to={`/proyectos/${project.slug}`}>
                 <span className="projects__title">{project.title}</span>
                 <span className="projects__year">/ {project.year}</span>
-              </Link>
+              </TransitionLink>
             </li>
           ))}
         </ul>
