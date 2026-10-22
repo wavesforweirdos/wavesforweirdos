@@ -55,17 +55,6 @@
     "cover": null
   },
   {
-    "slug": "landing-template",
-    "title": "Landing Template",
-    "year": 2023,
-    "category": "web",
-    "description": "Plantilla de landing page maquetada con CSS.",
-    "stack": ["CSS"],
-    "repoUrl": "https://github.com/wavesforweirdos/landing-template",
-    "liveUrl": null,
-    "cover": null
-  },
-  {
     "slug": "zara-phones",
     "title": "Zara Phones",
     "year": 2026,
