@@ -1,0 +1,18 @@
+// Título de sección grande ("proyectos."). Lo comparten el listado de proyectos y
+// la cabecera de cada ficha, y ambos llevan el mismo view-transition-name: al
+// navegar entre ellos el navegador anima el desplazamiento de un sitio a otro.
+// Solo mixins (sin CSS propio).
+@mixin page-title {
+  display: block;
+  // Caja ajustada al texto y pegada a la derecha: así tiene el mismo tamaño en
+  // ambas páginas y la transición solo mueve el título, sin escalarlo.
+  width: max-content;
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-display);
+  letter-spacing: -4px;
+  text-transform: lowercase;
+  text-align: right;
+  view-transition-name: projects-title;
+}
