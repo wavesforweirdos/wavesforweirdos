@@ -12,6 +12,14 @@ import zaraCarrito from '../assets/projects/zara-phones/carrito.png'
 import zaraMobileListado from '../assets/projects/zara-phones/mobile-listado.png'
 import zaraMobileFicha from '../assets/projects/zara-phones/mobile-ficha.png'
 import zaraTabletListado from '../assets/projects/zara-phones/tablet-listado.png'
+import mealBienvenida from '../assets/projects/meal-planner/bienvenida-desktop.jpg'
+import mealPlan from '../assets/projects/meal-planner/plan-desktop.jpg'
+import mealRecetas from '../assets/projects/meal-planner/recetas-desktop.jpg'
+import mealCompra from '../assets/projects/meal-planner/compra-desktop.jpg'
+import mealPlanOscuro from '../assets/projects/meal-planner/plan-oscuro-desktop.jpg'
+import mealPlanTablet from '../assets/projects/meal-planner/plan-tablet.jpg'
+import mealPlanMobile from '../assets/projects/meal-planner/plan-mobile.jpg'
+import mealRecetasMobile from '../assets/projects/meal-planner/recetas-mobile.jpg'
 import basketCover from '../assets/projects/3x3-basket-league/cover.jpg'
 import missionCover from '../assets/projects/mission-list/cover.jpg'
 import photoListadoDesktop from '../assets/projects/photo-gallery/listado-desktop.jpg'
@@ -42,6 +50,16 @@ const projectGalleries = {
     { src: photoListadoMobile, width: 429, height: 810, tags: ['listado', 'mobile', '390px'] },
     { src: photoDetalleMobile, width: 429, height: 810, tags: ['detalle', 'mobile', '390px'] },
     { src: photoFocoInput, width: 1568, height: 300, tags: ['input', 'foco', 'teclado'] },
+  ],
+  'meal-planner': [
+    { src: mealBienvenida, width: 1440, height: 900, tags: ['bienvenida', 'login', 'desktop'] },
+    { src: mealPlan, width: 1440, height: 900, tags: ['plan', 'drag & drop', 'desktop'] },
+    { src: mealRecetas, width: 1440, height: 900, tags: ['recetas', 'filtros', 'desktop'] },
+    { src: mealCompra, width: 1440, height: 900, tags: ['lista de la compra', 'desktop'] },
+    { src: mealPlanOscuro, width: 1440, height: 900, tags: ['plan', 'modo oscuro', 'desktop'] },
+    { src: mealPlanTablet, width: 834, height: 1112, tags: ['plan', 'tablet', '834px'] },
+    { src: mealPlanMobile, width: 390, height: 844, tags: ['plan', 'mobile', '390px'] },
+    { src: mealRecetasMobile, width: 390, height: 844, tags: ['recetas', 'mobile', '390px'] },
   ],
   '3x3-basket-league': [{ src: basketCover, width: 404, height: 316, tags: ['landing'] }],
   'mission-list': [{ src: missionCover, width: 404, height: 316, tags: ['gestión'] }],

@@ -7,7 +7,7 @@
   white-space: nowrap;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   letter-spacing: -1px;
   text-transform: lowercase;
   color: var(--accent);
@@ -28,8 +28,8 @@
   }
 
   &__marker {
-    width: 0.6rem;
-    height: 0.6rem;
+    width: 0.5rem;
+    height: 0.5rem;
     background: #000;
     flex-shrink: 0;
   }
@@ -41,7 +41,7 @@
   // cuando no cabe en el max-width.
   &__label {
     display: inline-block;
-    min-width: 9.5rem;
+    min-width: 9.25rem;
     white-space: normal;
   }
 }
