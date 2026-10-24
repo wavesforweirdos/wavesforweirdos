@@ -68,12 +68,12 @@
   {
     "slug": "meal-planner",
     "title": "Meal Planner",
-    "year": 2023,
+    "year": "2023-2026",
     "category": "web",
-    "description": "Planificador de comidas con recetas de la API de Spoonacular, desarrollado para el IT Hackathon de JOBarcelona'23. Organización semanal de recetas mediante drag & drop.",
-    "stack": ["React", "Vite", "Bootstrap", "SASS", "react-dnd", "styled-components"],
+    "description": "Planificador semanal de comidas, nacido en el IT Hackathon de JOBarcelona'23 y reconstruido en 2026: una vista por sección (Plan, Recetas y Lista de la compra), drag & drop en escritorio y calendario estilo iOS en móvil, modo claro y oscuro, ajustes para renombrar y añadir comidas, y recetas de la API de Spoonacular con clave propia opcional. Inicio y recetario públicos; inicio de sesión con Google o correo (Firebase Auth) y planes compartidos con enlace de invitación sincronizados en directo (Firestore). Logo y loader animado con máscaras, accesibilidad revisada con axe-core y despliegue con GitHub Actions.",
+    "stack": ["React 19", "Vite", "Sass", "Firebase Auth", "Firestore", "Spoonacular API", "GitHub Actions"],
     "repoUrl": "https://github.com/wavesforweirdos/meal-planner",
-    "liveUrl": null,
+    "liveUrl": "https://wavesforweirdos.github.io/meal-planner/",
     "cover": null
   },
   {
