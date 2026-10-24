@@ -121,6 +121,19 @@ h4 {
   outline-offset: var(--focus-offset);
 }
 
+// View Transitions entre /proyectos y la ficha: el título "proyectos." (mismo
+// view-transition-name en las dos páginas) se desliza despacio de un sitio al otro
+// y el resto de la página se funde. Ver utils/viewTransition.js.
+::view-transition-group(projects-title) {
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+}
+
 // Respeta prefers-reduced-motion en toda la app (GSAP, Lenis, R3F leen esto también)
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -130,5 +143,11 @@ h4 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }

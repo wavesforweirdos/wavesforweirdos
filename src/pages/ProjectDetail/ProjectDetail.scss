@@ -1,4 +1,5 @@
 @use '../../styles/focus' as *;
+@use '../../styles/page-title' as *;
 
 // Reserva desde el borde real del viewport hasta donde empieza la foto:
 // el padding-derecho del footer (mismo que usa .nav para posicionar ".wf")
@@ -26,17 +27,52 @@ $photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
 
   &__main {
     max-width: 26rem;
+
+    // El título queda por debajo de la cabecera fija (altura de "proyectos." +
+    // categoría + un respiro).
+    @media (min-width: 901px) {
+      margin-top: calc(var(--fs-display) * 1.4 + 2.75rem + var(--space-4));
+    }
   }
 
-  &__kicker {
-    display: block;
+  // Cabecera igual que la de /proyectos: botón "volver" a la izquierda y el título
+  // "proyectos." a la derecha, con la categoría ("web.") justo debajo. En escritorio
+  // se coloca fija a la izquierda de las capturas (mismo borde que el stack, más
+  // un hueco), así al navegar desde el listado el título solo se desplaza hacia
+  // la izquierda hasta su sitio (View Transition, ver global.scss).
+  &__heading {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: var(--space-2);
+    margin-bottom: var(--space-4);
+
+    @media (min-width: 901px) {
+      position: fixed;
+      top: var(--space-6);
+      left: var(--space-6);
+      right: calc(#{$photo-edge-reserve} + 35vw + var(--space-6));
+      column-gap: var(--space-3);
+      margin-bottom: 0;
+    }
+  }
+
+  &__section {
+    @include page-title;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  &__category {
+    grid-column: 2;
+    grid-row: 2;
     font-family: var(--font-display);
     font-weight: 400;
     font-size: 2rem;
     letter-spacing: -2px;
     text-transform: lowercase;
+    text-align: right;
     color: var(--fg);
-    margin-bottom: var(--space-4);
   }
 
   &__title {

@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import projects from '../../data/projects.json'
 import projectGalleries from '../../data/projectGalleries.js'
+import BackButton from '../../components/BackButton/BackButton.jsx'
 import DotLink from '../../components/DotLink/DotLink.jsx'
 import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
 import usePageMeta, { truncate } from '../../hooks/usePageMeta.js'
@@ -30,9 +31,13 @@ function ProjectDetail() {
 
   return (
     <article className="project-detail">
-      <div className="project-detail__main">
-        <span className="project-detail__kicker">{project.category}.</span>
+      <header className="project-detail__heading">
+        <BackButton />
+        <p className="project-detail__section">proyectos.</p>
+        <p className="project-detail__category">{project.category}.</p>
+      </header>
 
+      <div className="project-detail__main">
         <h1 className="project-detail__title">
           {project.title}
           <span className="project-detail__year">/ {project.year}</span>
