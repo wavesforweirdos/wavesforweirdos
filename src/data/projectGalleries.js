@@ -20,6 +20,12 @@ import mealPlanOscuro from '../assets/projects/meal-planner/plan-oscuro-desktop.
 import mealPlanTablet from '../assets/projects/meal-planner/plan-tablet.jpg'
 import mealPlanMobile from '../assets/projects/meal-planner/plan-mobile.jpg'
 import mealRecetasMobile from '../assets/projects/meal-planner/recetas-mobile.jpg'
+import diceAcceso from '../assets/projects/dices-api-rest/acceso-desktop.jpg'
+import diceJuego from '../assets/projects/dices-api-rest/juego-desktop.jpg'
+import diceTiradas from '../assets/projects/dices-api-rest/tiradas-desktop.jpg'
+import diceRanking from '../assets/projects/dices-api-rest/ranking-desktop.jpg'
+import diceJuegoMobile from '../assets/projects/dices-api-rest/juego-mobile.jpg'
+import diceRankingMobile from '../assets/projects/dices-api-rest/ranking-mobile.jpg'
 import basketCover from '../assets/projects/3x3-basket-league/cover.jpg'
 import missionCover from '../assets/projects/mission-list/cover.jpg'
 import photoListadoDesktop from '../assets/projects/photo-gallery/listado-desktop.jpg'
@@ -60,6 +66,14 @@ const projectGalleries = {
     { src: mealPlanTablet, width: 834, height: 1112, tags: ['plan', 'tablet', '834px'] },
     { src: mealPlanMobile, width: 390, height: 844, tags: ['plan', 'mobile', '390px'] },
     { src: mealRecetasMobile, width: 390, height: 844, tags: ['recetas', 'mobile', '390px'] },
+  ],
+  'dices-api-rest': [
+    { src: diceAcceso, width: 1440, height: 900, tags: ['acceso', 'login', 'desktop'] },
+    { src: diceJuego, width: 1440, height: 900, tags: ['juego', 'dados', 'desktop'] },
+    { src: diceTiradas, width: 1440, height: 900, tags: ['tiradas', 'historial', 'desktop'] },
+    { src: diceRanking, width: 1440, height: 900, tags: ['ranking', 'éxito', 'desktop'] },
+    { src: diceJuegoMobile, width: 390, height: 844, tags: ['juego', 'mobile', '390px'] },
+    { src: diceRankingMobile, width: 390, height: 844, tags: ['ranking', 'mobile', '390px'] },
   ],
   '3x3-basket-league': [{ src: basketCover, width: 404, height: 316, tags: ['landing'] }],
   'mission-list': [{ src: missionCover, width: 404, height: 316, tags: ['gestión'] }],
