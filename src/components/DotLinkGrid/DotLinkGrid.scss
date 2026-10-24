@@ -5,7 +5,7 @@
   display: none;
   position: fixed;
   bottom: var(--nav-clearance);
-  max-width: min(38vw, 35rem);
+  max-width: min(38vw, 38rem);
 
   @media (min-width: 900px) {
     display: block;
@@ -20,8 +20,7 @@
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: repeat(3, auto);
-    column-gap: var(--space-6);
-    row-gap: 0.4rem;
+    column-gap: var(--space-4);
     overflow-x: auto;
     padding-bottom: 0.5rem;
 
