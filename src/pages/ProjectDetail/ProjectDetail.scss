@@ -25,8 +25,16 @@ $photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
     font: inherit;
   }
 
+  // El nav de otros proyectos, en dos filas aquí (en vez de tres): deja más
+  // alto libre a la descripción, que puede ser larga.
+  .dot-link-grid__scroll {
+    grid-template-rows: repeat(2, auto);
+  }
+
   &__main {
-    max-width: 26rem;
+    // Más ancho cuando hay sitio, para que una descripción larga no llegue a
+    // pisar el nav de proyectos fijado abajo.
+    max-width: clamp(26rem, 42vw, 32rem);
 
     // El título queda por debajo de la cabecera fija (altura de "proyectos." +
     // categoría + un respiro).
