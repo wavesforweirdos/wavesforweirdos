@@ -1,0 +1,87 @@
+[
+  {
+    "slug": "kfacil",
+    "repo": "kfacil",
+    "title": "KFacil Inmobiliaria",
+    "year": 2026,
+    "category": "web",
+    "description": "Aplicación de gestión inmobiliaria (KFacil Inmobiliaria) con backend en Laravel/PHP y base de datos MySQL.",
+    "stack": ["Laravel", "PHP", "MySQL"]
+  },
+  {
+    "slug": "photo-gallery",
+    "repo": "photo-gallery",
+    "title": "Photo Gallery",
+    "year": "2023-2026",
+    "category": "web",
+    "description": "Visor de fotos de Unsplash, nacido como Front End Challenge de NUWE y modernizado en 2026: búsqueda por palabra clave con el término en la URL, paginación con «cargar más», mosaico con skeletons de carga, detalle con atribución al autor y mensajes claros ante el límite de peticiones de la API. Vue 3 y Vue Router con historial hash para alojarlo en estático, 14 tests con Vitest y CI y despliegue con GitHub Actions.",
+    "stack": ["Vue 3", "Vue Router", "Vite", "Vitest", "Unsplash API", "GitHub Actions"]
+  },
+  {
+    "slug": "3x3-basket-league",
+    "repo": "3X3basketleague",
+    "title": "3×3 Basket League Management App",
+    "year": 2022,
+    "category": "web",
+    "description": "Aplicación de gestión para una liga de baloncesto 3×3, desarrollada con Laravel 9 y MySQL.",
+    "stack": ["Laravel 9", "MySQL"]
+  },
+  {
+    "slug": "dices-api-rest",
+    "repo": "dices-api-rest",
+    "title": "API REST DiceGame",
+    "year": 2022,
+    "category": "web",
+    "description": "API REST de un juego de dados con Laravel 9 y Vue.js: autenticación con Passport, gestión de roles y desarrollo guiado por tests (TDD).",
+    "stack": ["Laravel 9", "Vue.js", "Passport", "TDD"]
+  },
+  {
+    "slug": "mission-list",
+    "repo": "mission-list",
+    "title": "Mission List",
+    "year": 2022,
+    "category": "web",
+    "description": "To-Do App: aplicación de gestión de tareas construida en PHP.",
+    "stack": ["PHP"]
+  },
+  {
+    "slug": "zara-phones",
+    "repo": "zara-phones",
+    "title": "Zara Phones",
+    "year": 2026,
+    "category": "web",
+    "description": "Prueba técnica para Inditex/Zara: catálogo de móviles con listado con búsqueda y filtro por color, ficha de producto con selector de almacenamiento/color y carrito persistente. Gestión de estado con useReducer, caché de peticiones en sessionStorage, 54 tests (Jest + Testing Library) y accesibilidad WCAG AA.",
+    "stack": ["React 19", "React Router v7", "SCSS", "Jest", "Testing Library", "Webpack 5"]
+  },
+  {
+    "slug": "meal-planner",
+    "repo": "meal-planner",
+    "title": "Meal Planner",
+    "year": "2023-2026",
+    "category": "web",
+    "description": "Planificador semanal de comidas, nacido en el IT Hackathon de JOBarcelona'23 y reconstruido en 2026: una vista por sección (Plan, Recetas y Lista de la compra), drag & drop en escritorio y calendario estilo iOS en móvil, modo claro y oscuro, ajustes para renombrar y añadir comidas, y recetas de la API de Spoonacular con clave propia opcional. Inicio y recetario públicos; inicio de sesión con Google o correo (Firebase Auth) y planes compartidos con enlace de invitación sincronizados en directo (Firestore). Logo y loader animado con máscaras, accesibilidad revisada con axe-core y despliegue con GitHub Actions.",
+    "stack": ["React 19", "Vite", "Sass", "Firebase Auth", "Firestore", "Spoonacular API", "GitHub Actions"]
+  },
+  {
+    "slug": "la-marialluisa",
+    "title": "La Marialluïsa",
+    "year": "2021-2022",
+    "category": "web",
+    "description": "Desarrollo web para floristería.",
+    "stack": ["Laravel 10", "Blade", "TailwindCSS"],
+    "repoUrl": null,
+    "liveUrl": null,
+    "cover": null
+  },
+  {
+    "slug": "sprint-3-it-academy",
+    "title": "Sprint 3 IT Academy — Shopping Cart",
+    "year": 2023,
+    "category": "web",
+    "description": "Ejercicio del Bootcamp Full Stack PHP de IT Academy: lógica de carrito de compra y precios promocionales en JavaScript puro, sobre datos de producto hardcodeados.",
+    "stack": ["JavaScript"],
+    "repoUrl": "https://github.com/wavesforweirdos/starter-code-frontend-sprint-3",
+    "liveUrl": null,
+    "cover": null
+  }
+]

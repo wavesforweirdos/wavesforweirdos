@@ -62,11 +62,11 @@ npm run dev
 
 ```
 public/           Favicon, imagen Open Graph, robots.txt, sitemap.xml y llms.txt
-scripts/          generate-seo-files.mjs
+scripts/          sync-projects.mjs y generate-seo-files.mjs
 src/
   assets/         Fuentes, fotos de perfil e imágenes de proyectos
   components/     DotLink, DotLinkGrid, Layout, Nav y Preloader
-  data/           profile, experience, skills y projects (JSON) y projectGalleries.js
+  data/           profile, experience, skills, projects.overrides y projects (JSON generado) y projectGalleries.js
   hooks/          usePageMeta (título y metadatos por página)
   pages/          Home, About, Projects, ProjectDetail y NotFound
   styles/         tokens, fuentes, estilos globales y mixins (_focus, _a11y)
@@ -74,8 +74,18 @@ src/
 
 Cada componente y cada página tienen su `.jsx` y su `.scss` juntos.
 
+## Proyectos y GitHub
+
+La lista de proyectos se **sincroniza con GitHub** en cada build (`npm run sync`, que `prebuild` ejecuta antes de `npm run seo`):
+
+- Salen los repos públicos de `wavesforweirdos` con el topic `portfolio`. De GitHub vienen la URL del repo, la demo (campo *Website* del repo) y, si el proyecto no tiene texto propio, la descripción, el stack (lenguaje y topics) y los años.
+- Lo editorial vive en `src/data/projects.overrides.json`: título, descripción larga, categoría, stack, año y, sobre todo, el **orden**. Un campo escrito ahí gana siempre al de GitHub. Una entrada con `repo` desaparece de la web si ese repo pierde el topic; una entrada sin `repo` (repos privados o ajenos) lleva su propio `repoUrl` y `liveUrl`.
+- `src/data/projects.json` es el resultado generado y se versiona. Si la API de GitHub falla, el build usa solo los overrides y no se rompe. `GITHUB_TOKEN` (opcional) sube el límite de peticiones.
+- El workflow `Refresh projects` pide un deploy a Vercel cada lunes (y a mano), así los cambios en los repos llegan a la web sin tocar este repositorio. Necesita el secreto `VERCEL_DEPLOY_HOOK` (Project Settings > Git > Deploy Hooks).
+
 ## Añadir un proyecto
 
-1. Añade una entrada en `src/data/projects.json` con `slug`, `title`, `year`, `category`, `description`, `stack`, `repoUrl` y `liveUrl`.
-2. Si quieres mostrar capturas, guárdalas en `src/assets/projects/<slug>/` y regístralas en `src/data/projectGalleries.js`, indicando su `width` y `height` reales.
-3. El sitemap y `llms.txt` se actualizan solos al ejecutar `npm run build`.
+1. Pon el topic `portfolio` al repo en GitHub (y su *Website*, si tiene demo). Aparece solo al final de la lista con los datos del repo; el topic `category-<nombre>` fija la categoría.
+2. Para escribir su texto y fijar su sitio, añade una entrada en `src/data/projects.overrides.json` con `slug`, `repo` (nombre del repo), `title`, `year`, `category`, `description` y `stack`.
+3. Siempre con capturas: guárdalas en `src/assets/projects/<slug>/` y regístralas en `src/data/projectGalleries.js`, indicando su `width` y `height` reales.
+4. El sitemap y `llms.txt` se actualizan solos al ejecutar `npm run build`.
