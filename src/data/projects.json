@@ -35,10 +35,10 @@
   {
     "slug": "dices-api-rest",
     "title": "API REST DiceGame",
-    "year": 2022,
+    "year": "2022-2026",
     "category": "web",
-    "description": "API REST de un juego de dados con Laravel 9 y Vue.js: autenticación con Passport, gestión de roles y desarrollo guiado por tests (TDD).",
-    "stack": ["Laravel 9", "Vue.js", "Passport", "TDD"],
+    "description": "API REST de un juego de dados con Laravel 9 y un cliente en Vue 3, del bootcamp Full Stack PHP de IT Academy y retocada en 2026. Acceso con tokens de Passport, roles Player y Admin (cada jugador solo ve y borra sus tiradas), ranking de éxito y tiradas emitidas con Pusher. HTTP real (401, 404, 422), 35 tests en SQLite, Postman y CI con GitHub Actions.",
+    "stack": ["Laravel 9", "Vue 3", "Passport", "PHPUnit", "Pusher", "GitHub Actions"],
     "repoUrl": "https://github.com/wavesforweirdos/dices-api-rest",
     "liveUrl": null,
     "cover": null
