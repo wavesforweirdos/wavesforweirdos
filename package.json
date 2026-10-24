@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "sync": "node scripts/sync-projects.mjs",
     "seo": "node scripts/generate-seo-files.mjs",
-    "prebuild": "npm run seo",
+    "prebuild": "npm run sync && npm run seo",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"
