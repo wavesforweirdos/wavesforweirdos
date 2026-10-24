@@ -1,0 +1,27 @@
+# Los proyectos se leen de GitHub en cada build (scripts/sync-projects.mjs).
+# Este workflow pide a Vercel un deploy cada lunes, y a mano con "Run workflow",
+# para que los cambios en los repos (descripción, Website, topics, repos nuevos
+# con el topic "portfolio") lleguen a la web sin tocar este repositorio.
+#
+# Requiere el secreto VERCEL_DEPLOY_HOOK: la URL de un Deploy Hook de Vercel
+# (Project Settings > Git > Deploy Hooks, rama master).
+name: Refresh projects
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "Falta el secreto VERCEL_DEPLOY_HOOK" >&2
+            exit 1
+          fi
+          curl --fail --silent --show-error -X POST "$HOOK"
