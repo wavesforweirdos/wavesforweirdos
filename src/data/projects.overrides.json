@@ -44,10 +44,10 @@
     "repo": "mission-list",
     "title": "Mission List",
     "subtitle": "gestor de tareas",
-    "year": 2022,
+    "year": "2022-2026",
     "category": "web",
-    "description": "To-Do App: aplicación de gestión de tareas construida en PHP.",
-    "stack": ["PHP"]
+    "description": "Gestor de tareas en PHP sin framework, con un MVC propio: cada tarea es una misión asignada a un campeón de League of Legends, con etiqueta, fecha límite, estado y destacadas. Filtros, búsqueda y datos por usuario en JSON. En 2026 se corrigieron un acceso sin contraseña y la escritura de archivos fuera de su carpeta, y se añadieron CI y datos de demostración.",
+    "stack": ["PHP", "MVC propio", "JSON", "Tailwind", "GitHub Actions"]
   },
   {
     "slug": "zara-phones",
