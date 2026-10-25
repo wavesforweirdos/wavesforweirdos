@@ -106,6 +106,21 @@ $photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
     color: var(--fg);
   }
 
+  // Primera línea sobre la descripción: qué es el proyecto, en una frase corta.
+  &__subtitle {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.125rem;
+    letter-spacing: -1px;
+    color: var(--fg);
+    margin-bottom: var(--space-1);
+
+    // Solo la primera letra en mayúscula, el resto como está escrito.
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
   &__description {
     font-family: var(--font-body);
     font-size: 0.875rem;

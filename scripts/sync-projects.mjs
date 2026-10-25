@@ -72,6 +72,7 @@ for (const entry of overrides) {
     projects.push({
       slug: fields.slug,
       title: fields.title,
+      subtitle: fields.subtitle ?? null,
       year: fields.year,
       category: fields.category ?? 'web',
       description: fields.description ?? '',
@@ -91,6 +92,7 @@ for (const entry of overrides) {
   projects.push({
     slug: fields.slug,
     title: fields.title ?? prettify(repoName),
+    subtitle: fields.subtitle ?? null,
     year: fields.year ?? (repo ? yearsOf(repo) : null),
     category: fields.category ?? 'web',
     description: fields.description ?? repo?.description ?? '',
@@ -108,6 +110,7 @@ for (const repo of repos ?? []) {
   projects.push({
     slug: slugify(repo.name),
     title: prettify(repo.name),
+    subtitle: null,
     year: yearsOf(repo),
     category: category || 'web',
     description: repo.description ?? '',
