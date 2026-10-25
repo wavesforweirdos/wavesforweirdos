@@ -27,6 +27,10 @@ import diceRanking from '../assets/projects/dices-api-rest/ranking-desktop.jpg'
 import diceJuegoMobile from '../assets/projects/dices-api-rest/juego-mobile.jpg'
 import diceRankingMobile from '../assets/projects/dices-api-rest/ranking-mobile.jpg'
 import basketCover from '../assets/projects/3x3-basket-league/cover.jpg'
+import missionLista from '../assets/projects/mission-list/lista-desktop.jpg'
+import missionAcceso from '../assets/projects/mission-list/acceso-desktop.jpg'
+import missionNueva from '../assets/projects/mission-list/nueva-mision-desktop.jpg'
+import missionListaMobile from '../assets/projects/mission-list/lista-mobile.jpg'
 import missionCover from '../assets/projects/mission-list/cover.jpg'
 import photoListadoDesktop from '../assets/projects/photo-gallery/listado-desktop.jpg'
 import photoDetalleDesktop from '../assets/projects/photo-gallery/detalle-desktop.jpg'
@@ -76,7 +80,13 @@ const projectGalleries = {
     { src: diceRankingMobile, width: 390, height: 844, tags: ['ranking', 'mobile', '390px'] },
   ],
   '3x3-basket-league': [{ src: basketCover, width: 404, height: 316, tags: ['landing'] }],
-  'mission-list': [{ src: missionCover, width: 404, height: 316, tags: ['gestión'] }],
+  'mission-list': [
+    { src: missionLista, width: 1440, height: 900, tags: ['lista', 'filtros', 'desktop'] },
+    { src: missionAcceso, width: 1440, height: 900, tags: ['acceso', 'login', 'desktop'] },
+    { src: missionNueva, width: 1440, height: 900, tags: ['nueva misión', 'formulario', 'desktop'] },
+    { src: missionListaMobile, width: 390, height: 844, tags: ['lista', 'mobile', '390px'] },
+    { src: missionCover, width: 404, height: 316, tags: ['gestión'] },
+  ],
 }
 
 export default projectGalleries
