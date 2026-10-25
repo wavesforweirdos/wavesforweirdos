@@ -43,6 +43,8 @@ function ProjectDetail() {
           <span className="project-detail__year">/ {project.year}</span>
         </h1>
 
+        {project.subtitle && <p className="project-detail__subtitle">{project.subtitle}</p>}
+
         <p className="project-detail__description">{project.description}</p>
 
         <div className="project-detail__links">
