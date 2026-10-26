@@ -84,7 +84,7 @@ const projectGalleries = {
     { src: diceJuegoMobile, width: 390, height: 844, tags: ['juego', 'mobile', '390px'] },
     { src: diceRankingMobile, width: 390, height: 844, tags: ['ranking', 'mobile', '390px'] },
   ],
-  '3x3-basket-league': [
+  '3x3basketleague': [
     { src: basketInicio, width: 1440, height: 900, tags: ['inicio', 'landing', 'desktop'] },
     { src: basketLiga, width: 1440, height: 900, tags: ['liga', 'ficha', 'desktop'] },
     { src: basketEquipos, width: 1440, height: 900, tags: ['equipos', 'plantillas', 'desktop'] },
