@@ -66,7 +66,7 @@ scripts/          sync-projects.mjs y generate-seo-files.mjs
 src/
   assets/         Fuentes, fotos de perfil e imágenes de proyectos
   components/     DotLink, DotLinkGrid, Layout, Nav y Preloader
-  data/           profile, experience, skills, projects.overrides y projects (JSON generado) y projectGalleries.js
+  data/           profile, experience, skills, projects (JSON generado desde GitHub) y projectGalleries.js
   hooks/          usePageMeta (título y metadatos por página)
   pages/          Home, About, Projects, ProjectDetail y NotFound
   styles/         tokens, fuentes, estilos globales y mixins (_focus, _a11y)
@@ -76,16 +76,21 @@ Cada componente y cada página tienen su `.jsx` y su `.scss` juntos.
 
 ## Proyectos y GitHub
 
-La lista de proyectos se **sincroniza con GitHub** en cada build (`npm run sync`, que `prebuild` ejecuta antes de `npm run seo`):
+Los proyectos **salen directamente de GitHub**; no hay ningún JSON escrito a mano. En cada build (`npm run sync`, que `prebuild` ejecuta antes de `npm run seo`) el script `scripts/sync-projects.mjs` lee los repos de `wavesforweirdos` con el topic `portfolio`:
 
-- Salen los repos públicos de `wavesforweirdos` con el topic `portfolio`. De GitHub vienen la URL del repo, la demo (campo *Website* del repo) y, si el proyecto no tiene texto propio, la descripción, el stack (lenguaje y topics) y los años.
-- Lo editorial vive en `src/data/projects.overrides.json`: título, descripción larga, categoría, stack, año y, sobre todo, el **orden**. Un campo escrito ahí gana siempre al de GitHub. Una entrada con `repo` desaparece de la web si ese repo pierde el topic; una entrada sin `repo` (repos privados o ajenos) lleva su propio `repoUrl` y `liveUrl`.
-- `src/data/projects.json` es el resultado generado y se versiona. Si la API de GitHub falla, el build usa solo los overrides y no se rompe. `GITHUB_TOKEN` (opcional) sube el límite de peticiones.
-- El workflow `Refresh projects` pide un deploy a Vercel cada lunes (y a mano), así los cambios en los repos llegan a la web sin tocar este repositorio. Necesita el secreto `VERCEL_DEPLOY_HOOK` (Project Settings > Git > Deploy Hooks).
+| En la web | De dónde sale en GitHub |
+|---|---|
+| Título | Primer `# título` del README (lo que va tras ` - ` se descarta); sin README, el nombre del repo |
+| Subtítulo | Texto del **About** hasta el primer `: ` (si es corto y sin punto) |
+| Descripción | El resto del **About**. Escríbelo como `Subtítulo: descripción larga` (hasta 350 caracteres) |
+| Stack | Los topics, salvo `portfolio` y `category-*` |
+| Categoría | El topic `category-<nombre>` (por defecto, `web`) |
+| Año | Año de creación del repo y de su último push |
+| Enlaces | URL del repo y campo **Website** (enlace "ver sitio") |
+| Orden | Último push primero |
 
-## Añadir un proyecto
+Para añadir un proyecto basta con ponerle el topic `portfolio` a su repo y rellenar su About, topics y Website. Para sacarlo de la web, quitarle el topic. Lo único que sigue siendo del portfolio son las **capturas**: `src/assets/projects/<slug>/` y `src/data/projectGalleries.js` (el slug es el nombre del repo en minúsculas), siempre con `width` y `height` reales.
 
-1. Pon el topic `portfolio` al repo en GitHub (y su *Website*, si tiene demo). Aparece solo al final de la lista con los datos del repo; el topic `category-<nombre>` fija la categoría.
-2. Para escribir su texto y fijar su sitio, añade una entrada en `src/data/projects.overrides.json` con `slug`, `repo` (nombre del repo), `title`, `year`, `category`, `description` y `stack`.
-3. Siempre con capturas: guárdalas en `src/assets/projects/<slug>/` y regístralas en `src/data/projectGalleries.js`, indicando su `width` y `height` reales.
-4. El sitemap y `llms.txt` se actualizan solos al ejecutar `npm run build`.
+- `src/data/projects.json` es el resultado generado y se versiona como copia de seguridad: si la API de GitHub falla, el build lo deja como está y no se rompe.
+- `GITHUB_TOKEN` (opcional, variable de entorno en Vercel) sube el límite de peticiones y permite incluir repos **privados** con el topic `portfolio` (sin enlace al repo). Sin token solo salen los públicos.
+- El workflow `Refresh projects` pide un deploy a Vercel cada lunes (y a mano), así los cambios en GitHub llegan a la web sin tocar este repositorio. Necesita el secreto `VERCEL_DEPLOY_HOOK` (Project Settings > Git > Deploy Hooks).
