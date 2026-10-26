@@ -26,6 +26,11 @@ import diceTiradas from '../assets/projects/dices-api-rest/tiradas-desktop.jpg'
 import diceRanking from '../assets/projects/dices-api-rest/ranking-desktop.jpg'
 import diceJuegoMobile from '../assets/projects/dices-api-rest/juego-mobile.jpg'
 import diceRankingMobile from '../assets/projects/dices-api-rest/ranking-mobile.jpg'
+import basketInicio from '../assets/projects/3x3-basket-league/inicio-desktop.jpg'
+import basketLiga from '../assets/projects/3x3-basket-league/liga-desktop.jpg'
+import basketEquipos from '../assets/projects/3x3-basket-league/equipos-desktop.jpg'
+import basketPartidos from '../assets/projects/3x3-basket-league/partidos-desktop.jpg'
+import basketLigaMobile from '../assets/projects/3x3-basket-league/liga-mobile.jpg'
 import basketCover from '../assets/projects/3x3-basket-league/cover.jpg'
 import missionLista from '../assets/projects/mission-list/lista-desktop.jpg'
 import missionAcceso from '../assets/projects/mission-list/acceso-desktop.jpg'
@@ -79,7 +84,14 @@ const projectGalleries = {
     { src: diceJuegoMobile, width: 390, height: 844, tags: ['juego', 'mobile', '390px'] },
     { src: diceRankingMobile, width: 390, height: 844, tags: ['ranking', 'mobile', '390px'] },
   ],
-  '3x3-basket-league': [{ src: basketCover, width: 404, height: 316, tags: ['landing'] }],
+  '3x3-basket-league': [
+    { src: basketInicio, width: 1440, height: 900, tags: ['inicio', 'landing', 'desktop'] },
+    { src: basketLiga, width: 1440, height: 900, tags: ['liga', 'ficha', 'desktop'] },
+    { src: basketEquipos, width: 1440, height: 900, tags: ['equipos', 'plantillas', 'desktop'] },
+    { src: basketPartidos, width: 1440, height: 900, tags: ['partidos', 'resultados', 'desktop'] },
+    { src: basketLigaMobile, width: 390, height: 844, tags: ['liga', 'mobile', '390px'] },
+    { src: basketCover, width: 404, height: 316, tags: ['landing'] },
+  ],
   'mission-list': [
     { src: missionLista, width: 1440, height: 900, tags: ['lista', 'filtros', 'desktop'] },
     { src: missionAcceso, width: 1440, height: 900, tags: ['acceso', 'login', 'desktop'] },

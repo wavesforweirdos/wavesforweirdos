@@ -27,10 +27,10 @@
     "slug": "3x3-basket-league",
     "title": "Basket League 3×3",
     "subtitle": "gestión de liga",
-    "year": 2022,
+    "year": "2022-2026",
     "category": "web",
-    "description": "Aplicación de gestión para una liga de baloncesto 3×3, desarrollada con Laravel 9 y MySQL.",
-    "stack": ["Laravel 9", "MySQL"],
+    "description": "Aplicación web para gestionar una liga de baloncesto 3×3 con Laravel y vistas Blade con Tailwind: entidades, ligas con sus normas y fechas, equipos por categoría, jugadores y partidos con marcador, árbitro y estado. Formularios con validación y subida de imágenes. En 2026 se actualizó de Laravel 9 a Laravel 13 para funcionar con PHP actual, se arreglaron el build de producción, los datos de demostración y la subida de archivos, y se añadieron 12 tests en SQLite y CI con GitHub Actions.",
+    "stack": ["Laravel 13", "Blade", "Tailwind", "MySQL", "PHPUnit", "GitHub Actions"],
     "repoUrl": "https://github.com/wavesforweirdos/3X3basketleague",
     "liveUrl": null,
     "cover": null
