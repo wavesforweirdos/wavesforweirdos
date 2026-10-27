@@ -1,5 +1,90 @@
 [
   {
+    "slug": "volotea",
+    "category": "profesional",
+    "title": "volotea",
+    "year": "2025-2026",
+    "subtitle": "cliente de HolaConsultores · aerolínea",
+    "description": "Web de la aerolínea Volotea, cliente para el que trabajé desde la consultora Hola Consultores. Mi parte fueron algunos de los componentes de la interfaz, no el sitio entero: desarrollo y mantenimiento con HTML5, CSS3, SASS y Angular 13, integrados con el backend PHP y desplegados con Jenkins y AWS. También participé en la migración del frontend de Gulp a Vite.",
+    "stack": [
+      "html5",
+      "css3",
+      "sass",
+      "angular 13",
+      "vite",
+      "php",
+      "jenkins",
+      "aws"
+    ],
+    "liveUrl": "https://volotea.com/",
+    "images": [
+      {
+        "file": "01.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "portada"
+        ]
+      },
+      {
+        "file": "02.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "03.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "04.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "06.jpg",
+        "width": 834,
+        "height": 1112,
+        "tags": [
+          "tablet"
+        ]
+      },
+      {
+        "file": "07.jpg",
+        "width": 390,
+        "height": 844,
+        "tags": [
+          "móvil"
+        ]
+      },
+      {
+        "file": "08.jpg",
+        "width": 390,
+        "height": 844,
+        "tags": [
+          "móvil · scroll"
+        ]
+      }
+    ]
+  },
+  {
     "slug": "cuento-quatre-vents",
     "category": "ilustracion",
     "title": "cuento quatre vents",
