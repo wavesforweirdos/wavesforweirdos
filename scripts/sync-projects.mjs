@@ -2,7 +2,7 @@
 // GITHUB_OWNER con el topic "portfolio" es un proyecto de la web. No hay ningún
 // JSON escrito a mano; lo que se ve aquí se cambia en GitHub:
 //
-//   slug        nombre del repositorio en minúsculas (/proyectos/<slug>)
+//   slug        nombre del repositorio en minúsculas (/web/<slug>)
 //   title       primer título (# ...) del README; lo que va tras " - " se descarta.
 //               Sin README, o si es el nombre del repo tal cual, se usa el nombre
 //               sin guiones (zara-phones -> zara phones)

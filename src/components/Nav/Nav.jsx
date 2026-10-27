@@ -49,17 +49,13 @@ function Nav() {
 
             <ul id="nav-home-submenu" className={`nav__submenu${isHomeOpen ? ' is-open' : ''}`}>
               <li>
-                <NavLink to="/proyectos" onClick={closeMenu}>web.</NavLink>
+                <NavLink to="/web" onClick={closeMenu}>web.</NavLink>
               </li>
               <li>
-                <a href={profile.contact.behance} target="_blank" rel="noreferrer" onClick={closeMenu}>
-                  ilustración.
-                </a>
+                <NavLink to="/ilustracion" onClick={closeMenu}>ilustración.</NavLink>
               </li>
               <li>
-                <a href={profile.contact.behance} target="_blank" rel="noreferrer" onClick={closeMenu}>
-                  diseño.
-                </a>
+                <NavLink to="/diseno" onClick={closeMenu}>diseño.</NavLink>
               </li>
             </ul>
           </li>

@@ -15,23 +15,9 @@ function Home() {
         {profile.name} — {profile.role}
       </h1>
       <nav className="home__categories" aria-label="Áreas de trabajo">
-        <Link to="/proyectos" className="home__category">web.</Link>
-        <a
-          className="home__category"
-          href={profile.contact.behance}
-          target="_blank"
-          rel="noreferrer"
-        >
-          ilustración.
-        </a>
-        <a
-          className="home__category"
-          href={profile.contact.behance}
-          target="_blank"
-          rel="noreferrer"
-        >
-          diseño.
-        </a>
+        <Link to="/web" className="home__category">web.</Link>
+        <Link to="/ilustracion" className="home__category">ilustración.</Link>
+        <Link to="/diseno" className="home__category">diseño.</Link>
       </nav>
     </div>
   )
