@@ -52,14 +52,13 @@ function Nav() {
                 <NavLink to="/proyectos" onClick={closeMenu}>web.</NavLink>
               </li>
               <li>
-                <a href={profile.contact.behance} target="_blank" rel="noreferrer" onClick={closeMenu}>
-                  ilustración.
-                </a>
+                <NavLink to="/ilustracion" onClick={closeMenu}>ilustración.</NavLink>
               </li>
               <li>
-                <a href={profile.contact.behance} target="_blank" rel="noreferrer" onClick={closeMenu}>
-                  diseño.
-                </a>
+                <NavLink to="/diseno" onClick={closeMenu}>diseño.</NavLink>
+              </li>
+              <li>
+                <NavLink to="/profesional" onClick={closeMenu}>profesional.</NavLink>
               </li>
             </ul>
           </li>

@@ -98,6 +98,13 @@ $photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
     margin-bottom: var(--space-4);
   }
 
+  // Títulos largos (los de Behance): algo más pequeños para que no pasen a dos
+  // líneas y pisen el nav de otros proyectos.
+  &__title--long {
+    font-size: calc(var(--fs-display) * 0.72);
+    letter-spacing: -3px;
+  }
+
   &__year {
     margin-top: 0.6em;
     font-size: 1rem;
@@ -242,6 +249,17 @@ $photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
       grid-column: 1 / -1;
     }
 
+    // fadeInUp (la de animate.css): ProjectDetail.jsx marca la galería con
+    // data-reveal y añade .is-visible a cada captura cuando entra en pantalla
+    // al hacer scroll. Sin JS o con "reducir movimiento" no se oculta nada.
+    .project-detail__gallery[data-reveal] &:not(.is-visible) {
+      opacity: 0;
+    }
+
+    &.is-visible {
+      animation: fadeInUp 1s both;
+    }
+
     img {
       flex: 1;
       min-width: 0;
@@ -267,5 +285,17 @@ $photo-edge-reserve: calc(clamp(1.5rem, 1rem + 3vw, 6rem) - 1rem);
       text-transform: lowercase;
       white-space: nowrap;
     }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }

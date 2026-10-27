@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import TransitionLink from '../../components/TransitionLink/TransitionLink.jsx'
-import projects from '../../data/projects.json'
-import profile from '../../data/profile.json'
+import { sections } from '../../data/sections.js'
 import BackButton from '../../components/BackButton/BackButton.jsx'
 import DotLink from '../../components/DotLink/DotLink.jsx'
 import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
@@ -12,16 +11,14 @@ function yearValue(year) {
   return typeof year === 'string' ? parseInt(year, 10) : year
 }
 
-function Projects() {
-  usePageMeta({
-    title: 'Proyectos',
-    description: 'Proyectos web de Marta Cruz: aplicaciones y webs con React, Vue, Laravel y PHP.',
-  })
+function Projects({ section = 'proyectos' }) {
+  const { path, label, items, metaTitle, metaDescription } = sections[section]
+  usePageMeta({ title: metaTitle, description: metaDescription })
   const [hoveredSlug, setHoveredSlug] = useState(null)
 
   const sorted = useMemo(
-    () => [...projects].sort((a, b) => yearValue(b.year) - yearValue(a.year)),
-    [],
+    () => [...items].sort((a, b) => yearValue(b.year) - yearValue(a.year)),
+    [items],
   )
 
   const hovered = sorted.find((p) => p.slug === hoveredSlug) ?? sorted[0]
@@ -30,7 +27,7 @@ function Projects() {
     <div className="projects">
       <div className="projects__heading">
         <BackButton />
-        <h1 className="projects__kicker">proyectos.</h1>
+        <h1 className="projects__kicker">{label}</h1>
       </div>
 
       <div className="projects__list-wrap">
@@ -42,7 +39,7 @@ function Projects() {
               onMouseEnter={() => setHoveredSlug(project.slug)}
               onFocus={() => setHoveredSlug(project.slug)}
             >
-              <TransitionLink to={`/proyectos/${project.slug}`}>
+              <TransitionLink to={`${path}/${project.slug}`}>
                 <span className="projects__title">{project.title}</span>
                 <span className="projects__year">/ {project.year}</span>
               </TransitionLink>
@@ -52,12 +49,13 @@ function Projects() {
       </div>
 
       <DotLinkGrid ariaLabel="Otras áreas de trabajo">
-        <DotLink href={profile.contact.behance} target="_blank" rel="noreferrer">
-          ilustración.
-        </DotLink>
-        <DotLink href={profile.contact.behance} target="_blank" rel="noreferrer">
-          diseño.
-        </DotLink>
+        {Object.entries(sections)
+          .filter(([key]) => key !== section)
+          .map(([key, other]) => (
+            <DotLink key={key} to={other.path}>
+              {other.areaLabel}
+            </DotLink>
+          ))}
       </DotLinkGrid>
 
       {hovered && (
