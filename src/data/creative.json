@@ -14,7 +14,10 @@
       "vite",
       "php",
       "jenkins",
-      "aws"
+      "aws",
+      "flexbox",
+      "bem",
+      "tailwind"
     ],
     "liveUrl": "https://volotea.com/",
     "images": [
@@ -1810,7 +1813,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://amcostablanca.com/",
     "images": [
@@ -1895,7 +1900,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://business4saleinspain.com/",
     "images": [
@@ -1980,7 +1987,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://costablancapropiedades.com/",
     "images": [
@@ -2065,7 +2074,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://costagroupestates.com/",
     "images": [
@@ -2150,7 +2161,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://desire-properties.com/",
     "images": [
@@ -2227,7 +2240,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://elitevillasrealestate.com/",
     "images": [
@@ -2304,7 +2319,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://homesinthesun.es/",
     "images": [
@@ -2389,7 +2406,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://immobiliercostablanca.com/",
     "images": [
@@ -2474,7 +2493,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://jensenestate.es/",
     "images": [
@@ -2559,7 +2580,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://kotilista.com/",
     "images": [
@@ -2644,7 +2667,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://larrosaandco.com/",
     "images": [
@@ -2729,7 +2754,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://luxevastgoedgroep.com/",
     "images": [
@@ -2806,7 +2833,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://maleosunproperties.com/",
     "images": [
@@ -2883,7 +2912,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://munfort.com/",
     "images": [
@@ -2960,7 +2991,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://singularity-homes.com/",
     "images": [
@@ -3045,7 +3078,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://sixoaksproperties.com/",
     "images": [
@@ -3130,7 +3165,9 @@
       "bootstrap",
       "scss",
       "smarty",
-      "mysql"
+      "mysql",
+      "flexbox",
+      "css-grid"
     ],
     "liveUrl": "https://viking-homes.es/",
     "images": [

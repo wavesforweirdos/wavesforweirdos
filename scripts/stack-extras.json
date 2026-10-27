@@ -1,0 +1,9 @@
+{
+  "zara-phones": ["flexbox", "css-grid", "bem"],
+  "photo-gallery": ["flexbox", "css-grid"],
+  "meal-planner": ["flexbox", "css-grid", "bem"],
+  "dices-api-rest": ["flexbox", "css-grid", "bootstrap", "tailwind"],
+  "3x3basketleague": ["flexbox", "css-grid"],
+  "mission-list": ["flexbox", "css-grid"],
+  "kfacil": ["flexbox", "css-grid", "tailwind", "bootstrap", "alpinejs", "livewire"]
+}
