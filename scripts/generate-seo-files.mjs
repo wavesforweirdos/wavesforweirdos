@@ -7,10 +7,25 @@ import { readFileSync, writeFileSync } from 'node:fs'
 const SITE_URL = 'https://www.wavesforweirdos.com'
 const read = (file) => JSON.parse(readFileSync(new URL(`../src/data/${file}`, import.meta.url), 'utf8'))
 const projects = read('projects.json')
+const creative = read('creative.json')
 const profile = read('profile.json')
+const illustration = creative.filter((p) => p.category === 'ilustracion')
+const design = creative.filter((p) => p.category === 'diseno')
+const professional = creative.filter((p) => p.category === 'profesional')
 
 // --- sitemap.xml ---
-const paths = ['/', '/about', '/proyectos', ...projects.map((p) => `/proyectos/${p.slug}`)]
+const paths = [
+  '/',
+  '/about',
+  '/proyectos',
+  ...projects.map((p) => `/proyectos/${p.slug}`),
+  '/ilustracion',
+  ...illustration.map((p) => `/ilustracion/${p.slug}`),
+  '/diseno',
+  ...design.map((p) => `/diseno/${p.slug}`),
+  '/profesional',
+  ...professional.map((p) => `/profesional/${p.slug}`),
+]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${paths.map((p) => `  <url>\n    <loc>${SITE_URL}${p}</loc>\n  </url>`).join('\n')}
@@ -31,11 +46,26 @@ const llms = `# wavesforweirdos
 
 - [Home](${SITE_URL}/): áreas de trabajo.
 - [About](${SITE_URL}/about): bio, servicios, experiencia y skills.
-- [Proyectos](${SITE_URL}/proyectos): listado de proyectos.
+- [Proyectos](${SITE_URL}/proyectos): listado de proyectos web.
+- [Ilustración](${SITE_URL}/ilustracion): ilustración, concept art y dibujo.
+- [Diseño](${SITE_URL}/diseno): identidad, cartelería, diseño editorial y landings.
+- [Profesional](${SITE_URL}/profesional): webs inmobiliarias desarrolladas en Mediaelx.
 
 ## Proyectos
 
 ${projects.map((p) => `- [${p.title}](${SITE_URL}/proyectos/${p.slug}): ${oneLine(p.description)}`).join('\n')}
+
+## Ilustración
+
+${illustration.map((p) => `- [${p.title}](${SITE_URL}/ilustracion/${p.slug}): ${oneLine(p.description)}`).join('\n')}
+
+## Diseño
+
+${design.map((p) => `- [${p.title}](${SITE_URL}/diseno/${p.slug}): ${oneLine(p.description)}`).join('\n')}
+
+## Profesional
+
+${professional.map((p) => `- [${p.title}](${SITE_URL}/profesional/${p.slug}): ${oneLine(p.description)}`).join('\n')}
 
 ## Enlaces
 
@@ -49,4 +79,4 @@ ${projects.map((p) => `- [${p.title}](${SITE_URL}/proyectos/${p.slug}): ${oneLin
 `
 writeFileSync(new URL('../public/llms.txt', import.meta.url), llms)
 
-console.log(`sitemap.xml: ${paths.length} URLs · llms.txt: ${projects.length} proyectos`)
+console.log(`sitemap.xml: ${paths.length} URLs · llms.txt: ${projects.length} proyectos + ${creative.length} de ilustración, diseño y profesional`)
