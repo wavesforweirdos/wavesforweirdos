@@ -3,6 +3,25 @@
 // se añaden aquí a medida que estén disponibles, sin tocar ProjectDetail.
 // `tags`: equivalente a la ficha EXIF (f/4.0 · ISO100) del diseño original,
 // aquí describiendo qué muestra cada captura en vez de datos de cámara.
+import kfacilInicio from '../assets/projects/kfacil/inicio-desktop.jpg'
+import kfacilPropiedades from '../assets/projects/kfacil/propiedades-desktop.jpg'
+import kfacilInmueble from '../assets/projects/kfacil/inmueble-desktop.jpg'
+import kfacilServicios from '../assets/projects/kfacil/servicios-desktop.jpg'
+import kfacilAcceso from '../assets/projects/kfacil/acceso-desktop.jpg'
+import kfacilPanel from '../assets/projects/kfacil/panel-desktop.jpg'
+import kfacilGestion from '../assets/projects/kfacil/gestion-inmuebles-desktop.jpg'
+import kfacilNuevoInmueble from '../assets/projects/kfacil/nuevo-inmueble-desktop.jpg'
+import kfacilEditarInmueble from '../assets/projects/kfacil/editar-inmueble-desktop.jpg'
+import kfacilUsuarios from '../assets/projects/kfacil/usuarios-desktop.jpg'
+import kfacilNuevoUsuario from '../assets/projects/kfacil/nuevo-usuario-desktop.jpg'
+import kfacilPaginas from '../assets/projects/kfacil/gestion-paginas-desktop.jpg'
+import kfacilStudio from '../assets/projects/kfacil/studio-paginas-desktop.jpg'
+import kfacilNavbar from '../assets/projects/kfacil/navbar-desktop.jpg'
+import kfacilTipos from '../assets/projects/kfacil/tipos-propiedad-desktop.jpg'
+import kfacilAgente from '../assets/projects/kfacil/panel-agente-desktop.jpg'
+import kfacilPropiedadesTablet from '../assets/projects/kfacil/propiedades-tablet.jpg'
+import kfacilInicioMobile from '../assets/projects/kfacil/inicio-mobile.jpg'
+import kfacilInmuebleMobile from '../assets/projects/kfacil/inmueble-mobile.jpg'
 import zaraListado from '../assets/projects/zara-phones/listado.png'
 import zaraFicha from '../assets/projects/zara-phones/ficha-producto.png'
 import zaraHover from '../assets/projects/zara-phones/hover-listado.png'
@@ -98,6 +117,27 @@ const projectGalleries = {
     { src: missionNueva, width: 1440, height: 900, tags: ['nueva misión', 'formulario', 'desktop'] },
     { src: missionListaMobile, width: 390, height: 844, tags: ['lista', 'mobile', '390px'] },
     { src: missionCover, width: 404, height: 316, tags: ['gestión'] },
+  ],
+  kfacil: [
+    { src: kfacilInicio, width: 1440, height: 900, tags: ['inicio', 'landing', 'desktop'] },
+    { src: kfacilPropiedades, width: 1440, height: 900, tags: ['propiedades', 'buscador', 'desktop'] },
+    { src: kfacilInmueble, width: 1440, height: 900, tags: ['inmueble', 'ficha', 'desktop'] },
+    { src: kfacilServicios, width: 1440, height: 900, tags: ['servicios', 'web pública', 'desktop'] },
+    { src: kfacilAcceso, width: 1440, height: 900, tags: ['acceso', 'login', 'desktop'] },
+    { src: kfacilPanel, width: 1440, height: 900, tags: ['panel', 'administración', 'desktop'] },
+    { src: kfacilGestion, width: 1440, height: 900, tags: ['inmuebles', 'gestión', 'desktop'] },
+    { src: kfacilNuevoInmueble, width: 1440, height: 900, tags: ['nuevo inmueble', 'formulario', 'desktop'] },
+    { src: kfacilEditarInmueble, width: 1440, height: 900, tags: ['editar inmueble', 'imágenes y planos', 'desktop'] },
+    { src: kfacilUsuarios, width: 1440, height: 900, tags: ['usuarios', 'roles', 'desktop'] },
+    { src: kfacilNuevoUsuario, width: 1440, height: 900, tags: ['nuevo usuario', 'formulario', 'desktop'] },
+    { src: kfacilPaginas, width: 1440, height: 900, tags: ['contenidos', 'páginas', 'desktop'] },
+    { src: kfacilStudio, width: 1440, height: 900, tags: ['page studio', 'editor', 'desktop'] },
+    { src: kfacilNavbar, width: 1440, height: 900, tags: ['navbar', 'configuración', 'desktop'] },
+    { src: kfacilTipos, width: 1440, height: 900, tags: ['catálogos', 'tipos', 'desktop'] },
+    { src: kfacilAgente, width: 1440, height: 900, tags: ['panel agente', 'permisos', 'desktop'] },
+    { src: kfacilPropiedadesTablet, width: 834, height: 1112, tags: ['propiedades', 'tablet', '834px'] },
+    { src: kfacilInicioMobile, width: 390, height: 844, tags: ['inicio', 'mobile', '390px'] },
+    { src: kfacilInmuebleMobile, width: 390, height: 844, tags: ['inmueble', 'mobile', '390px'] },
   ],
 }
 
