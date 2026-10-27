@@ -11,20 +11,19 @@ const creative = read('creative.json')
 const profile = read('profile.json')
 const illustration = creative.filter((p) => p.category === 'ilustracion')
 const design = creative.filter((p) => p.category === 'diseno')
-const professional = creative.filter((p) => p.category === 'profesional')
+const production = creative.filter((p) => p.category === 'profesional')
 
 // --- sitemap.xml ---
 const paths = [
   '/',
   '/about',
-  '/proyectos',
-  ...projects.map((p) => `/proyectos/${p.slug}`),
+  '/web',
+  ...projects.map((p) => `/web/${p.slug}`),
+  ...production.map((p) => `/web/${p.slug}`),
   '/ilustracion',
   ...illustration.map((p) => `/ilustracion/${p.slug}`),
   '/diseno',
   ...design.map((p) => `/diseno/${p.slug}`),
-  '/profesional',
-  ...professional.map((p) => `/profesional/${p.slug}`),
 ]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -46,14 +45,17 @@ const llms = `# wavesforweirdos
 
 - [Home](${SITE_URL}/): áreas de trabajo.
 - [About](${SITE_URL}/about): bio, servicios, experiencia y skills.
-- [Proyectos](${SITE_URL}/proyectos): listado de proyectos web.
+- [Web](${SITE_URL}/web): desarrollo web, en producción (Mediaelx) y proyectos propios.
 - [Ilustración](${SITE_URL}/ilustracion): ilustración, concept art y dibujo.
 - [Diseño](${SITE_URL}/diseno): identidad, cartelería, diseño editorial y landings.
-- [Profesional](${SITE_URL}/profesional): webs inmobiliarias desarrolladas en Mediaelx.
 
-## Proyectos
+## Web: proyectos propios
 
-${projects.map((p) => `- [${p.title}](${SITE_URL}/proyectos/${p.slug}): ${oneLine(p.description)}`).join('\n')}
+${projects.map((p) => `- [${p.title}](${SITE_URL}/web/${p.slug}): ${oneLine(p.description)}`).join('\n')}
+
+## Web: en producción
+
+${production.map((p) => `- [${p.title}](${SITE_URL}/web/${p.slug}): ${oneLine(p.description)}`).join('\n')}
 
 ## Ilustración
 
@@ -62,10 +64,6 @@ ${illustration.map((p) => `- [${p.title}](${SITE_URL}/ilustracion/${p.slug}): ${
 ## Diseño
 
 ${design.map((p) => `- [${p.title}](${SITE_URL}/diseno/${p.slug}): ${oneLine(p.description)}`).join('\n')}
-
-## Profesional
-
-${professional.map((p) => `- [${p.title}](${SITE_URL}/profesional/${p.slug}): ${oneLine(p.description)}`).join('\n')}
 
 ## Enlaces
 

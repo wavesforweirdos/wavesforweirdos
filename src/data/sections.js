@@ -1,9 +1,9 @@
-// Las cuatro áreas de trabajo del portfolio. `proyectos` sale de GitHub
-// (projects.json, ver scripts/sync-projects.mjs); `ilustracion` y `diseno` salen
-// de creative.json (proyectos de Behance) y `profesional` también (webs hechas
-// en Mediaelx, con capturas propias); sus imágenes están en
-// public/creative/<slug>/ (se piden solo al mostrarse; no se importan en el bundle
-// porque son cientos).
+// Las tres áreas de trabajo del portfolio. `web` junta los proyectos propios, que
+// salen de GitHub (projects.json, ver scripts/sync-projects.mjs), y las webs en
+// producción hechas en Mediaelx (creative.json, categoría `profesional`);
+// `ilustracion` y `diseno` salen de creative.json (proyectos de Behance). Sus
+// imágenes están en public/creative/<slug>/ (se piden solo al mostrarse; no se
+// importan en el bundle porque son cientos).
 import projects from './projects.json'
 import projectGalleries from './projectGalleries.js'
 import creative from './creative.json'
@@ -22,14 +22,30 @@ const creativeItems = (category) =>
       })),
     }))
 
+const webGroups = [
+  { key: 'produccion', label: 'en producción' },
+  { key: 'propios', label: 'propios' },
+]
+
 export const sections = {
-  proyectos: {
-    path: '/proyectos',
-    label: 'proyectos.',
+  web: {
+    path: '/web',
+    label: 'web.',
     areaLabel: 'web.',
-    metaTitle: 'Proyectos',
-    metaDescription: 'Proyectos web de Marta Cruz: aplicaciones y webs con React, Vue, Laravel y PHP.',
-    items: projects.map((p) => ({ ...p, gallery: projectGalleries[p.slug] ?? [] })),
+    metaTitle: 'Web',
+    metaDescription:
+      'Desarrollo web de Marta Cruz: webs en producción (Mediaelx) y proyectos propios con React, Vue, Laravel y PHP.',
+    // "en producción": webs de clientes con enlace público; "propios": proyectos
+    // personales y pruebas técnicas (salen de GitHub).
+    groups: webGroups,
+    items: [
+      ...projects.map(({ category: _category, ...p }) => ({
+        ...p,
+        group: 'propios',
+        gallery: projectGalleries[p.slug] ?? [],
+      })),
+      ...creativeItems('profesional').map((p) => ({ ...p, group: 'produccion' })),
+    ],
   },
   ilustracion: {
     path: '/ilustracion',
@@ -48,14 +64,5 @@ export const sections = {
     metaDescription:
       'Diseño gráfico de Marta Cruz: identidad corporativa, cartelería, diseño editorial, landings y newsletters.',
     items: creativeItems('diseno'),
-  },
-  profesional: {
-    path: '/profesional',
-    label: 'profesional.',
-    areaLabel: 'profesional.',
-    metaTitle: 'Profesional',
-    metaDescription:
-      'Trabajos profesionales de Marta Cruz en Mediaelx: webs inmobiliarias a medida, responsive y conectadas a un CRM.',
-    items: creativeItems('profesional'),
   },
 }

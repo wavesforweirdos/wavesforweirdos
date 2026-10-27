@@ -1,4 +1,10 @@
 {
+  "redirects": [
+    { "source": "/proyectos", "destination": "/web?grupo=propios", "permanent": true },
+    { "source": "/proyectos/:slug", "destination": "/web/:slug", "permanent": true },
+    { "source": "/profesional", "destination": "/web?grupo=produccion", "permanent": true },
+    { "source": "/profesional/:slug", "destination": "/web/:slug", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],

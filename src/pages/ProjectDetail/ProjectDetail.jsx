@@ -7,9 +7,9 @@ import DotLinkGrid from '../../components/DotLinkGrid/DotLinkGrid.jsx'
 import usePageMeta, { truncate } from '../../hooks/usePageMeta.js'
 import './ProjectDetail.scss'
 
-function ProjectDetail({ section = 'proyectos' }) {
+function ProjectDetail({ section = 'web' }) {
   const { slug } = useParams()
-  const { path, label, items } = sections[section]
+  const { path, label, items, groups } = sections[section]
   const project = items.find((p) => p.slug === slug)
   const galleryRef = useRef(null)
 
@@ -57,15 +57,16 @@ function ProjectDetail({ section = 'proyectos' }) {
     )
   }
 
-  const others = items.filter((p) => p.slug !== project.slug)
+  const groupLabel = groups?.find((g) => g.key === project.group)?.label
+  const others = items.filter((p) => p.slug !== project.slug && p.group === project.group)
   const gallery = project.gallery
 
   return (
     <article className="project-detail">
       <header className="project-detail__heading">
-        <BackButton to={path} />
+        <BackButton to={project.group ? `${path}?grupo=${project.group}` : path} />
         <p className="project-detail__section">{label}</p>
-        {project.category && <p className="project-detail__category">{project.category}.</p>}
+        {groupLabel && <p className="project-detail__category">{groupLabel}.</p>}
       </header>
 
       <div className="project-detail__main">

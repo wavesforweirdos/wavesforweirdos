@@ -49,16 +49,13 @@ function Nav() {
 
             <ul id="nav-home-submenu" className={`nav__submenu${isHomeOpen ? ' is-open' : ''}`}>
               <li>
-                <NavLink to="/proyectos" onClick={closeMenu}>web.</NavLink>
+                <NavLink to="/web" onClick={closeMenu}>web.</NavLink>
               </li>
               <li>
                 <NavLink to="/ilustracion" onClick={closeMenu}>ilustración.</NavLink>
               </li>
               <li>
                 <NavLink to="/diseno" onClick={closeMenu}>diseño.</NavLink>
-              </li>
-              <li>
-                <NavLink to="/profesional" onClick={closeMenu}>profesional.</NavLink>
               </li>
             </ul>
           </li>

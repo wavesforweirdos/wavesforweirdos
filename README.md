@@ -12,8 +12,10 @@ Sitio estático multipágina, sin backend, con un diseño editorial y minimalist
 |---|---|
 | `/` | Home con las áreas de trabajo |
 | `/about` | Bio, servicios, experiencia y skills |
-| `/proyectos` | Listado de proyectos con el stack de cada uno |
-| `/proyectos/:slug` | Ficha de proyecto: descripción, enlaces, stack y capturas |
+| `/web` | Listado de desarrollo web con filtro (`?grupo=produccion` / `propios`) y el stack de cada uno |
+| `/web/:slug` | Ficha de proyecto: descripción, enlaces, stack y capturas |
+| `/ilustracion`, `/diseno` | Listados y fichas (`/ilustracion/:slug`, `/diseno/:slug`) de los trabajos de Behance, desde `src/data/creative.json` |
+| `/proyectos`, `/profesional` | Redirigen a `/web` |
 | `*` | Página 404 |
 
 ## Características

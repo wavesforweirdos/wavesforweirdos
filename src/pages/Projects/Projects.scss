@@ -17,6 +17,37 @@
     }
   }
 
+  // Filtro por grupo (web: en producción / propios).
+  &__filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+
+    button {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      text-transform: lowercase;
+      color: var(--fg);
+      opacity: 0.55;
+      padding: 0.2rem 0;
+      border-bottom: 1px solid transparent;
+      transition: opacity 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.is-active {
+        opacity: 1;
+        color: var(--accent);
+        border-bottom-color: currentColor;
+      }
+
+      @include focus-underline;
+    }
+  }
+
   &__kicker {
     @include page-title;
   }
