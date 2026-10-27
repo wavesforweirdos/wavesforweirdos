@@ -85,7 +85,7 @@ Los proyectos **salen directamente de GitHub**; no hay ningún JSON escrito a ma
 | Título | Primer `# título` del README (lo que va tras ` - ` se descarta); sin README, el nombre del repo |
 | Subtítulo | Texto del **About** hasta el primer `: ` (si es corto y sin punto) |
 | Descripción | El resto del **About**. Escríbelo como `Subtítulo: descripción larga` (hasta 350 caracteres) |
-| Stack | Los topics, salvo `portfolio` y `category-*` |
+| Stack | Los topics, salvo `portfolio` y `category-*`, más lo de `scripts/stack-extras.json` (técnicas CSS y frameworks que no son topics: `flexbox`, `css-grid`, `bem`, `tailwind`, `bootstrap`...) |
 | Categoría | El topic `category-<nombre>` (por defecto, `web`) |
 | Año | Año de creación del repo y de su último push |
 | Enlaces | URL del repo y campo **Website** (enlace "ver sitio") |

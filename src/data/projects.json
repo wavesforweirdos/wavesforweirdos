@@ -1,12 +1,24 @@
 [
   {
+    "slug": "kfacil",
+    "title": "KFacil Inmobiliaria",
+    "subtitle": "Gestión inmobiliaria",
+    "year": 2026,
+    "category": "web",
+    "description": "Aplicación para una inmobiliaria con backend en Laravel y base de datos MySQL.",
+    "stack": ["blade", "laravel", "mysql", "php", "flexbox", "css-grid", "tailwind", "bootstrap", "alpinejs", "livewire"],
+    "repoUrl": "https://github.com/wavesforweirdos/kfacil",
+    "liveUrl": null,
+    "cover": null
+  },
+  {
     "slug": "zara-phones",
     "title": "zara phones",
     "subtitle": "Catálogo de móviles",
     "year": 2026,
     "category": "web",
     "description": "Prueba técnica para Inditex/Zara con listado con búsqueda y filtro por color, ficha con selector de almacenamiento y color, y carrito persistente. 54 tests con Jest y Testing Library y accesibilidad WCAG AA.",
-    "stack": ["jest", "react", "react-router", "scss", "testing-library", "typescript", "webpack"],
+    "stack": ["jest", "react", "react-router", "scss", "testing-library", "typescript", "webpack", "flexbox", "css-grid", "bem"],
     "repoUrl": "https://github.com/wavesforweirdos/zara-phones",
     "liveUrl": "https://zara-phones.vercel.app",
     "cover": null
@@ -18,7 +30,7 @@
     "year": "2022-2026",
     "category": "web",
     "description": "Aplicación web para gestionar una liga de baloncesto 3×3 con Laravel 13 y Blade: entidades, ligas, equipos, jugadores y partidos con marcador, árbitro y estado. Validación, subida de imágenes, 12 tests en SQLite y CI con GitHub Actions.",
-    "stack": ["blade", "github-actions", "laravel", "mysql", "phpunit", "tailwind"],
+    "stack": ["blade", "github-actions", "laravel", "mysql", "phpunit", "tailwind", "flexbox", "css-grid"],
     "repoUrl": "https://github.com/wavesforweirdos/3X3basketleague",
     "liveUrl": null,
     "cover": null
@@ -30,7 +42,7 @@
     "year": "2022-2026",
     "category": "web",
     "description": "API REST con Laravel 13 y cliente en Vue 3, hecha en el bootcamp Full Stack PHP de IT Academy. Tokens con Passport, roles Player y Admin, ranking de éxito, Pusher, 35 tests y CI con GitHub Actions.",
-    "stack": ["github-actions", "laravel", "passport", "phpunit", "pusher", "vue"],
+    "stack": ["github-actions", "laravel", "passport", "phpunit", "pusher", "vue", "flexbox", "css-grid", "bootstrap", "tailwind"],
     "repoUrl": "https://github.com/wavesforweirdos/dices-api-rest",
     "liveUrl": null,
     "cover": null
@@ -42,7 +54,7 @@
     "year": "2022-2026",
     "category": "web",
     "description": "Aplicación en PHP sin framework, con un MVC propio, en la que cada tarea es una misión asignada a un campeón de League of Legends. Filtros, búsqueda, datos por usuario en JSON y CI con GitHub Actions.",
-    "stack": ["github-actions", "json", "mvc", "php", "tailwind"],
+    "stack": ["github-actions", "json", "mvc", "php", "tailwind", "flexbox", "css-grid"],
     "repoUrl": "https://github.com/wavesforweirdos/mission-list",
     "liveUrl": null,
     "cover": null
@@ -54,7 +66,7 @@
     "year": "2023-2026",
     "category": "web",
     "description": "Planificador semanal con una vista por sección, drag & drop, modo oscuro, recetas de Spoonacular, acceso con Google o correo (Firebase Auth) y planes compartidos en directo (Firestore), con CI y despliegue en GitHub Pages.",
-    "stack": ["firebase", "firestore", "github-actions", "github-pages", "react", "sass", "spoonacular-api", "vite"],
+    "stack": ["firebase", "firestore", "github-actions", "github-pages", "react", "sass", "spoonacular-api", "vite", "flexbox", "css-grid", "bem"],
     "repoUrl": "https://github.com/wavesforweirdos/meal-planner",
     "liveUrl": "https://wavesforweirdos.github.io/meal-planner/",
     "cover": null
@@ -66,21 +78,9 @@
     "year": "2023-2026",
     "category": "web",
     "description": "Buscador de Unsplash en Vue 3, nacido como Front End Challenge de NUWE y modernizado en 2026, con búsqueda por palabra clave, paginación con «cargar más», detalle con atribución al autor, 14 tests con Vitest y despliegue con GitHub Actions.",
-    "stack": ["github-actions", "github-pages", "unsplash-api", "vite", "vitest", "vue", "vue-router"],
+    "stack": ["github-actions", "github-pages", "unsplash-api", "vite", "vitest", "vue", "vue-router", "flexbox", "css-grid"],
     "repoUrl": "https://github.com/wavesforweirdos/photo-gallery",
     "liveUrl": "https://wavesforweirdos.github.io/photo-gallery/",
-    "cover": null
-  },
-  {
-    "slug": "kfacil",
-    "title": "KFacil Inmobiliaria",
-    "subtitle": "Gestión inmobiliaria",
-    "year": 2026,
-    "category": "web",
-    "description": "Aplicación para una inmobiliaria con backend en Laravel y base de datos MySQL.",
-    "stack": ["blade", "laravel", "mysql", "php"],
-    "repoUrl": "https://github.com/wavesforweirdos/kfacil",
-    "liveUrl": null,
     "cover": null
   }
 ]
