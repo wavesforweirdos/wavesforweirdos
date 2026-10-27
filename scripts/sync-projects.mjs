@@ -2,14 +2,16 @@
 // GITHUB_OWNER con el topic "portfolio" es un proyecto de la web. No hay ningún
 // JSON escrito a mano; lo que se ve aquí se cambia en GitHub:
 //
-//   slug        nombre del repositorio en minúsculas (/proyectos/<slug>)
+//   slug        nombre del repositorio en minúsculas (/web/<slug>)
 //   title       primer título (# ...) del README; lo que va tras " - " se descarta.
 //               Sin README, o si es el nombre del repo tal cual, se usa el nombre
 //               sin guiones (zara-phones -> zara phones)
 //   subtitle    texto del "About" (descripción) del repo hasta el primer ": "
 //               (si tiene menos de 40 caracteres y no lleva punto)
 //   description el resto del "About", empezando en mayúscula
-//   stack       los topics, menos "portfolio" y "category-*"
+//   stack       los topics, menos "portfolio" y "category-*", más lo que se añade
+//               a mano en scripts/stack-extras.json (técnicas CSS y frameworks que
+//               no son topics: flexbox, css-grid, bem...)
 //   category    el topic "category-<nombre>"; por defecto "web"
 //   year        año de creación o "creación-último push"
 //   repoUrl     la URL del repo (vacía si el repo es privado)
@@ -25,6 +27,8 @@
 // peticiones por hora y, si tiene acceso, incluye también los repos privados con el
 // topic "portfolio" (sin enlace al repo).
 import { readFileSync, writeFileSync } from 'node:fs'
+
+const EXTRAS = JSON.parse(readFileSync(new URL('./stack-extras.json', import.meta.url), 'utf8'))
 
 const OWNER = process.env.GITHUB_OWNER || 'wavesforweirdos'
 const TOPIC = 'portfolio'
@@ -109,7 +113,12 @@ for (const repo of repos) {
     year: yearsOf(repo),
     category: category || 'web',
     description,
-    stack: repo.topics.filter((t) => t !== TOPIC && !t.startsWith('category-')),
+    stack: [
+      ...new Set([
+        ...repo.topics.filter((t) => t !== TOPIC && !t.startsWith('category-')),
+        ...(EXTRAS[slugify(repo.name)] ?? []),
+      ]),
+    ],
     repoUrl: repo.private ? null : repo.html_url,
     liveUrl: repo.homepage || null,
     cover: null,
