@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import profile from '../../data/profile.json'
+import useTheme from '../../hooks/useTheme.js'
 import './Nav.scss'
 
 // Por debajo de este ancho no hay hover: el punto pasa a abrir/cerrar el
@@ -12,6 +13,7 @@ function Nav() {
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHomeOpen, setIsHomeOpen] = useState(false)
+  const { theme, toggle } = useTheme()
 
   function handleDotClick() {
     if (window.matchMedia(MOBILE_QUERY).matches) {
@@ -28,10 +30,30 @@ function Nav() {
   return (
     <footer className="nav">
       <div className="nav__row">
-        <address className="nav__identity">
-          <p className="nav__location">Barcelona, Catalunya.</p>
-          <p className="nav__name">{profile.name.toLowerCase()}</p>
-        </address>
+        <div className="nav__side">
+          {/* Luna en claro (pasa a oscuro) y sol en oscuro (pasa a claro) */}
+          <button
+            type="button"
+            className="nav__theme"
+            aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+            onClick={toggle}
+          >
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+              {theme === 'dark' ? (
+                <>
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+                </>
+              ) : (
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+              )}
+            </svg>
+          </button>
+          <address className="nav__identity">
+            <p className="nav__location">Barcelona, Catalunya.</p>
+            <p className="nav__name">{profile.name.toLowerCase()}</p>
+          </address>
+        </div>
 
         <ol id="nav-menu" className={`nav__links${isMenuOpen ? ' is-open' : ''}`} start="0">
           <li className="nav__links-item">
