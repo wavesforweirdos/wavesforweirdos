@@ -2196,11 +2196,19 @@
         "width": 1440,
         "height": 900,
         "tags": [
-          "página interior"
+          "hover"
         ]
       },
       {
         "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2208,7 +2216,7 @@
         ]
       },
       {
-        "file": "06.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2216,7 +2224,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "08.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2280,6 +2288,14 @@
       },
       {
         "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2287,7 +2303,7 @@
         ]
       },
       {
-        "file": "06.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2295,7 +2311,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "08.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2362,19 +2378,11 @@
         "width": 1440,
         "height": 900,
         "tags": [
-          "hover"
-        ]
-      },
-      {
-        "file": "06.jpg",
-        "width": 1440,
-        "height": 900,
-        "tags": [
           "página interior"
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2382,7 +2390,7 @@
         ]
       },
       {
-        "file": "08.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2533,14 +2541,6 @@
       },
       {
         "file": "05.jpg",
-        "width": 1440,
-        "height": 900,
-        "tags": [
-          "hover"
-        ]
-      },
-      {
-        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2548,7 +2548,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "06.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2556,7 +2556,7 @@
         ]
       },
       {
-        "file": "08.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2789,11 +2789,19 @@
         "width": 1440,
         "height": 900,
         "tags": [
-          "página interior"
+          "hover"
         ]
       },
       {
         "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2801,7 +2809,7 @@
         ]
       },
       {
-        "file": "06.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2809,7 +2817,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "08.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2868,11 +2876,19 @@
         "width": 1440,
         "height": 900,
         "tags": [
-          "página interior"
+          "hover"
         ]
       },
       {
         "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2880,7 +2896,7 @@
         ]
       },
       {
-        "file": "06.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2888,7 +2904,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "08.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2947,11 +2963,19 @@
         "width": 1440,
         "height": 900,
         "tags": [
-          "página interior"
+          "hover"
         ]
       },
       {
         "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2959,7 +2983,7 @@
         ]
       },
       {
-        "file": "06.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2967,7 +2991,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "08.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -3170,6 +3194,433 @@
       "css-grid"
     ],
     "liveUrl": "https://viking-homes.es/",
+    "images": [
+      {
+        "file": "01.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "portada"
+        ]
+      },
+      {
+        "file": "02.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "03.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "04.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "06.jpg",
+        "width": 834,
+        "height": 1112,
+        "tags": [
+          "tablet"
+        ]
+      },
+      {
+        "file": "07.jpg",
+        "width": 390,
+        "height": 844,
+        "tags": [
+          "móvil"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "redpalmestate",
+    "category": "profesional",
+    "title": "red palm estate",
+    "year": "2023-2025",
+    "subtitle": "mediaelx · inmobiliaria",
+    "description": "Inmobiliaria con más de 25 años de experiencia en la Costa Blanca y la Costa Cálida. Web desarrollada en Mediaelx: maquetación responsive a partir del diseño y conexión con el CRM inmobiliario que gestiona las propiedades.",
+    "stack": [
+      "html5",
+      "css3",
+      "javascript",
+      "jquery",
+      "bootstrap",
+      "scss",
+      "smarty",
+      "mysql",
+      "flexbox",
+      "css-grid"
+    ],
+    "liveUrl": "https://redpalmestate.com/",
+    "images": [
+      {
+        "file": "01.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "portada"
+        ]
+      },
+      {
+        "file": "02.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "03.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "04.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "06.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "07.jpg",
+        "width": 834,
+        "height": 1112,
+        "tags": [
+          "tablet"
+        ]
+      },
+      {
+        "file": "08.jpg",
+        "width": 390,
+        "height": 844,
+        "tags": [
+          "móvil"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "sunspania",
+    "category": "profesional",
+    "title": "sunspania",
+    "year": "2023-2025",
+    "subtitle": "mediaelx · inmobiliaria",
+    "description": "Inmobiliaria de la Costa Blanca y la Costa Cálida especializada en propiedades de lujo. Web desarrollada en Mediaelx: maquetación responsive a partir del diseño y conexión con el CRM inmobiliario que gestiona las propiedades.",
+    "stack": [
+      "html5",
+      "css3",
+      "javascript",
+      "jquery",
+      "bootstrap",
+      "scss",
+      "smarty",
+      "mysql",
+      "flexbox",
+      "css-grid"
+    ],
+    "liveUrl": "https://sunspania.com/",
+    "images": [
+      {
+        "file": "01.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "portada"
+        ]
+      },
+      {
+        "file": "02.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "03.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "04.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "06.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "07.jpg",
+        "width": 834,
+        "height": 1112,
+        "tags": [
+          "tablet"
+        ]
+      },
+      {
+        "file": "08.jpg",
+        "width": 390,
+        "height": 844,
+        "tags": [
+          "móvil"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "villasalfaz",
+    "category": "profesional",
+    "title": "villas alfaz",
+    "year": "2023-2025",
+    "subtitle": "mediaelx · inmobiliaria",
+    "description": "Inmobiliaria de El Albir (Alfaz del Pi) con viviendas en la Marina Baixa, Costa Blanca. Web desarrollada en Mediaelx: maquetación responsive a partir del diseño y conexión con el CRM inmobiliario que gestiona las propiedades.",
+    "stack": [
+      "html5",
+      "css3",
+      "javascript",
+      "jquery",
+      "bootstrap",
+      "scss",
+      "smarty",
+      "mysql",
+      "flexbox",
+      "css-grid"
+    ],
+    "liveUrl": "https://villasalfaz.com/",
+    "images": [
+      {
+        "file": "01.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "portada"
+        ]
+      },
+      {
+        "file": "02.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "03.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "04.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "06.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "07.jpg",
+        "width": 834,
+        "height": 1112,
+        "tags": [
+          "tablet"
+        ]
+      },
+      {
+        "file": "08.jpg",
+        "width": 390,
+        "height": 844,
+        "tags": [
+          "móvil"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "mkpremiumproperties",
+    "category": "profesional",
+    "title": "mk premium properties",
+    "year": "2023-2025",
+    "subtitle": "mediaelx · inmobiliaria",
+    "description": "Inmobiliaria de promociones premium de obra nueva en la Costa Blanca, con buscador por tipo, zona, dormitorios y precio, y un catálogo de propiedades con ficha detallada. Web desarrollada en Mediaelx: maquetación responsive a partir del diseño y conexión con el CRM inmobiliario que gestiona las propiedades.",
+    "stack": [
+      "html5",
+      "css3",
+      "javascript",
+      "jquery",
+      "bootstrap",
+      "scss",
+      "smarty",
+      "mysql",
+      "flexbox",
+      "css-grid"
+    ],
+    "liveUrl": "https://mkpremiumproperties.com/",
+    "images": [
+      {
+        "file": "01.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "portada"
+        ]
+      },
+      {
+        "file": "02.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "03.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "scroll"
+        ]
+      },
+      {
+        "file": "04.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "06.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "07.jpg",
+        "width": 834,
+        "height": 1112,
+        "tags": [
+          "tablet"
+        ]
+      },
+      {
+        "file": "08.jpg",
+        "width": 390,
+        "height": 844,
+        "tags": [
+          "móvil"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "medcasa",
+    "category": "profesional",
+    "title": "medcasa",
+    "year": "2023-2025",
+    "subtitle": "mediaelx · inmobiliaria",
+    "description": "Agencia inmobiliaria alemana de la Costa Blanca: web en alemán con buscador de propiedades, zonas (Costa Blanca Norte y Sur, Costa Cálida y Almería) y contenido para el comprador germanohablante. Web desarrollada en Mediaelx: maquetación responsive a partir del diseño y conexión con el CRM inmobiliario que gestiona las propiedades.",
+    "stack": [
+      "html5",
+      "css3",
+      "javascript",
+      "jquery",
+      "bootstrap",
+      "scss",
+      "smarty",
+      "mysql",
+      "flexbox",
+      "css-grid"
+    ],
+    "liveUrl": "https://medcasa.eu/",
     "images": [
       {
         "file": "01.jpg",
