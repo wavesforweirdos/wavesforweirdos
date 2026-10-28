@@ -3687,5 +3687,220 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "illustraface",
+    "category": "ilustracion",
+    "title": "illustraface",
+    "year": 2012,
+    "subtitle": "retratos e ilustración digital",
+    "description": "Ilustraciones dedicadas a personas cercanas o no tan cercanas, y pasatiempos hechos por gusto. La serie incluye retratos con su proceso paso a paso (del trazo base al color final), una sirena de pelo azul y un surfista sobre una ola construida con triángulos de color, en estilo vectorial.",
+    "stack": [
+      "photoshop",
+      "illustrator"
+    ],
+    "images": [
+      {
+        "file": "01.jpg",
+        "width": 1601,
+        "height": 1910,
+        "tags": [
+          "retrato",
+          "resultado final"
+        ]
+      },
+      {
+        "file": "02.jpg",
+        "width": 756,
+        "height": 913,
+        "tags": [
+          "retrato",
+          "proceso",
+          "paso 1"
+        ]
+      },
+      {
+        "file": "03.jpg",
+        "width": 772,
+        "height": 913,
+        "tags": [
+          "retrato",
+          "proceso",
+          "paso 2"
+        ]
+      },
+      {
+        "file": "04.jpg",
+        "width": 756,
+        "height": 903,
+        "tags": [
+          "retrato",
+          "proceso",
+          "paso 3"
+        ]
+      },
+      {
+        "file": "05.jpg",
+        "width": 772,
+        "height": 916,
+        "tags": [
+          "retrato",
+          "proceso",
+          "paso 4"
+        ]
+      },
+      {
+        "file": "06.jpg",
+        "width": 1601,
+        "height": 2139,
+        "tags": [
+          "retrato",
+          "digital"
+        ]
+      },
+      {
+        "file": "07.jpg",
+        "width": 1124,
+        "height": 1502,
+        "tags": [
+          "sirena",
+          "resultado final"
+        ]
+      },
+      {
+        "file": "08.jpg",
+        "width": 609,
+        "height": 784,
+        "tags": [
+          "sirena",
+          "proceso"
+        ]
+      },
+      {
+        "file": "09.jpg",
+        "width": 622,
+        "height": 791,
+        "tags": [
+          "sirena",
+          "proceso"
+        ]
+      },
+      {
+        "file": "10.jpg",
+        "width": 1601,
+        "height": 511,
+        "tags": [
+          "vectorial",
+          "surf"
+        ]
+      },
+      {
+        "file": "11.jpg",
+        "width": 877,
+        "height": 1287,
+        "tags": [
+          "vectorial",
+          "detalle"
+        ]
+      },
+      {
+        "file": "12.jpg",
+        "width": 1601,
+        "height": 926,
+        "tags": [
+          "vectorial",
+          "detalle"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "dibujartes",
+    "category": "ilustracion",
+    "title": "dibujartes",
+    "year": 2012,
+    "subtitle": "dibujo a mano",
+    "description": "Dibujos realizados entre ratos muertos, horas desechables y minutos sueltos. Una pantera dibujada a mano con mucho detalle y un camaleón, primero a lápiz en blanco y negro y después coloreado.",
+    "stack": [
+      "dibujo"
+    ],
+    "images": [
+      {
+        "file": "01.jpg",
+        "width": 1601,
+        "height": 1070,
+        "tags": [
+          "pantera",
+          "dibujo"
+        ]
+      },
+      {
+        "file": "02.jpg",
+        "width": 1601,
+        "height": 1066,
+        "tags": [
+          "pantera",
+          "detalle"
+        ]
+      },
+      {
+        "file": "03.jpg",
+        "width": 1601,
+        "height": 995,
+        "tags": [
+          "camaleón",
+          "lápiz"
+        ]
+      },
+      {
+        "file": "04.jpg",
+        "width": 1601,
+        "height": 1298,
+        "tags": [
+          "camaleón",
+          "color"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "fotoaficion",
+    "category": "ilustracion",
+    "title": "fotoafición",
+    "year": 2012,
+    "subtitle": "autorretratos",
+    "description": "Fotografías realizadas por propio entretenimiento; algunas pertenecen a un proyecto fotográfico. Autorretratos: dos con pintura facial, en blanco y negro, y otro a color con la mano sobre los ojos.",
+    "stack": [
+      "fotografía"
+    ],
+    "images": [
+      {
+        "file": "01.jpg",
+        "width": 1601,
+        "height": 1072,
+        "tags": [
+          "autorretrato",
+          "pintura facial"
+        ]
+      },
+      {
+        "file": "02.jpg",
+        "width": 1601,
+        "height": 1070,
+        "tags": [
+          "autorretrato",
+          "pintura facial"
+        ]
+      },
+      {
+        "file": "03.jpg",
+        "width": 1576,
+        "height": 2353,
+        "tags": [
+          "autorretrato",
+          "mirada"
+        ]
+      }
+    ]
   }
 ]
