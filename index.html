@@ -11,6 +11,18 @@
     <title>wavesforweirdos — Marta · Full Stack / Frontend Developer</title>
     <meta name="description" content="Portfolio de Marta Cruz, desarrolladora Full Stack y Frontend en Barcelona. Proyectos web con React, PHP y Laravel." />
     <meta name="theme-color" content="#ffffff" />
+    <script>
+      // Tema claro u oscuro antes del primer pintado, para que no parpadee:
+      // preferencia guardada (src/hooks/useTheme.js) o, si no hay, la del sistema.
+      try {
+        var theme = localStorage.getItem('wf-theme')
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+        document.documentElement.dataset.theme = theme
+        if (theme === 'dark') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#111111')
+      } catch (e) {}
+    </script>
     <meta name="author" content="Marta Cruz" />
     <link rel="canonical" href="https://www.wavesforweirdos.com/" />
 

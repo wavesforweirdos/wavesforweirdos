@@ -50,11 +50,76 @@
     }
   }
 
-  &__identity {
-    font-style: normal;
+  // Interruptor de tema (encima) y dirección: ocupan el sitio que antes tenía solo la dirección.
+  &__side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
     @media (max-width: 1023px) {
       margin-right: auto;
+    }
+  }
+
+  &__identity {
+    font-style: normal;
+  }
+
+  // Interruptor de tema (luna/sol). Escritorio y tablet: encima de la dirección. Móvil:
+  // a la derecha, encima de los tres puntos del menú (misma columna que ellos).
+  &__theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    // el icono (no la caja) queda alineado con el texto de la dirección
+    margin: 0 0 0.25rem -0.6rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--ink);
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity var(--duration-fast) var(--ease);
+    pointer-events: auto;
+
+    svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform var(--duration-base) var(--ease);
+    }
+
+    @include focus-outline;
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 1;
+
+        svg {
+          transform: rotate(20deg);
+        }
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      svg {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      position: absolute;
+      margin: 0;
+      right: calc(clamp(1.5rem, 1rem + 3vw, 2.4rem) - 1rem);
+      // En la fila del logotipo .wf (centrado con él), a su derecha del todo y encima de los
+      // tres puntos: suelo del nav + alto de la dirección (2 líneas de 1.4rem) + hueco de la
+      // columna (1rem) + media diferencia de alto con el logotipo.
+      bottom: calc(var(--nav-pad-bottom) + 2.8rem + 1rem + (var(--fs-nav-mark) - 2.5rem) / 2);
+      z-index: calc(var(--z-overlay) + 1);
     }
   }
 
@@ -236,11 +301,9 @@
       height: 1rem;
       margin-left: 0.5rem;
       border: none;
-      background-color: transparent;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.1l-8-8 2.1-2.2 5.9 5.9 5.9-5.9 2.1 2.2z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
+      background-color: var(--ink);
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.1l-8-8 2.1-2.2 5.9 5.9 5.9-5.9 2.1 2.2z'/%3E%3C/svg%3E") center / contain no-repeat;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.1l-8-8 2.1-2.2 5.9 5.9 5.9-5.9 2.1 2.2z'/%3E%3C/svg%3E") center / contain no-repeat;
       cursor: pointer;
       padding: 0;
       transition: transform var(--duration-fast) var(--ease);
@@ -277,7 +340,7 @@
         display: flex;
         align-items: center;
         gap: 0.6rem;
-        color: #000;
+        color: var(--fg);
 
         &::before {
           content: '';
@@ -295,7 +358,7 @@
     font-size: var(--fs-nav-mark);
     line-height: 1;
     letter-spacing: -5px;
-    color: #000;
+    color: var(--ink);
 
     @include focus-underline;
   }
@@ -312,7 +375,7 @@
     height: 0.9rem;
     border: none;
     padding: 0;
-    background: #000;
+    background: var(--ink);
     cursor: pointer;
     // Fuera de .nav__row: sin esto hereda pointer-events:none de .nav y
     // el botón queda inerte.
@@ -337,7 +400,7 @@
         display: block;
         width: 0.6rem;
         height: 0.6rem;
-        background: #000;
+        background: var(--ink);
         flex-shrink: 0;
       }
 
