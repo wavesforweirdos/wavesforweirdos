@@ -2196,11 +2196,19 @@
         "width": 1440,
         "height": 900,
         "tags": [
-          "página interior"
+          "hover"
         ]
       },
       {
         "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2208,7 +2216,7 @@
         ]
       },
       {
-        "file": "06.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2216,7 +2224,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "08.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2280,6 +2288,14 @@
       },
       {
         "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "hover"
+        ]
+      },
+      {
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2287,7 +2303,7 @@
         ]
       },
       {
-        "file": "06.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2295,7 +2311,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "08.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2362,19 +2378,11 @@
         "width": 1440,
         "height": 900,
         "tags": [
-          "hover"
-        ]
-      },
-      {
-        "file": "06.jpg",
-        "width": 1440,
-        "height": 900,
-        "tags": [
           "página interior"
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2382,7 +2390,7 @@
         ]
       },
       {
-        "file": "08.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2533,14 +2541,6 @@
       },
       {
         "file": "05.jpg",
-        "width": 1440,
-        "height": 900,
-        "tags": [
-          "hover"
-        ]
-      },
-      {
-        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2548,7 +2548,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "06.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2556,7 +2556,7 @@
         ]
       },
       {
-        "file": "08.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2789,11 +2789,19 @@
         "width": 1440,
         "height": 900,
         "tags": [
-          "página interior"
+          "hover"
         ]
       },
       {
         "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2801,7 +2809,7 @@
         ]
       },
       {
-        "file": "06.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2809,7 +2817,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "08.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2868,11 +2876,19 @@
         "width": 1440,
         "height": 900,
         "tags": [
-          "página interior"
+          "hover"
         ]
       },
       {
         "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2880,7 +2896,7 @@
         ]
       },
       {
-        "file": "06.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2888,7 +2904,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "08.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2947,11 +2963,19 @@
         "width": 1440,
         "height": 900,
         "tags": [
-          "página interior"
+          "hover"
         ]
       },
       {
         "file": "05.jpg",
+        "width": 1440,
+        "height": 900,
+        "tags": [
+          "página interior"
+        ]
+      },
+      {
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -2959,7 +2983,7 @@
         ]
       },
       {
-        "file": "06.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -2967,7 +2991,7 @@
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "08.jpg",
         "width": 390,
         "height": 844,
         "tags": [
@@ -3208,19 +3232,11 @@
         "width": 1440,
         "height": 900,
         "tags": [
-          "hover"
-        ]
-      },
-      {
-        "file": "06.jpg",
-        "width": 1440,
-        "height": 900,
-        "tags": [
           "página interior"
         ]
       },
       {
-        "file": "07.jpg",
+        "file": "06.jpg",
         "width": 834,
         "height": 1112,
         "tags": [
@@ -3228,7 +3244,7 @@
         ]
       },
       {
-        "file": "08.jpg",
+        "file": "07.jpg",
         "width": 390,
         "height": 844,
         "tags": [
