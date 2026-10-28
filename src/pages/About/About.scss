@@ -1,3 +1,5 @@
+@use '../../styles/focus' as *;
+
 .about {
   // .page ya reserva hueco para el nav fijo, pero el grid de About es
   // más alto de lo habitual (2 filas): margen extra para poder scrollear
@@ -6,6 +8,55 @@
   // Las fotos rotadas (transform) sobresalen un poco de su caja al girar;
   // se recorta aquí en vez de generar scroll horizontal en toda la página.
   overflow-x: hidden;
+
+  // Nav flotante de móvil con los puntos de anclaje (experience, education,
+  // languages, skills). En tablet y escritorio no hace falta: se oculta.
+  &__jump {
+    position: fixed;
+    top: var(--space-2);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--z-nav);
+    display: flex;
+    gap: 0.25rem;
+    max-width: calc(100vw - 2rem);
+    padding: 0.25rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--bg);
+    box-shadow: 0 6px 18px rgba(23, 24, 26, 0.12);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    a {
+      flex-shrink: 0;
+      padding: 0.5rem 0.7rem;
+      border-radius: 999px;
+      color: var(--fg);
+      text-transform: lowercase;
+
+      &[aria-current='true'] {
+        background: var(--ink);
+        color: var(--bg);
+      }
+
+      @include focus-outline;
+    }
+  }
+
+  // El anclaje aterriza por debajo del nav flotante.
+  &__experience,
+  &__education,
+  &__languages,
+  &__skills {
+    scroll-margin-top: 4.5rem;
+  }
 
   &__grid {
     display: grid;
@@ -26,6 +77,9 @@
         "photos"
         "intro"
         "column"
+        "experience"
+        "education"
+        "languages"
         "skills";
     }
 
@@ -42,6 +96,18 @@
       grid-area: column;
     }
 
+    &__experience {
+      grid-area: experience;
+    }
+
+    &__education {
+      grid-area: education;
+    }
+
+    &__languages {
+      grid-area: languages;
+    }
+
     &__skills {
       grid-area: skills;
     }
@@ -55,7 +121,9 @@
       grid-template-columns: 1fr 1fr;
       grid-template-areas:
         "intro photo-main"
-        "intro column"
+        "intro services"
+        "education experience"
+        "photo-mood languages"
         "photo-mood skills";
       align-items: start;
     }
@@ -72,8 +140,22 @@
       grid-area: photo-mood;
     }
 
+    // Cada bloque ocupa su sitio en la cuadrícula: Services bajo la foto y
+    // Experience a la derecha de Education.
     &__column {
-      grid-area: column;
+      grid-area: services;
+    }
+
+    &__experience {
+      grid-area: experience;
+    }
+
+    &__education {
+      grid-area: education;
+    }
+
+    &__languages {
+      grid-area: languages;
     }
 
     &__skills {
@@ -254,6 +336,8 @@
       grid-template-columns: 0.75fr 0.5fr 1.5fr;
       grid-template-areas:
         "intro column photo-main"
+        "intro experience photo-main"
+        "intro education languages"
         "mood  skills  skills";
       align-items: start;
     }
@@ -264,6 +348,21 @@
 
     &__column {
       grid-area: column;
+    }
+
+    // Experience bajo Services; Education bajo Experience y, a su derecha,
+    // Languages bajo la foto principal.
+    &__experience {
+      grid-area: experience;
+    }
+
+    &__education {
+      grid-area: education;
+    }
+
+    &__languages {
+      grid-area: languages;
+      margin-left: var(--space-6);
     }
 
     &__photo--main {

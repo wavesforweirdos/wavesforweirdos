@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import profile from '../../data/profile.json'
 import skills from '../../data/skills.json'
 import experience from '../../data/experience.json'
@@ -18,10 +19,55 @@ import { aboutMeta } from '../../data/sectionsMeta.js'
 const PHOTO_SIZES =
   '(max-width: 600px) calc((100vw - 4rem) * 0.8), (max-width: 767px) 360px, (max-width: 1023px) calc((100vw - 8rem) * 0.4), 450px'
 
+// Puntos de anclaje del nav flotante de móvil (id de cada bloque de la página).
+const SECTIONS = [
+  { id: 'experience', label: 'Experience' },
+  { id: 'education', label: 'Education' },
+  { id: 'languages', label: 'Languages' },
+  { id: 'skills', label: 'Skills' },
+]
+
 function About() {
+  const [active, setActive] = useState(null)
+
+  // Marca como activa la sección que cruza el tercio superior de la pantalla.
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id)
+        })
+      },
+      { rootMargin: '-15% 0px -70% 0px' },
+    )
+    SECTIONS.forEach(({ id }) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [])
+
+  const goTo = (event, id) => {
+    event.preventDefault()
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    document.getElementById(id)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+  }
+
   usePageMeta({ title: aboutMeta.metaTitle, description: aboutMeta.metaDescription })
   return (
     <div className="about">
+      <nav className="about__jump" aria-label="Secciones de la página">
+        {SECTIONS.map(({ id, label }) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            aria-current={active === id ? 'true' : undefined}
+            onClick={(event) => goTo(event, id)}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
       <div className="about__grid">
         <div className="about__intro">
           <h1 className="about__title">{profile.role}.</h1>
@@ -41,21 +87,48 @@ function About() {
               ))}
             </ul>
           </div>
+        </div>
 
-          <div className="about__experience">
-            <h2 className="about__label">Experience</h2>
-            <ul className="about__timeline">
-              {experience.map((job) => (
-                <li key={`${job.company}-${job.period}`}>
-                  <p className="about__timeline-role">
-                    {job.company}
-                    {job.client ? ` (${job.client})` : ''} — {job.role}
-                  </p>
-                  <p className="about__timeline-period">{job.period}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="about__experience" id="experience">
+          <h2 className="about__label">Experience</h2>
+          <ul className="about__timeline">
+            {experience.map((job) => (
+              <li key={`${job.company}-${job.period}`}>
+                <p className="about__timeline-role">
+                  {job.company}
+                  {job.client ? ` (${job.client})` : ''} — {job.role}
+                </p>
+                <p className="about__timeline-period">{job.period}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="about__education" id="education">
+          <h2 className="about__label">Education</h2>
+          <ul className="about__timeline">
+            {profile.education.map((item) => (
+              <li key={`${item.school}-${item.period}`}>
+                <p className="about__timeline-role">
+                  {item.school} — {item.title}
+                </p>
+                <p className="about__timeline-period">{item.period}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="about__languages" id="languages">
+          <h2 className="about__label">Languages</h2>
+          <ul className="about__timeline">
+            {profile.languages.map((language) => (
+              <li key={language.name}>
+                <p className="about__timeline-role">
+                  {language.name} — {language.level}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="about__photo about__photo--main">
@@ -84,7 +157,7 @@ function About() {
           />
         </div>
 
-        <section className="about__skills">
+        <section className="about__skills" id="skills">
           <h2 className="about__label">Skills</h2>
           <div className="about__skills-grid">
             {skills.map((group) => (
