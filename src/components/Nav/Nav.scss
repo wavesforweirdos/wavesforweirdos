@@ -113,6 +113,16 @@
       }
     }
 
+    // Tablet: a la derecha, encima de los tres puntos del menú (como en móvil).
+    @media (min-width: 768px) and (max-width: 1023px) {
+      position: absolute;
+      margin: 0;
+      right: calc(clamp(1.5rem, 1rem + 3vw, 2.4rem) - 1rem);
+      // suelo de los tres puntos + su alto (3 x 0.6rem + 2 x 0.25rem) + un respiro
+      bottom: calc(clamp(1.5rem, 1rem + 2vw, 2.4rem) + 2.3rem + 0.6rem);
+      z-index: calc(var(--z-overlay) + 1);
+    }
+
     @media (max-width: 767px) {
       position: absolute;
       margin: 0;
