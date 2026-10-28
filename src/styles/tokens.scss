@@ -9,6 +9,8 @@
   --fg: #1f1f1f;
   --fg-dim: rgba(31, 31, 31, 0.64); // AA (>= 4.5:1) sobre blanco; con 0.5 quedaba en 3.2:1
   --accent: #06f039;
+  --ink: #000000; // negro de las decoraciones (marcadores, logotipo, flecha de volver)
+  --photo-frame: #ffffff; // marco de las fotos de About (un "polaroid": no debe seguir al fondo)
   --accent-soft: #a9a0ff; // APROXIMADO — pendiente de confirmar en la página About
   --line: rgba(31, 31, 31, 0.12);
 
@@ -48,6 +50,20 @@
   // z-index
   --z-nav: 100;
   --z-overlay: 200;
+}
+
+// Tema oscuro: se activa con data-theme="dark" en <html> (src/hooks/useTheme.js y el
+// script de index.html lo ponen según la preferencia guardada o la del sistema).
+// El neón (--accent) se mantiene: sobre este fondo da 12:1 de contraste.
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #111111;
+  // Gris suave en vez de blanco: 10,8:1 sobre #111 (AA pide 4,5:1; el mínimo es #7c7c7c y para AAA #9d9d9d).
+  --fg: #c4c4c4;
+  --fg-dim: rgba(196, 196, 196, 0.72); // 6,1:1 sobre #111
+  --line: rgba(196, 196, 196, 0.16);
+  --ink: #c4c4c4;
+  --photo-frame: #ececec;
 }
 
 // A partir de 1440px (mismo umbral en el que about__grid pasa a 3

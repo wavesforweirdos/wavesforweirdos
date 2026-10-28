@@ -7,6 +7,7 @@
 import projects from './projects.json'
 import projectGalleries from './projectGalleries.js'
 import creative from './creative.json'
+import { sectionsMeta } from './sectionsMeta.js'
 
 const creativeItems = (category) =>
   creative
@@ -29,12 +30,9 @@ const webGroups = [
 
 export const sections = {
   web: {
-    path: '/web',
+    ...sectionsMeta.web,
     label: 'web.',
     areaLabel: 'web.',
-    metaTitle: 'Web',
-    metaDescription:
-      'Desarrollo web de Marta Cruz: webs en producción (Mediaelx) y proyectos propios con React, Vue, Laravel y PHP.',
     // "en producción": webs de clientes con enlace público; "propios": proyectos
     // personales y pruebas técnicas (salen de GitHub).
     groups: webGroups,
@@ -48,21 +46,15 @@ export const sections = {
     ],
   },
   ilustracion: {
-    path: '/ilustracion',
+    ...sectionsMeta.ilustracion,
     label: 'ilustración.',
     areaLabel: 'ilustración.',
-    metaTitle: 'Ilustración',
-    metaDescription:
-      'Ilustración de Marta Cruz: cuentos ilustrados, concept art, dibujo personal y diseño de tatuajes.',
     items: creativeItems('ilustracion'),
   },
   diseno: {
-    path: '/diseno',
+    ...sectionsMeta.diseno,
     label: 'diseño.',
     areaLabel: 'diseño.',
-    metaTitle: 'Diseño',
-    metaDescription:
-      'Diseño gráfico de Marta Cruz: identidad corporativa, cartelería, diseño editorial, landings y newsletters.',
     items: creativeItems('diseno'),
   },
 }

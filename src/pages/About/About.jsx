@@ -9,6 +9,7 @@ import photoMood360 from '../../assets/profile/photo-1-360.webp'
 import photoMood640 from '../../assets/profile/photo-1-640.webp'
 import './About.scss'
 import usePageMeta from '../../hooks/usePageMeta.js'
+import { aboutMeta } from '../../data/sectionsMeta.js'
 
 // Ancho real de cada foto (medido en el navegador): el 80% del ancho útil en móvil
 // (viewport menos 2rem de margen por lado), tope de 360px hasta 767px, dos
@@ -18,11 +19,7 @@ const PHOTO_SIZES =
   '(max-width: 600px) calc((100vw - 4rem) * 0.8), (max-width: 767px) 360px, (max-width: 1023px) calc((100vw - 8rem) * 0.4), 450px'
 
 function About() {
-  usePageMeta({
-    title: 'About',
-    description:
-      'Marta Cruz: de la animación y el diseño al desarrollo Full Stack y Frontend. Trayectoria, experiencia y skills.',
-  })
+  usePageMeta({ title: aboutMeta.metaTitle, description: aboutMeta.metaDescription })
   return (
     <div className="about">
       <div className="about__grid">

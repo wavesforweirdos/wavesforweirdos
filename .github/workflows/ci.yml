@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [dev, master]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      # Datos coherentes: imágenes que existen, slugs únicos, campos obligatorios...
+      - name: Check the data
+        run: npm run check:data
+
+      # prebuild lee los proyectos de GitHub (sin token: si falla, deja el JSON como está)
+      - name: Build
+        run: npm run build
