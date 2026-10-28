@@ -5,7 +5,7 @@
     "subtitle": "Gestión inmobiliaria",
     "year": 2026,
     "category": "web",
-    "description": "Aplicación para una inmobiliaria con backend en Laravel y base de datos MySQL.",
+    "description": "CRM y web pública para una inmobiliaria con Laravel 13, Livewire y Blade. Gestión de inmuebles con imágenes y planos, usuarios con roles y permisos (admin y agente), editor de páginas con vista previa en directo, catálogos configurables y 27 tests con CI en GitHub Actions.",
     "stack": ["blade", "laravel", "mysql", "php", "flexbox", "css-grid", "tailwind", "bootstrap", "alpinejs", "livewire"],
     "repoUrl": "https://github.com/wavesforweirdos/kfacil",
     "liveUrl": null,
