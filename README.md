@@ -58,6 +58,7 @@ npm run dev
 | `npm run build` | Genera el sitemap y compila para producción en `dist/` |
 | `npm run preview` | Sirve la build de producción en local |
 | `npm run lint` | Analiza el código con Oxlint |
+| `npm run check:data` | Comprueba que `creative.json` y `projects.json` son coherentes (imágenes que existen, slugs únicos, campos obligatorios) |
 | `npm run seo` | Regenera `public/sitemap.xml` y `public/llms.txt` desde los datos |
 
 ## Estructura
@@ -95,4 +96,5 @@ Para añadir un proyecto basta con ponerle el topic `portfolio` a su repo y rell
 
 - `src/data/projects.json` es el resultado generado y se versiona como copia de seguridad: si la API de GitHub falla, el build lo deja como está y no se rompe.
 - `GITHUB_TOKEN` (opcional, variable de entorno en Vercel) sube el límite de peticiones y permite incluir repos **privados** con el topic `portfolio` (sin enlace al repo). Sin token solo salen los públicos.
+- La CI (`.github/workflows/ci.yml`) ejecuta `npm run lint`, `npm run check:data` y `npm run build` en cada push a `dev`/`master` y en cada PR.
 - El workflow `Refresh projects` pide un deploy a Vercel cada lunes (y a mano), así los cambios en GitHub llegan a la web sin tocar este repositorio. Necesita el secreto `VERCEL_DEPLOY_HOOK` (Project Settings > Git > Deploy Hooks).
