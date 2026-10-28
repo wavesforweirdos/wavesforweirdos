@@ -26,7 +26,7 @@
   "languages": [
     { "name": "Catalán", "level": "Nativo" },
     { "name": "Castellano", "level": "Nativo" },
-    { "name": "Inglés", "level": "Básico" }
+    { "name": "Inglés", "level": "A2" }
   ],
   "education": [
     { "school": "LinkiaFP", "title": "GS Desarrollo de aplicaciones web", "period": "2024 - 2026" },
