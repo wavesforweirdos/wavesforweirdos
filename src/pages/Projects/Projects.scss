@@ -28,20 +28,20 @@
       font-family: var(--font-mono);
       font-size: 0.85rem;
       text-transform: lowercase;
-      color: var(--fg);
-      opacity: 0.55;
+      // --fg-dim es el gris AA (>= 4.5:1); el neón solo va en el subrayado de la
+      // opción activa, porque sobre blanco no llega al contraste mínimo como texto.
+      color: var(--fg-dim);
       padding: 0.2rem 0;
-      border-bottom: 1px solid transparent;
-      transition: opacity 0.2s ease, color 0.2s ease;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
 
       &:hover {
-        opacity: 1;
+        color: var(--fg);
       }
 
       &.is-active {
-        opacity: 1;
-        color: var(--accent);
-        border-bottom-color: currentColor;
+        color: var(--fg);
+        border-bottom-color: var(--accent);
       }
 
       @include focus-underline;
