@@ -17,22 +17,24 @@
     padding-left: var(--space-6);
   }
 
-  // Degradado en vez de un borde/fondo sólido (spec real de Figma: from
-  // transparente al 30% hasta blanco sólido), para que el contenido que
-  // queda debajo al hacer scroll se atenúe con suavidad.
+  // Degradado en vez de un borde/fondo sólido, para que el contenido que
+  // queda debajo al hacer scroll se atenúe con suavidad. El fundido ocupa
+  // una franja por ENCIMA del nav (--nav-fade) y el fondo es opaco desde el
+  // borde superior del nav: así el texto no se transparenta tras el logo,
+  // la dirección ni el copyright.
+  --nav-fade: 3.5rem;
+
   &::before {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: calc(var(--nav-fade) * -1) 0 0 0;
     z-index: -1;
     pointer-events: none;
-    background: linear-gradient(180deg, transparent 30%, var(--bg));
+    background: linear-gradient(180deg, transparent 0, var(--bg) calc(var(--nav-fade)*2.5));
 
-    // Con poca altura el contenido pasa más tiempo bajo el nav: el fundido
-    // empieza desde el borde superior (en vez de al 30%) para que sea más
-    // gradual.
+    // Con poca altura el contenido pasa más tiempo bajo el nav: fundido más largo.
     @media (max-height: 899px) {
-      background: linear-gradient(180deg, transparent 0%, var(--bg));
+      --nav-fade: 5rem;
     }
   }
 
