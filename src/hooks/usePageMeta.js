@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { SITE_URL, fullTitle, truncate } from '../utils/meta.js'
 
-export const SITE_URL = 'https://www.wavesforweirdos.com'
-const SITE_NAME = 'wavesforweirdos'
+export { SITE_URL, truncate }
 
 // Crea (si no existe) y actualiza una etiqueta del <head>.
 function upsert(tag, matchAttr, matchValue, valueAttr, value) {
@@ -15,12 +15,6 @@ function upsert(tag, matchAttr, matchValue, valueAttr, value) {
   el.setAttribute(valueAttr, value)
 }
 
-// Recorta una descripción a ~155 caracteres sin partir palabras.
-export function truncate(text, max = 155) {
-  if (text.length <= max) return text
-  return `${text.slice(0, max).replace(/\s+\S*$/, '')}…`
-}
-
 // Metadatos por página para una SPA: título "<página> - wavesforweirdos",
 // description, canonical, Open Graph / Twitter y robots. Los rastreadores que
 // ejecutan JS (Google) leen estos valores; las vistas previas de redes
@@ -29,13 +23,13 @@ function usePageMeta({ title, description, noindex = false }) {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const fullTitle = title ? `${title} - ${SITE_NAME}` : SITE_NAME
+    const pageTitle = fullTitle(title)
     const path = pathname.length > 1 ? pathname.replace(/\/$/, '') : pathname
     const url = `${SITE_URL}${path}`
 
-    document.title = fullTitle
-    upsert('meta', 'property', 'og:title', 'content', fullTitle)
-    upsert('meta', 'name', 'twitter:title', 'content', fullTitle)
+    document.title = pageTitle
+    upsert('meta', 'property', 'og:title', 'content', pageTitle)
+    upsert('meta', 'name', 'twitter:title', 'content', pageTitle)
     upsert('meta', 'name', 'robots', 'content', noindex ? 'noindex, nofollow' : 'index, follow')
 
     if (description) {

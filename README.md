@@ -55,7 +55,7 @@ npm run dev
 | Script | Descripción |
 |---|---|
 | `npm run dev` | Servidor de desarrollo con recarga en caliente |
-| `npm run build` | Genera el sitemap y compila para producción en `dist/` |
+| `npm run build` | Genera el sitemap, compila para producción en `dist/` y crea la cabecera propia de cada ruta (`scripts/prerender-meta.mjs`) |
 | `npm run preview` | Sirve la build de producción en local |
 | `npm run lint` | Analiza el código con Oxlint |
 | `npm run check:data` | Comprueba que `creative.json` y `projects.json` son coherentes (imágenes que existen, slugs únicos, campos obligatorios) |
@@ -96,5 +96,6 @@ Para añadir un proyecto basta con ponerle el topic `portfolio` a su repo y rell
 
 - `src/data/projects.json` es el resultado generado y se versiona como copia de seguridad: si la API de GitHub falla, el build lo deja como está y no se rompe.
 - `GITHUB_TOKEN` (opcional, variable de entorno en Vercel) sube el límite de peticiones y permite incluir repos **privados** con el topic `portfolio` (sin enlace al repo). Sin token solo salen los públicos.
+- **Vista previa al compartir**: tras la build, `scripts/prerender-meta.mjs` genera una página por ruta (`dist/web/<slug>/index.html`...) con su propio título, descripción, canonical, Open Graph y Twitter (y la primera imagen de la ficha), para quien lee solo el `<head>` sin ejecutar JavaScript. Los textos salen de `src/utils/meta.js` y `src/data/sectionsMeta.js`, los mismos que usa el hook `usePageMeta`.
 - La CI (`.github/workflows/ci.yml`) ejecuta `npm run lint`, `npm run check:data` y `npm run build` en cada push a `dev`/`master` y en cada PR.
 - El workflow `Refresh projects` pide un deploy a Vercel cada lunes (y a mano), así los cambios en GitHub llegan a la web sin tocar este repositorio. Necesita el secreto `VERCEL_DEPLOY_HOOK` (Project Settings > Git > Deploy Hooks).
